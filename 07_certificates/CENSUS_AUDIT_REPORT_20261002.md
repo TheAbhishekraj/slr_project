@@ -68,7 +68,7 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 | Asset Layer | Canonical Location | Verified Quantity | Integrity Status |
 | :--- | :--- | :---: | :--- |
 | **Full-Text PDFs** | [`01_data/03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) | **291 PDFs** | Exact match (1,613,079,524 bytes, ~1.50 GB, Bible canonical location) |
-| **Extracted Text** | [`01_data/03_pdfs/*.txt`](file:///e:/slr_project/01_data/03_pdfs/) | Verified | Raw extractions (`REC_1582.txt`, `REC_1688.txt`, `REC_1715.txt`) & English translation (`REC_1688_translated_EN.txt`) |
+| **Extracted Text** | Purged from `01_data/03_pdfs/` | 0 TXT | All txt purged; strictly PDFs retained. Translation in `01_data/02_data_proceesed/` |
 | **Evidence Cards** | [`02_cards/`](file:///e:/slr_project/02_cards/) | **291 Cards** | Complete 18-section schema compliance across all cards |
 | **Card Manifest** | [`02_cards/FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv) | **291 Rows** | Cryptographic SHA256 re-hashed, 0 mismatches |
 | **Screening Results**| [`01_data/02_data_proceesed/03_screening_results.csv`](file:///e:/slr_project/01_data/02_data_proceesed/03_screening_results.csv) | **291 Rows** | 287 INCLUDE, 4 EXCLUDE (3 E1, 1 E3) |
