@@ -1,0 +1,971 @@
+AUTONOMOUS TARGETED FLIGHT OF A ROTARY-WING
+MICRO AERIAL VEHICLE IN INDOOR, GPS-DENIED
+ENVIRONMENTS
+Svetlana Potyagaylo∗, Omri Rand∗
+∗Faculty of Aerospace Engineering, Technion - Israel Institute of Technology, Haifa, 32000, Israel
+Keywords: Indoor Navigation, Autonomous Systems, MAV, Rotary-Wing Vehicles, Simulation
+Abstract
+This work focuses on targeted ﬂight of Rotary-
+Wing Micro Aerial Vehicles (RW MAV) in in-
+door environments. In such missions, Global Po-
+sitioning System (GPS) signals may be unavail-
+able and a map of the environment is unknown
+prior to the ﬂight. Thus, the MAV should be able
+to estimate its position, build a map of the en-
+vironment, and plan an obstacle-free ﬂight path
+towards the target, while taking into consider-
+ation its maneuverability limitations.
+This pa-
+per presents a modular system that comprises re-
+quired components for these tasks. The proposed
+methodology relies on using a single laser range
+scanner. We present the components of the pro-
+posed system and algorithms, including a high
+level module for mission planning and decision
+making.
+The system was checked in different
+simulated environments under the realistic level
+of disturbances and system noise. The obtained
+results illustrate the effectiveness of the system
+for GPS-denied navigation of RW MAVs.
+1
+Introduction
+Nowadays, RW MAVs may be considered as an
+attractive autonomous platform for various in-
+door ﬂight missions because of their small size,
+superior agility, high maneuverability, and hov-
+ering capability. Development of a system that
+enables a RW MAV to ﬂy autonomously in in-
+door environments is a challenging task. Such a
+system should consist of numerous algorithms in-
+cluding but not limited to: mission planning, mo-
+tion planning, sensing, position estimation, map-
+ping and path planning. The existence of sys-
+tem errors, disturbances, uncertainty and changes
+in the environment during the ﬂight add compli-
+cations to the development of the required algo-
+rithms and to the ability to combine these algo-
+rithms.
+Indoor environments imply additional dif-
+ﬁculties while developing algorithms for au-
+tonomous ﬂight since one may not rely on GPS
+signals for position data, due to poor reception,
+or no reception at all, of the signal.
+In such
+missions, the generation of a map of the un-
+known environment, while simultaneously local-
+ization of the vehicle, based only on available
+sensory observations is required.
+This task is
+commonly known as Simultaneous Localization
+and Mapping (SLAM) [1]. Existed SLAM al-
+gorithms make use of certain features of ﬂight
+missions like returning to previously visited lo-
+cations. With the aid of loop closure algorithms,
+they are able to signiﬁcantly improve the accu-
+racy of vehicle’s position estimation and the qual-
+ity and consistency of the generated map. How-
+ever, these algorithms are not suitable for a tar-
+geted ﬂight, i.e. a problem of navigating a ve-
+hicle from a known initial position to a deﬁned
+goal location, since the vehicle may not return to
+a previously visited area.
+In this paper, we present a comprehensive
+approach for targeted autonomous ﬂight of RW
+MAVs in a GPS-denied environment where the
+map of the environment is a priori unknown. We
+assume that only the initial position and orienta-
+
+SVETLANA POTYAGAYLO∗, OMRI RAND∗
+tion of the MAV are given, as well as the goal
+position and orientation, which are deﬁned by
+relative distance and azimuth. The primary on-
+board sensor is a lightweight laser range ﬁnder.
+The methodology presented here is modular and
+generic in the sense that each of its components
+is internally uncoupled with the others. We also
+present simulation results on a single rotor he-
+licopter showing the capability for a fully au-
+tonomous targeted ﬂight.
+2
+Related Work
+As mentioned earlier, a system for an au-
+tonomous ﬂight of RW MAVs in GPS-denied,
+unknown environments should include several
+essential algorithms for vehicle’s position esti-
+mation, simultaneously with building and updat-
+ing a map of the environment; planning a path
+towards the goal, while avoiding obstacles dis-
+covered along the path; and motion planning
+including calculation of control commands that
+will lead a vehicle along the desired trajectory.
+A signiﬁcant progress has been made in each
+of the above listed tasks. The SLAM task has
+been studied both for ground robots [2, 3, 4]
+and aerial vehicles [5, 6, 7]. For path planning,
+there are a plenty of algorithms including graph
+search methods [8, 9, 10] and probabilistic plan-
+ning methods [11, 12]. The motion planning task
+may be solved by optimal control techniques [13]
+or using motion primitives [14], to name a few.
+In this work, we develop an Autonomous In-
+door Targeted Flight System (AITFS) that com-
+prises several modules and algorithms. For solv-
+ing the SLAM problem, the system makes use
+of a novel algorithm based on representation of
+the environment in form of “occupancy grid”
+(OG) [15]. The advantage of OGs is their ability
+to represent any obstacle without relying on pre-
+deﬁned features or forms. OGs also maintain in-
+formation about undiscovered or unobserved ar-
+eas of the environment, which can be essential
+in the path planning task. To estimate the ve-
+hicle’s position, we employ an adaptive direct
+search method [16]. The path planning method
+of the AITFS includes an A* search algorithm [8]
+and a Potential Field method [17], combination
+of which allows the system to plan an obstacle-
+free path while taking into account vehicle’s ma-
+neuverability limitations. Several essential fea-
+tures are added to these methods to maintain low
+computational load and to guarantee feasibility of
+the solution. For computing control commands,
+an Inverse Simulation (IS) approach [18] is ap-
+plied, while the generation of the required trajec-
+tory is provided by a novel scheme that takes into
+account the current ﬂight regime (ﬂight, hover,
+etc.) of the RW MAV.
+3
+Methodology Description
+We present now an overview of our methodol-
+ogy and of the modular system that executes it.
+A schematic diagram of the system and of its
+components is depicted in Fig. 1. The system
+includes a “Simultaneous Localization and Map-
+ping module” (SLAM module), a “Path Planning
+module” and a “Motion Planning module”. The
+system architecture is modular so that each pair
+of its components or even each single component
+can be used independently of the others as well.
+Fig. 1 The main modules of the proposed system
+(AITFS).
+The obtained control commands are executed
+in a “simulator”, a test-bed simulative tool for
+autonomous helicopters that includes a detailed
+simulative helicopter model.
+This model ac-
+counts for the execution errors and external dis-
+
+AUTONOMOUS TARGETED FLIGHT OF A ROTARY-WING MICRO AERIAL VEHICLE IN
+INDOOR, GPS-DENIED ENVIRONMENTS
+turbances, such as wind gusts. The simulator is
+considered as part of the proposed system, but is
+utilized also for the simulation of the real laser
+range ﬁnder and for providing the comparison
+between actual and estimated helicopter perfor-
+mances, position estimation and map quality. In
+real missions two blocks that simulate the heli-
+copter platform and the laser range ﬁnder are re-
+placed by the actual physical components. The
+detailed description of the system modules and
+algorithms is given in Section 4.
+In the AITFS, two main reference frames
+are used: the global East-North-Up (ENU) co-
+ordinate system and the body coordinate sys-
+tem Fig. 2.
+The global ENU coordinate sys-
+tem is an inertial Earth-ﬁxed frame and is used
+for navigation and motion planning.
+The ori-
+gin is arbitrarily ﬁxed to a point on the Earth
+surface, the Xe-axis points toward the East, the
+Ye-axis points toward the North, and the Xe-axis
+points upwards. In this frame, the position vec-
+tor xe = {xe,ye,ze} 1 and the velocity vector ve =
+{
+vxe,vye,vze
+}
+are deﬁned.
+The body coordinate system is ﬁxed to the
+body of the vehicle and is used to deﬁne the
+forces and moments of the helicopter. The ori-
+gin Ob is located at the center of gravity (CG)
+of the helicopter, the Xb-axis points forward, the
+Yb-axis points to the left side of the vehicle, the
+Zb-axis points upward. It was assumed that CG
+is located at a constant position relative to the ve-
+hicle geometry. In this frame, the linear velocity
+vector of the vehicle vb = {u,v,w} and the angu-
+lar velocity ωb = {p,q,r} are deﬁned. The orien-
+tation of the helicopter or, more speciﬁcally, the
+orientation of the body-ﬁxed frame with respect
+to the global frame is described by Euler angles
+ψ, θ and ϕ.
+In the SLAM and Path Planning modules, we
+assume a static 2D environment and use the pla-
+nar projection of the aforementioned coordinate
+frames. In this case, the vehicle pose p = {x,y,ψ}
+that consists of the vehicle’s coordinates {xe,ye}
+and orientation (azimuth angle) ψ is deﬁned as
+well.
+The main steps of computing a ﬂight path ac-
+1Hereinafter bold stands for vectors.
+Fig. 2 The helicopter coordinate systems: the
+global ENU frame and the body frame.
+cording to our methodology may be described
+as follows.
+Initially, the MAV is located at a
+start pose p0. A laser range ﬁnder provides ini-
+tial data about the obstacles ahead.
+Then, the
+Path Planning module is employed to provide
+a desired path towards a target that is free of
+collision with the obstacles and represents a se-
+quence of poses P =
+{
+p0,...,ptarget
+}
+. The Mo-
+tion Planning Module takes this path P, trans-
+forms it to a trajectory Q by time parameteriza-
+tion technique and calculates a sequence of con-
+trols U = {u(ti)} for each time instance ti that
+are needed to ﬂy along this trajectory. After the
+execution of the control commands for the next
+time step, the vehicle will be located at a pose
+ptrue = (xt,yt,ψt) that is unknown and subject to
+be found. The SLAM modules outputs the es-
+timated vehicle’s pose pest = (xe,ye,ψe) based
+on the sensor measurements, taken from the ac-
+tual pose, and the virtual map of the environment
+stored in the memory. Simultaneously, the map
+updating process is executed. On the next itera-
+tion, all the above stages are repeated, until arriv-
+ing at the target.
+4
+Main Modules of the System
+4.1
+SLAM
+As mentioned above, navigation in a priori un-
+known GPS-denied environments requires build-
+ing a map of the environment simultaneously
+
+SVETLANA POTYAGAYLO∗, OMRI RAND∗
+with an estimation of the vehicle position within
+this map.
+These two problems can be solved
+apart relatively easily, assuming either the pres-
+ence of a map of the environment, for the lo-
+calization problem, or knowing the vehicle pose
+(e.g. by using a GPS), for the mapping problem.
+However, when there is no map of the environ-
+ment and the pose of the vehicle has to be esti-
+mated, the two problems must be solved simulta-
+neously by a SLAM method.
+The proposed SLAM method consists of sev-
+eral essential algorithms: a virtual scan, a scan
+matching procedure, and a map building and up-
+dating algorithm. The algorithm uses the OG,
+each cell of which contains the number of “hits”
+of the laser scan registered for the correspond-
+ing sub-area of the environment. The OG is also
+used for performing a virtual scan of the envi-
+ronment produced by a series of ray casting op-
+erations, searching for occupied cells along the
+virtual laser ray. Fig. 3 shows the proposed solu-
+tion schematically. At each time point, the vehi-
+cle is located at the “true” (actual) pose ptrue =
+(xt,yt,ψt). From this point, the laser range ﬁnder
+senses obstacles in the environment and produces
+an actual scan of the environment. In order to
+estimate the vehicle position, an initial “guess”
+pose pguess = (xg,yg,ψg) is provided by the Mo-
+tion Planning Module. The virtual scan of the en-
+vironment is produced from this guessed position
+and is similar to the actual scan. The difference
+between the virtual and actual scans is served as
+a basis for the position estimation obtained by
+the scan matching procedure. The scan match-
+ing algorithm matches the scans one against an-
+other and searches for a shift between the ac-
+tual and guess vehicle’s poses that minimizes a
+cost function using the adaptive direct search al-
+gorithm [16]. The cost function represents the
+discrepancy between the roto-translated and in-
+terpolated real scan and the virtual scan, only for
+the range covered by both [19]. This means that
+the virtual scan points with range values out of
+scanner FOV are not matched with the appro-
+priate points from the real scan, and vice versa.
+The cost function is normalized by the number of
+valid points Nvalid. This enables to normalize the
+total cost values for different matching attempts
+with different number of contribution points:
+f =
+1
+Nvalid
+Nvalid
+∑
+i=1
+
+(
+r′′)i −ri
+virt
+,
+(1)
+where r′′ and rvirt are the range of the real scan
+after roto-translation and the range of the virtual
+scan, respectively.
+Fig. 3 The SLAM problem statement.
+After the scan matching algorithm completes
+with the estimates of the position of the MAV,
+the map updating process is performed only if
+the matching succeeds, i.e. the result of the scan
+matching is below a deﬁned threshold. This is
+required since the OG serves as an average of all
+previous laser scans and thus, if the virtual scan
+is not accurate enough, the updating of the OG
+will not be accurate as well. This would lead to a
+rapidly growing error in the position estimation.
+In order to measure the quality of the SLAM
+algorithm, we use the following measure that
+estimates the weighted mean distance from the
+points in the virtual map to the real obstacles
+while taking into account the hit values of the
+cells:
+ME =
+Ni
+∑
+i=1
+Nj
+∑
+j=1
+wi jdi j
+Ni
+∑
+i=1
+Nj
+∑
+j=1
+wij
+,
+(2)
+where wi j is the hit value of the OG’s cell ij; dij
+is the distance from the cell center to the nearest
+real obstacle; Ni,Nj is the number of the cells in
+the OG along the Xe and Ye axes, respectively.
+The simulation test-bed that was constructed
+in this work and described in Section 4.4 enables
+to calculate such measure in contrast with the
+case of real experiments where exact information
+
+AUTONOMOUS TARGETED FLIGHT OF A ROTARY-WING MICRO AERIAL VEHICLE IN
+INDOOR, GPS-DENIED ENVIRONMENTS
+about the true positions of the obstacles may be
+hardly achievable.
+4.2
+Path Planning
+As mentioned above, the path planner combines
+an A* algorithm and a Potential Field Method
+(PFM). The A* algorithm provides a global path
+from the current vehicle’s position towards the
+goal position based on the currently available in-
+formation of the environment. Once the global
+path is found, the waypoint as a farthest visible
+point along the A* path, within line of sight with
+respect to the current MAV location, is calcu-
+lated, and the PFM method is employed to plan a
+path to that waypoint. In the case the goal is lo-
+cated in the ﬁeld of view of the vehicle, the wai-
+point and the goal become identical.
+In this module, the A* algorithm is applied
+over a coarse occupancy grid using signiﬁcantly
+larger cells, as compared to the SLAM OG. Eight
+directions of movement (North/South/West/East,
+and diagonals) are allowed. The algorithm makes
+use of the diagonal heuristic function [20]:
+h = Ddhd +Ds (hs −2hd),
+(3)
+where Dd =
+√
+2 is the traverse cost along the di-
+agonal, Ds = 1 is the traverse cost in the straight
+direction, hd is the number of diagonal steps; hs
+is the number of straight steps. In order to main-
+tain admissibility of this heuristics, the diagonal
+cost should be less than the cost of two straight
+steps: Dd ≤2Ds.
+The PFM considers the vehicle as a point
+mass, moving in a force ﬁeld produced by repul-
+sive forces from the obstacles, and a single attrac-
+tive force to the goal (or waypoint). In this work,
+the intensity of the attractive force is positive and
+constant over all possible position of the vehicle.
+Each occupied cell in the OG is considered as an
+obstacle, producing a repulsive force with nega-
+tive intensity, and proportional to the occupancy
+value of that cell, and inversely proportional to
+the distance from the cell’s center to the vehicle’s
+position:
+Fgoal = Igoal
+xgoal −x
+dgoal
+;
+Fi = Iobstiwi
+xi −x
+di
+,
+(4)
+where Igoal is the constant positive intensity level
+of the goal, xgoal =
+(
+xgoal,ygoal
+)
+is the goal posi-
+tion, x = (x,y) is the current (estimated) vehicle
+position obtained by the SLAM module, dgoal is
+the distance from the current UAV position to the
+goal position. Similarly, Iobst is the negative in-
+tensity level of the obstacle, di is a distance from
+the cell center to the center of mass of the vehi-
+cle, wi is the hit count of the cell, and xi is the
+position of the cell center.
+Additionally, the PFM considers only cells
+that are located in the fore third of the ﬁeld of
+view. This was done to reduce effects of areas
+that are no longer between the vehicle and its next
+waypoint.
+4.3
+Motion Planning
+In this work, the notion “motion planning” stands
+for the task that combines two problems: the gen-
+eration of a continuous time sequence of vehi-
+cle’s positions and velocities from one given lo-
+cation to another speciﬁc location, in addition to
+the computing of the time history of control com-
+mands that will move the vehicle to a desired
+position. This module is the only module that
+works with the actual model of the vehicle since
+it feeds the speciﬁc helicopter characteristics to
+the whole system. The development of a simu-
+lation model (linear or non-linear) is therefore a
+prerequisite for further use in any of the motion
+planning methods.
+We use both nonlinear and linear representa-
+tions of the helicopter model. The nonlinear and
+linear dynamic models have 6 DOF and the fol-
+lowing state and control vectors:
+s = {u,v,w, p,q,r,ψ,θ,ϕ};
+u = {θ0,θ1c,θ1s,θtr},
+(5)
+where θ0 is the main rotor collective pitch angle;
+θ1c, θ1s are the main rotor lateral and longitudinal
+
+SVETLANA POTYAGAYLO∗, OMRI RAND∗
+cyclic pitch angles; θtr is the tail rotor collective
+pitch angle.
+It was assumed that the main rotor has rigid
+blades with uniformly distributed mass along the
+blade and linear twist. The blades have an ad-
+ditional DOF of ﬂapping. At each blade section
+the lift and drag forces are calculated using non-
+linear aerodynamic tables. The total lift and drag
+forces are obtained by integrating the forces of
+each blade section along the blade. The tail rotor
+blades are assumed to be rigid and non-ﬂapping.
+The expressions for tail rotor forces and moments
+are similar to those for the main rotor but include
+the interaction effects. We assume a quasi-steady
+ﬂapping dynamics, according to which the rotor
+responses to cyclic commands is extremely fast.
+The proposed methodology for motion plan-
+ning and control task includes two-phase algo-
+rithm. Firstly, a desired trajectory Q that will
+be used as an input within the IS algorithm is
+developed based on a predeﬁned path from the
+Path Planning Module. This trajectory is con-
+structed to maintain the principal geometry of
+the path while providing smooth changing of the
+desired parameters and vehicle command limita-
+tions. The second phase is the IS algorithm that
+calculates a sequence of controls U that are re-
+quired to ﬂy along the planned trajectory. In this
+paper, the integration-based inverse simulation
+method is used [18]. It initially guesses the con-
+trol inputs, integrates the vehicle motion equa-
+tions, to achieve the desired output vector at the
+next iteration. The difference between the actual
+ﬂight vector and the desired ﬂight vector is then
+used to calculate the estimation of the control in-
+puts for the next path computation step. In this
+work, the dimension of the control sequence is
+equal to the dimension of the trajectory sequence
+that consists of three velocities and the azimuth
+angle q =
+{
+vxe,vye,vze,ψ
+}
+[19].
+4.4
+Integration of the System Modules
+In this section, the main components of the
+methodology described in the previous subsec-
+tions are combined to an Autonomous Indoor
+Targeted Flight System (AITFS) for RW UAVs.
+The modular structure of the system allows inde-
+pendent creation and usage of the system mod-
+ules, clear and ﬂexible design, and multiple func-
+tionalities. In the proposed system, each module
+is aimed towards one speciﬁc function, and this
+enables studying the effects and performance of
+a speciﬁc module individually.
+However, the integration of the system com-
+ponents is not a trivial task since interconnect-
+ing links between modules have to be set in or-
+der to enable the collective operation of the sys-
+tem modules. In addition, a high decision making
+level has to be developed to ensure achievement
+of the mission goal and to plan actions that will
+diminish negative outcomes in cases of uncer-
+tainties of the environment and the vehicle state.
+The two problems that may arise from such sit-
+uations and lead to interruption of the common
+ﬂow “position estimation and map updating →
+path planning →trajectory and command com-
+putation” will be discussed.
+For example, there may be situations in which
+arrival to the predeﬁned goal location is impossi-
+ble due the obstacles discovered during the ﬂight.
+In this case, a MAV has to make an appropriate
+decision whether to ﬂy back, to ﬂy to the position
+nearest to the goal or to remain over a speciﬁc
+location. One additional situation that requires
+special attention is faults, i.e. difﬁculties of the
+system modules to produce their outputs. In the
+proposed AITFS, the A* algorithm and the PFM
+used in the Path Planner Module are known to be
+complete if a goal (or a waypoint) is reachable.
+The IS algorithm used in the Motion Planning
+Module has very high convergence since the tra-
+jectory generation method produces smooth tra-
+jectories with small changes of the required pa-
+rameters. However, the SLAM algorithm may
+produce solutions with non-minimal values of the
+cost function due to a bad initial guess or a small
+mutual area of actual and virtual scans. Isolated
+instances of this fault do not affect the overall
+performance of the system since in the next steps
+the vehicle will localize itself and the map up-
+dating will be resumed. However, such a fault in
+several consecutive steps may lead to divergence
+and vehicle loss. To prevent this, the high level
+module causes the vehicle to slow down, to hover
+or to search for the best azimuth position until the
+
+AUTONOMOUS TARGETED FLIGHT OF A ROTARY-WING MICRO AERIAL VEHICLE IN
+INDOOR, GPS-DENIED ENVIRONMENTS
+SLAM algorithm will succeed to estimate the ve-
+hicle’s pose. These situations will be illustrate by
+examples in Section 5 in details.
+To assess the effectiveness of the proposed
+system, a simulation test-bed was developed. The
+test-bed includes a simulation model of a conven-
+tional conﬁguration helicopter and a simulation
+model of a real laser range ﬁnder along with real-
+istic levels of execution errors and external distur-
+bances. The simulation test-bed is implemented
+using MATLAB R⃝.
+The computational cost of
+the system modules was evaluated in terms of the
+percentages of the total running time. The run-
+ning time of the SLAM module, including the
+Virtual Scan, the Scan Matching procedure and
+the Map Updating, is approximately 60% of the
+total cost, while the running time of the Motion
+Planning is about 20% of the total cost and the
+running time of the Path Planning is about 2%.
+5
+Results and Discussion
+5.1
+Simulation Setup
+The helicopter and the real laser rangeﬁnder
+we chose as prototypes is the SR RTF heli-
+copter, manufactured by Blade, Horizon Hobby,
+Inc. [21] and the Hokuyo laser rangeﬁnder [22].
+The main parameters of the helicopter, laser
+range ﬁnder and algorithms are given in Table 1.
+Table 1 The values of the main parameters.
+Parameter
+Value
+Helicopter main rotor diameter [mm]
+552
+Helicopter tail rotor diameter [mm]
+82
+Helicopter weight [g]
+340
+Helicopter length [mm]
+485
+Minimum detection radius [mm]
+25
+Maximum detection radius [mm]
+30000
+Angular resolution [deg]
+0.25
+Maximum bearing angle [deg]
+±135
+OG resolution [mm]
+10
+A* OG resolution [mm]
+500
+Trimming of the helicopter model was car-
+ried out using the RAPiD rotorcraft analysis soft-
+ware package [23] that is designed to model and
+analyze general rotorcraft and rotary-wing based
+conﬁgurations. The simulations were carried out
+assuming the realistic level for sensor errors of
+1.5% and for execution errors of 1%.
+5.2
+Simulation Results
+We will start with the discussion of two spe-
+cial cases mentioned earlier: the problem of the
+SLAM algorithm failure and the problem when a
+goal location is unreachable. Fig. 4 presents two
+snapshots of a simulated structured environment.
+The scenario was realistic and included the MAV
+autonomous ﬂight from the known start position
+to a given goal location. In the ﬁrst case (left side
+of Fig. 4), the vehicle had to enter a room to ar-
+rive to a goal. This part of the ﬂight represents a
+quite challenging task for autonomous platforms
+with an only environment sensor. While enter-
+ing a new closed segment of the unmapped envi-
+ronment, the changes between the map already
+stored in the memory (or virtual scan) and the
+real scan of a new area may be dramatic. Such
+discrepancies may lead to difﬁculties in position
+estimation and, as a consequence, to the failure
+of the SLAM algorithm. This situation may be
+observed on Fig. 5(a) where values of the cost
+function are shown for the entire ﬂight. Note,
+that the admissible threshold for the cost func-
+tion was 30 mm. To resolve the problem, the high
+level of the AITFS causes the vehicle to slow
+down, hover and change only its heading angle
+to successfully complete the position estimation
+and map updating processes.
+The problem when the MAV can not reach a
+goal position due to inaccessibility of full infor-
+mation of the environment is shown on the right
+side of Fig. 4. In this case, the goal was located
+in the closed room. The MAV had to explore all
+the environment in order to ensure that there are
+no possible paths to the goal. The corresponding
+values of the cost function are shown on Fig. 5(b)
+and they are much lower for this case.
+The map quality for this case is approxi-
+mately ME = 8.8 mm. This measure is within the
+order of magnitude of the OG’s cells (10 mm),
+i.e. the resultant virtual map is highly accurate.
+Fig. 6 presents three snapshots of another
+
+SVETLANA POTYAGAYLO∗, OMRI RAND∗
+Fig. 4 The snapshots of the generated mp of a simulated environment for the cases of reachable and
+unreachable goal.
+1
+10
+19
+28
+37
+46
+55
+64
+73
+82
+91
+0
+100
+200
+300
+400
+500
+600
+Step #
+Cost Function values, [mm]
+1
+11
+21
+31
+41
+51
+61
+71
+81
+91
+101
+0
+20
+40
+60
+80
+100
+120
+140
+Step #
+Cost Function values, [mm]
+Fig. 5 The values of the cost function for two cases (reachable and unreachable goal).
+complicated environment and the evolving map,
+planned paths, and executed path.
+During the
+ﬂight, the estimated A* and PFM paths are un-
+remittingly checked for obstacle avoidance, with
+respect to newly detected obstacles, and update
+accordingly. This evolution of the map and paths
+is illustrated by consecutive snapshots. For ex-
+ample, at the ﬁrst time step (Fig. 6(a)), the A*
+algorithm estimates the path towards the target
+based only on the ﬁrst obtained scan. The vehi-
+cle begins to turn left to go around the nearby
+obstacle.
+After 4 more steps, the passageway
+becomes too narrow, the updated underlying A*
+occupancy grid therefore detects an obstructed
+path, and recalculates (Fig. 6(b)). This path is
+in turn updated further, and the process repeats.
+Fig. 6(c) presents the ﬁnal estimated and actual
+paths along with the ﬁnal map.
+6
+Conclusions
+We presented a comprehensive, modular system,
+designed for a targeted ﬂight of autonomous RW
+MAVs in unknown GPS-denied environments.
+
+AUTONOMOUS TARGETED FLIGHT OF A ROTARY-WING MICRO AERIAL VEHICLE IN
+INDOOR, GPS-DENIED ENVIRONMENTS
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+0
+0
+0
+0
+0
+0
+0
+Coordinate X, [mm]
+(a) Step #1.
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+0
+0
+0
+0
+0
+0
+0
+Coordinate X, [mm]
+(b) Step #5.
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+0
+0
+0
+0
+0
+0
+0
+X [mm]
+(c) The ﬁnal virtual map.
+Fig. 6
+Snapshots of the map and path evolu-
+tions for a simulated environment. A* planned
+path is in solid cyan line, asterisk shows the next
+way point, while red dots mark the PFM locally
+planned path, black circles an ‘x’ marks show the
+vehicle estimated and true positions, respectively.
+The proposed system consists of independent
+modules for simultaneous estimation of vehicle’s
+position and mapping of the environment, plan-
+ning a feasible and obstacle-free path towards
+a goal, and generation a trajectory and control
+commands required to ﬂy along that trajectory.
+The system also includes an additional module
+that exposes such features as mission planning,
+situation awareness, and decision making. The
+main challenges in the task of a targeted ﬂight
+were the following: (1) Localization of the ve-
+hicle in a priory unknown environments without
+additional aid of external sensors or algorithms
+for loop closure. (2) Avoidance of collision of the
+MAV with obstacles while keeping the ﬂight path
+to be as short as possible (3) Taking into consid-
+eration maneuvering limitations of the vehicle.
+The simulation results of autonomous MAV
+ﬂight in several simulated environments were
+presented as well.
+These results demonstrated
+that the system modules provide highly accu-
+rate results and successful arriving of the MAV
+to goal positions without signiﬁcant accumulated
+drift.
+As part of future work, the AITFS will
+be fully validated with an aerial platform in real
+world environments.
+References
+[1] H. Durrant-Whyte and T. Bailey, “Simultane-
+ous Localisation and Mapping (SLAM): Part I
+The essential algorithms,” IEEE Robotics and
+Automation Magazine, vol. 2, 2006.
+[2] S. Thrun and M. Montemerlo, “The Graph-
+SLAM algorithm with applications to large-
+scale mapping of urban structures,” Interna-
+tional Journal on Robotics Research, vol. 25,
+no. 5/6, pp. 403–430, 2005.
+[3] A. Diosi and L. Kleeman, “Fast laser scan
+matching using polar coordinates,” in Interna-
+tional Journal of Robotics Research, vol. 26,
+pp. 1125–1153, 2007.
+[4] D. Hähnel, W. Burgard, D. Fox, and S. Thrun,
+“An efﬁcient FastSLAM algorithm for gener-
+ating maps of large-scale cyclic environments
+from raw laser range measurements,” in Pro-
+ceedings of the IEEE/RSJ International Confer-
+ence on Intelligent Robots and Systems (IROS),
+(Las Vegas, Nevada, USA), October-November
+2003.
+[5] S. Grzonka, G. Grisetti, and W. Burgard, “To-
+wards a navigation system for autonomous in-
+door ﬂying,” in Proceedings of the IEEE Inter-
+national Conference on Robotics and Automa-
+
+SVETLANA POTYAGAYLO∗, OMRI RAND∗
+tion (ICRA), (Kobe, Japan), pp. 2878–2883,
+May 2009.
+[6] M. Achtelik, A. Bachrach, R. He, S. Pren-
+tice, and N. Roy, “Autonomous navigation and
+exploration of a quadrotor helicopter in GPS-
+denied indoor environments,” in IARC First
+Symposium on Indoor Flight Issues, July 2009.
+[7] S. Shen, N. Michael, and V. Kumar, “Au-
+tonomous multi-ﬂoor indoor navigation with
+a computationally constrained MAV,” in Pro-
+ceedings of the IEEE International Conference
+on Robotics and Automation (ICRA), (Shangai,
+China), pp. 20–25, May 2011.
+[8] S. J. Russell and P. Norvig, Artiﬁcial Intelli-
+gence - A Modern Approach. Pearson Educa-
+tion, 3rd ed., 2010.
+[9] A. T. Stentz, “Optimal and efﬁcient path plan-
+ning for partially-known environments,” in Pro-
+ceedings of the IEEE International Conference
+on Robotics and Automation (ICRA), pp. 3310–
+3317, May 1994.
+[10] M.
+Likhachev,
+D.
+Ferguson,
+G.
+Gordon,
+A. Stentz, and S. Thrun, “Anytime dynamic A*:
+An anytime, replanning algorithm,” in Proceed-
+ings of the International Conference on Auto-
+mated Planning and Scheduling (ICAPS), 2005.
+[11] L. Kavraki,
+P. Svestka,
+J. Latombe,
+and
+M. Overmars,
+“Probabilistic roadmaps for
+path planning in high-dimensional conﬁgura-
+tion spaces,” IEEE Transactions on Robotics
+and Automation, vol. 12, no. 4, pp. 566–580,
+1996.
+[12] S. M. LaValle,
+“Rapidly-exploring random
+trees: A new tool for path planning,” Technical
+Report 98-11, Computer Science Dept., Iowa
+State University, 1998.
+[13] A. E. Bryson, Applied Optimal Control. Hemi-
+sphere Publishing, New York, 1975.
+[14] E. Frazzoli, M. A. Dahleh, and E. Feron,
+“Maneuver-based motion planning for nonlin-
+ear systems with symmetries,” IEEE Transac-
+tions on Robotics, vol. 21, pp. 1077–1091, De-
+cember 2005.
+[15] S. Thrun, “Learning occupancy grid maps with
+forward sensor models,” Autonomous Robots,
+vol. 15, no. 2, pp. 111–127, 2003.
+[16] C. Friedman, I. Chopra, and O. Rand, “Highly
+accurate simultaneous localization and mapping
+for Rotary Wing UAVs,” in Proceedings of
+American Helicopter Society 68th Annual Fo-
+rum, (Fort Worth, Texas), 2012.
+[17] O. Khatib, “Real-time obstacle avoidance for
+manipulators and mobile robots,” International
+Journal of Robotics Research, vol. 5, no. 1,
+1986.
+[18] R. A. Hess and C. hau Gao, “A generalized al-
+gorithm for inverse simulation applied to he-
+licopter maneuvering ﬂight,” Journal of the
+American Helicopter Society, vol. 38, no. 4,
+pp. 3–15, 1993.
+[19] S. Potyagaylo, Planning and Operational Algo-
+rithms for Autonomous Helicopters. PhD thesis,
+Technion, Haifa, Israel, 2013.
+[20] A. Patel, Amitâ ˘A ´Zs thoughts on path-ﬁnding
+and A-star. http://theory.stanford.
+edu/amitp/GameProgramming/, 2003.
+[21] Blade, Horizon Hobby, Inc.
+http://www.
+bladehelis.com.
+[22] Hokuyo,
+“UTM-30LX,”
+tech.
+rep.,
+2009.
+http://www.hokuyo-aut.jp/
+02sensor/07scanner/utm_30lx.
+html.
+[23] O. Rand and S. M. Barkai, “Numerical evalu-
+ation of the equations of motion of helicopter
+blades and symbolic exactness,” Journal of the
+American Helicopter Society, vol. 40, no. 1,
+pp. 59–71, 1995.
+7
+Contact Author Email Address
+Svetlana Potyagaylo: svetap@tx.technion.ac.il
+Omri Rand: omri@sni.technion.ac.il
+Copyright Statement
+The authors conﬁrm that they, and/or their company or or-
+ganization, hold copyright on all of the original material
+included in this paper. The authors also conﬁrm that they
+have obtained permission, from the copyright holder of any
+third party material included in this paper, to publish it as
+part of their paper. The authors conﬁrm that they give per-
+mission, or have obtained permission from the copyright
+holder of this paper, for the publication and distribution of
+this paper as part of the ICAS 2014 proceedings or as indi-
+vidual off-prints from the proceedings.
+

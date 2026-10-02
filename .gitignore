@@ -1,0 +1,35 @@
+# ==============================================================================
+# Git Ignore Configuration - GPS-Denied UAV Systematic Literature Review (SLR)
+# ==============================================================================
+
+# Research paper PDF binaries (291 files, ~1.50 GB)
+# Excluded from git version control per project governance (01_data/03_pdfs/README.md)
+# to prevent repository bloat and avoid GitHub's 100MB single-file limit (REC_1032.pdf is 187.57 MB).
+# All 291 PDFs are permanently preserved on local disk and tracked via FROZEN_MANIFEST_20260927.csv.
+*.pdf
+01_data/03_pdfs/*.pdf
+01_data/01_pdfs/*.pdf
+
+# Microsoft Office temporary lock files
+~$*.xlsx
+~$*.docx
+~$*.pptx
+~$*.csv
+
+# Python byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Operating system metadata
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Logs and temporary scratch directories
+*.log
+scratch/
+REC_1688_text.txt
+REC_1688_full_raw.txt

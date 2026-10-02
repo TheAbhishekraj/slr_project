@@ -1,0 +1,285 @@
+source,original_id,title,drop_reason
+IEEE,IEEE Conferences,Indoor radar SLAM A radar application for vision and GPS denied environments,Title+Year Match
+Scopus,SCOPUS_0001,A High Accuracy and Large-Scale Detection for Fixed-Wing UAV Autonomous Ground Landing With GNSS-Denied,DOI Match
+Scopus,SCOPUS_0003,Tightly Coupled Multifactor Optimization-Based Hybrid Visual Localization for UAV,DOI Match
+Scopus,SCOPUS_0004,Adaptive-Weighted EKF and LiDAR-IMU Tight-Coupling Enabled GPS-Denied UAV Navigation,DOI Match
+Scopus,SCOPUS_0005,Robust UAV Localization in GNSS-Denied Environments via Efficient Visual Scene Matching-Inertial Fusion,DOI Match
+Scopus,SCOPUS_0009,A Framework for UAV Navigation and Exploration in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0010,A Novel Geolocalization Algorithm for UAV Under GNSS-denied Environment using Heading Estimation before Image Matching,DOI Match
+Scopus,SCOPUS_0016,Cooperative UWB-based localization for outdoors positioning and navigation of UAVs aided by ground robots,DOI Match
+Scopus,SCOPUS_0019,Autonomous Navigation Systems in GPS-Denied Environments: A Review of Techniques and Applications,DOI Match
+Scopus,SCOPUS_0020,Optimal Navigation and Obstacle Avoidance for UAV in Urban Canyons,DOI Match
+Scopus,SCOPUS_0021,Quantum-Enhanced Drone Swarm Localization in GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0024,Autonomous long-range navigation in GNSS-denied environment with low-cost UAV platform,DOI Match
+Scopus,SCOPUS_0025,Optimization of Localization Error in Multi-Agent Systems through Cooperative Positioning: Autonomous Navigation in Partially Denied GNSS Environments,DOI Match
+Scopus,SCOPUS_0028,Robust Sensor Fusion for Autonomous UAV Navigation in GPS denied Forest Environment,DOI Match
+Scopus,SCOPUS_0032,Real-Time SLAM Based on Image Stitching for Autonomous Navigation of UAVs in GNSS-Denied Regions,DOI Match
+Scopus,SCOPUS_0034,"Self-Positioning for UAV indoor navigation based on 3D laser scanner, UWB and INS",DOI Match
+Scopus,SCOPUS_0036,Survey on UAV navigation in GPS denied environments,DOI Match
+Scopus,SCOPUS_0038,A Vision-Aided Navigation System by Ground-Aerial Vehicle Cooperation for UAV in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0039,Location Aware and Drift Control Using a Smartphone On-board an Unmanned Aerial Vehicle,DOI Match
+Scopus,SCOPUS_0041,"Enhanced V-SLAM combining SVO and ORB-SLAM2, with reduced computational complexity, to improve autonomous indoor mini-drone navigation under varying conditions",DOI Match
+Scopus,SCOPUS_0045,Cooperative Localization of Multi-Agent Autonomous Aerial Vehicle (AAV) Networks in Intelligent Transportation Systems,DOI Match
+Scopus,SCOPUS_0046,Multi-robot cooperative navigation with active sensing in a GPS-denied environment,DOI Match
+Scopus,SCOPUS_0047,An RPLiDAR based SLAM equipped with IMU for Autonomous Navigation of Wheeled Mobile Robot,DOI Match
+Scopus,SCOPUS_0048,An integrated system using federated kalman filter for ugv navigation in gnss-denied environment,DOI Match
+Scopus,SCOPUS_0050,CL2F: Close-Loop Communication and Localization Framework for High-Mobility UAV Swarm Networks in Partial GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0060,Low-SWaP GNSS-denied Navigation using LTE Signals of Opportunity,DOI Match
+Scopus,SCOPUS_0066,A synergetic approach to indoor navigation and mapping for aerial reconnaissance and surveillance,DOI Match
+Scopus,SCOPUS_0068,AUTONOMOUS UAV LOCALIZATION WITH SYNTHETIC APERTURE RADAR,DOI Match
+Scopus,SCOPUS_0070,Resilient Navigation for UAVs: GNSS Attack Detection and Seamless Transition to Visual-Inertial Localization,DOI Match
+Scopus,SCOPUS_0079,Season-Invariant GNSS-Denied Visual Localization for UAVs,DOI Match
+Scopus,SCOPUS_0081,State Estimation and Control for Micro Aerial Vehicles in GPS-denied Environments,DOI Match
+Scopus,SCOPUS_0090,Autonomous Flight Control of a Nano Quadrotor Helicopter in a GPS-Denied Environment Using On-Board Vision,DOI Match
+Scopus,SCOPUS_0094,A LiDAR Odometry for Outdoor Mobile Robots Using NDT Based Scan Matching in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0096,Distributed Cooperative UAV Leader-Follower Strategies in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0097,Multi-UAV Collaboration and IMU Fusion Localization Method in Partial GNSS-Denied Scenarios,DOI Match
+Scopus,SCOPUS_0102,A MAV Platform for Indoors and Outdoors Autonomous Navigation in GPS-denied Environments,DOI Match
+Scopus,SCOPUS_0103,Augmented Radar Odometry by Nested Optimal Filter Aided Navigation for UAVS in GNSS Denied Environment,DOI Match
+Scopus,SCOPUS_0104,BRM Localization: UAV Localization in GNSS-Denied Environments Based on Matching of Numerical Map and UAV Images,DOI Match
+Scopus,SCOPUS_0106,Autonomous UAV Navigation for Target Detection in Visually Degraded and GPS Denied Environments,DOI Match
+Scopus,SCOPUS_0107,An Aerial-ground Cooperative Positioning Method for Intelligent and Connected Vehicles under GNSS-denied Environments,DOI Match
+Scopus,SCOPUS_0108,Enhanced UAV navigation in GNSS denied environment using repeated dynamics pattern recognition,DOI Match
+Scopus,SCOPUS_0110,Drones Guiding Drones: Cooperative Navigation of a Less-Equipped Micro Aerial Vehicle in Cluttered Environments,DOI Match
+Scopus,SCOPUS_0112,Design and Analysis of a Single-rotor UAV for Safe Indoor Navigation,DOI Match
+Scopus,SCOPUS_0118,GPS-Denied Autonomous Navigation: A Sensor Fusion and Real-Time Image Processing Approach,DOI Match
+Scopus,SCOPUS_0128,Towards GNSS-Free UAV Localization via XFeatLightGlue and Semantic Embedding,DOI Match
+Scopus,SCOPUS_0132,UAV Navigation With Monocular Visual Inertial Odometry Under GNSS-Denied Environment,DOI Match
+Scopus,SCOPUS_0134,A Modular Loosely-Coupled Multi-Sensor Localization Framework for Low-Cost UGVs in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0139,IMU/Vision/Lidar integrated navigation system in GNSS denied environments,DOI Match
+Scopus,SCOPUS_0140,Motion State Classification for Drone Localisation in GPS-Denied Environments using TinyML on Resource-Constrained Hardware,DOI Match
+Scopus,SCOPUS_0148,Evaluation of Real-Time Vehicle Localization Accuracy Using Vision-Based Deep Learning and Sensor Fusion in GPS-Denied Scenarios,DOI Match
+Scopus,SCOPUS_0151,A High Precision Aerial Indoor AI-Based Inspection System,DOI Match
+Scopus,SCOPUS_0154,V2I-Based LiDAR and RSSI-Based Ranging-Assisted Visual-Inertial Odometry for Robust Ego Vehicle Localization in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0161,Decimeter-Accuracy Positioning for Drones Using Two-Stage Trilateration in a GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0166,Cooperative localisation of UAVs in a GPS-denied environment using bearing measurements,DOI Match
+Scopus,SCOPUS_0174,UAV Swarm Navigation in GNSS Denied Region with Formation Control,DOI Match
+Scopus,SCOPUS_0183,Visual-inertial fusion for indoor autonomous navigation of a quadrotor using ORB-SLAM,DOI Match
+Scopus,SCOPUS_0185,Range-Only EKF-Based Relative Navigation for UAV Swarms in GPS-Denied Zones,DOI Match
+Scopus,SCOPUS_0186,Federated Deep Reinforcement Learning for Collaborative Autonomous Navigation in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0192,Two-stage Motion Estimation for UAV Landing under GPS-denied Condition,DOI Match
+Scopus,SCOPUS_0193,A Proposed Framework for UAS Positioning in GPS-Denied and GPS-Spoofed Environments,DOI Match
+Scopus,SCOPUS_0194,BIM-Assisted UAV Topological Localization and Navigation Method for GPS-Denied Indoor Environments,DOI Match
+Scopus,SCOPUS_0195,Flight Test Evaluation of a LIDAR/inertial Navigator for Autonomous Drone Operations in GNSS-denied Urban Environments,DOI Match
+Scopus,SCOPUS_0197,A Unified Error-State Kalman Filtering Framework for Multi-Sensor Navigation of Fixed-Wing UAVS in GNSS-Denied Scenarios,DOI Match
+Scopus,SCOPUS_0198,Navigation of simultaneous localization and mapping by fusing RGB-D Camera and IMU on UAV,DOI Match
+Scopus,SCOPUS_0215,Nonlinear model predictive control for self-driving cars trajectory tracking in GNSS-denied environments,DOI Match
+Scopus,SCOPUS_0220,Autonomous UAV Pipeline Landing via Depth-LiDAR Fusion in GNSS-Denied Refineries,DOI Match
+Scopus,SCOPUS_0224,Enhanced UAV indoor navigation through SLAM-Augmented UWB Localization,DOI Match
+Scopus,SCOPUS_0228,Vision-Aided Multi-UAV Autonomous Flocking in GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0233,Simulating GPS-denied Autonomous UAV Navigation for Detection of Surface Water Bodies,DOI Match
+Scopus,SCOPUS_0234,Communication-Free Formation Flight Control for Autonomous Fixed-Wing UAVs in GNSS-denied environments,DOI Match
+Scopus,SCOPUS_0238,TDOA based Tightly Coupled Sensor Fusion for UAV Positioning in GPS-denied Environment,DOI Match
+Scopus,SCOPUS_0239,Dust-Resilient Autonomous Navigation and Mapping for UAVs in GNSS-Denied Underground Tunnels,DOI Match
+Scopus,SCOPUS_0242,Lane-Level Map-Aided SLAM Approach for Persistent Positioning in GNSS-Denied Areas,DOI Match
+Scopus,SCOPUS_0244,Secure Vision-Based Navigation for Drones in GPS-Denied Environments Using Machine Learning,DOI Match
+Scopus,SCOPUS_0250,Design of an UWB indoor-positioning system for UAV navigation in GNSS-denied environments,DOI Match
+Scopus,SCOPUS_0255,Quantum-Enhanced Multi-Sensor Fusion for UAV Navigation in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0257,Visual Localization with Offline Google Satellite Map-Assisted for Ground Vehicles in GNSS-Denied Environment,DOI Match
+Scopus,SCOPUS_0259,Graph-SLAM Approach for Indoor UAV Localization in Warehouse Logistics Applications,DOI Match
+Scopus,SCOPUS_0261,Demonstration of Radio SLAM with Terrestrial Signals of Opportunity in a GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0266,Visual-based landing system of a multirotor UAV in GNSS denied environment,DOI Match
+Scopus,SCOPUS_0267,A Robust and Rapidly Deployable Waypoint Navigation Architecture for Long-Duration Operations in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0269,A Comprehensive Review on Sensor Fusion Techniques for Localization of a Dynamic Target in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0271,UAV Platforms for Autonomous Navigation in GPS-Denied Environments for Search and Rescue Missions,DOI Match
+Scopus,SCOPUS_0272,ROLATIN: Robust Localization and Tracking for Indoor Navigation of Drones,DOI Match
+Scopus,SCOPUS_0274,A Novel Approach to Computationally Lighter GNSS-Denied UAV Navigation Using Monocular Camera,DOI Match
+Scopus,SCOPUS_0282,A Shared-Ground-Target-Groups-Based Cooperative Localization Method for UAVs,DOI Match
+Scopus,SCOPUS_0304,A method based on CNN-BiLSTM for UAV navigation error compensation in GNSS denied environment,DOI Match
+Scopus,SCOPUS_0306,"SARATHI-DRONE: A Smart Drone for Autonomous Search, Rescue, and Human Identification",DOI Match
+Scopus,SCOPUS_0308,A High-Fidelity Digital Twin Framework for Multi-Modal Sim-to-Real Transfer for Robust UAV Autonomy,DOI Match
+Scopus,SCOPUS_0310,Multi-UAV Cooperative Navigation Based on Multisource Information Fusion: A Review,DOI Match
+Scopus,SCOPUS_0311,Mobile robot localization based on low-cost LTE and odometry in GPS-Denied outdoor environment,DOI Match
+Scopus,SCOPUS_0313,A Novel Positioning Method for UAV in GNSS-Denied Environments Based on Mechanical Antenna,DOI Match
+Scopus,SCOPUS_0314,Conditional Probabilistic Relative Visual Localization for Unmanned Aerial Vehicles,DOI Match
+Scopus,SCOPUS_0318,Combined RGBD-inertial based state estimation for MAV in GPS-denied indoor environments,DOI Match
+Scopus,SCOPUS_0320,Trajectory tracking and formation flight of autonomous UAVs in GPS-denied environments using onboard sensing,DOI Match
+Scopus,SCOPUS_0323,GNSS-denied geolocalization of UAVs by visual matching of onboard camera images with orthophotos,DOI Match
+Scopus,SCOPUS_0328,Autonomous Drones in GNSS-Denied Environments: Results from the Leonardo Drone Contest,DOI Match
+Scopus,SCOPUS_0330,Autonomous Navigation in GPS-Denied Environments Using Visual SLAM,DOI Match
+Scopus,SCOPUS_0331,UAV Waypoint Opportunistic Navigation in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0332,Dual-Layer Path Planning with Pose SLAM for Autonomous Exploration in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0334,UWB-based system for UAV localization in GNSS-Denied environments: Characterization and dataset,DOI Match
+Scopus,SCOPUS_0336,Enabling Computer Vision-Based Autonomous Navigation for Unmanned Aerial Vehicles in Cluttered GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0340,Radiation Source Localization in GPS-Denied Environments Using Aerial Robots,DOI Match
+Scopus,SCOPUS_0343,Self and Target Locating with Cooperation of Heterogeneous Unmanned Vehicles in the Denial Environment,DOI Match
+Scopus,SCOPUS_0346,Enhanced Relative Localization Based on Persistent Excitation for Multi-UAVs in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0348,A Multi-Sensor Fusion Framework for Unmanned Aerial Vehicle (UAV) Navigation and Inspection in GPS-Denied and Degraded Environments,DOI Match
+Scopus,SCOPUS_0357,Robust Underwater Localization via Sensor Fusion and Transformer-Based Visual Odometry,DOI Match
+Scopus,SCOPUS_0360,Enhancing the UAV Localization Accuracy by Removing False Matches Using Affine Consistency,DOI Match
+Scopus,SCOPUS_0365,Wireless local positioning system for controlled UAV landing in GNSS-denied environment,DOI Match
+Scopus,SCOPUS_0369,Advanced Autonomous Navigation Technologies for UAVs: Challenges and Opportunities,DOI Match
+Scopus,SCOPUS_0370,Error State Extended Kalman Filter Multi-Sensor Fusion for Unmanned Aerial Vehicle Localization in GPS and Magnetometer Denied Indoor Environments,DOI Match
+Scopus,SCOPUS_0371,Monocular visual SLAM for small UAVs in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0372,Autonomous Exploration and Mapping System Using Heterogeneous UAVs and UGVs in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0375,An Autonomous Continuous Positioning Method for Low-Altitude UAVs Based on Image Recognition in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0378,Joint Placement and Communication Optimization of UAV Base Stations in Aerial GPS Denied Environments with Supplementary Node Assistance,DOI Match
+Scopus,SCOPUS_0379,An Onboard Transformer-Based Physics-Informed System for UAV Trajectory Prediction and State Classification in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0383,Semi-Autonomous Interaction Framework for Contact-Based Operations with Commercial UAVs IN GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0385,Multi-Agent Mapping and Navigation of Unknown GPS-Denied Environments Using a Relative Navigation Framework,DOI Match
+Scopus,SCOPUS_0389,UAV-Assisted Visual SLAM Generating Reconstructed 3D Scene Graphs in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0390,"AerialVL: A Dataset, Baseline and Algorithm Framework for Aerial-Based Visual Localization with Reference Map",DOI Match
+Scopus,SCOPUS_0393,Vision-Language Model Informed Relative Navigation for GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0396,Multi-vehicle cooperative localization and mapping with the assistance of dynamic beacons in GNSS-denied environment,DOI Match
+Scopus,SCOPUS_0397,A Control Barrier Function Based Visual Servoing Framework for Safe Operation of UAVs in GNSS Denied Settings using Fiducial Markers,DOI Match
+Scopus,SCOPUS_0406,WHU-Helmet: A Helmet-Based Multisensor SLAM Dataset for the Evaluation of Real-Time 3-D Mapping in Large-Scale GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0409,BEVRender: Vision-based Cross-view Vehicle Registration in Off-road GNSS-denied Environment,DOI Match
+Scopus,SCOPUS_0414,An Integrated GNSS/LiDAR-SLAM Pose Estimation Framework for Large-Scale Map Building in Partially GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0416,Autonomous Localization and Navigation for Drones Over Rivers,DOI Match
+Scopus,SCOPUS_0418,Cooperative Navigation and Guidance of a Micro-Scale Aerial Vehicle by an Accompanying UAV using 3D LiDAR Relative Localization,DOI Match
+Scopus,SCOPUS_0419,Towards Robust UAV Tracking in GNSS-Denied Environments: A Multi-LiDAR Multi-UAV Dataset,DOI Match
+Scopus,SCOPUS_0421,Body-Centered Dynamically-Tuned Error-State Extended Kalman Filter for Visual Inertial Odometry in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0425,Development of a 3D Simultaneous Localization and Mapping System for Unmanned Aerial Vehicle Navigation,DOI Match
+Scopus,SCOPUS_0429,Learning to Navigate and Track Using a Decentralized Reinforcement Learning Framework for UAV Operations in GNSS-Denied Terrain,DOI Match
+Scopus,SCOPUS_0436,Vision-Based Global Localization for UAVs Using Deep Convolutional Neural Networks,DOI Match
+Scopus,SCOPUS_0446,Real Time Vision Based Obstacle Avoidance for UAV using YOLO in GPS Denied Environment,DOI Match
+Scopus,SCOPUS_0448,3D Path Planning for Autonomous UAV Navigation in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0453,GPS-Denied UAV-UGV Relative Positioning System via Vision-UWB Fusion,DOI Match
+Scopus,SCOPUS_0454,UAV Navigation and Mission Execution in GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0455,Satellite Image Informed Path Planning for Improved Visual Localization of Unmanned Ground Vehicles in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0456,Impact of Unmanned Aircraft Regulations on Autonomous Navigation Approaches for Indoor Multi-Rotor Applications - Survey,DOI Match
+Scopus,SCOPUS_0460,EKF-Based Multi-Sensor Fusion for GPS-Denied Localization of an Autonomous Ground Vehicle,DOI Match
+Scopus,SCOPUS_0461,Monocular vision based autonomous navigation for a cost-effective MAV in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0462,Experimental study on using visual odometry for navigation in outdoor GPS-denied environments,DOI Match
+Scopus,SCOPUS_0466,Improving Visual Inertial Odometry with UWB Positioning for UAV Indoor Navigation,DOI Match
+Scopus,SCOPUS_0467,Exploring Deep Learning-Based Visual Localization Techniques for UAVs in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0468,Vision-Based UAV Localization by Aerial and Satellite Image Matching,DOI Match
+Scopus,SCOPUS_0470,Thermal-LiDAR Fusion for Robust Tunnel Localization in GNSS-Denied and Low-Visibility Conditions,DOI Match
+Scopus,SCOPUS_0474,Autonomous Aerial-Ground Cooperative Navigation Based on Information-Seeking in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0476,Enhanced Altitude Estimation for Unmanned Aerial Vehicles in a GNSS-denied Environment,DOI Match
+Scopus,SCOPUS_0477,UAV Pose Estimation in GNSS-Denied Environment Assisted by Satellite Imagery Deep Learning Features,DOI Match
+Scopus,SCOPUS_0479,Aerial Swarm Search for GNSS-Denied Maritime Surveillance,DOI Match
+Scopus,SCOPUS_0480,Sensor Fusion for Autonomous Indoor UAV Navigation in Confined Spaces,DOI Match
+Scopus,SCOPUS_0483,Particle Filter-Based Localization Using Visual Feature Synchronization in GNSS-Denied Navigation,DOI Match
+Scopus,SCOPUS_0485,Adaptive Square-Root Cubature Kalman Filter Based Low Cost UAV Positioning in Dark and GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0486,ρliRLo: LiDAR-Based Relative Localization with Retro-Reflective Marker,DOI Match
+Scopus,SCOPUS_0487,Relative navigation approach for vision-based aerial GPS-denied navigation,DOI Match
+Scopus,SCOPUS_0491,Path Planning for Autonomous Unmanned Ground Vehicles in Underground Mining,Title+Year Match
+Scopus,SCOPUS_0494,Research on Autonomous UAV Power Inspection Method Based on Visual SLAM and Multi-View 3D Reconstruction,DOI Match
+Scopus,SCOPUS_0497,Pose-A VLoc: A Drone Adaptive Visual Continuous Localization Framework Based on Pose Assistance,DOI Match
+Scopus,SCOPUS_0504,QR Code based Indoor Navigation for Mobile Robot,DOI Match
+Scopus,SCOPUS_0508,Cooperative localization of a GPS-Denied UAV using direction-of-arrival measurements,DOI Match
+Scopus,SCOPUS_0511,Tightly-coupled Lidar-inertial Odometry and Mapping in Real Time,DOI Match
+Scopus,SCOPUS_0512,SonarLite: a Compact Analog Sensing System for Real-Time UAV Navigation in GPS-Denied Zones,DOI Match
+Scopus,SCOPUS_0513,Navigating the Future: A Kalman Filter-Based Global-Local-Global (GLG) Position Estimation for Autonomous Vehicles in GPS Denied Environments,DOI Match
+Scopus,SCOPUS_0516,Cooperative Relative Localization for UAV Swarm in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0519,Terrain Aided Planetary UAV Localization Based on Geo-referencing,DOI Match
+Scopus,SCOPUS_0524,The positioning system use for autonomous navigation of unmanned aerial vehicles,DOI Match
+Scopus,SCOPUS_0536,Positioning and Navigation Approaches Using Packet Loss-Based Multilateration for UAVs in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0538,Autonomous Aerial Swarming in GNSS-denied Environments with High Obstacle Density,DOI Match
+Scopus,SCOPUS_0541,Robust Urban Canyon Localization for Autonomous Vehicles via IMM-Based Adaptive Fusion of GNSS/INS and VIO,DOI Match
+Scopus,SCOPUS_0542,PFIN: An Efficient Particle Filter-Based Indoor Navigation Framework for UAVs,DOI Match
+Scopus,SCOPUS_0543,Visual Assist System With Enhanced Localization for Indoor Navigation of Visually Impaired People,DOI Match
+Scopus,SCOPUS_0546,Towards Deep Learning Assisted Autonomous UAVs for Manipulation Tasks in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0550,Vision-Based Localization and Autonomous Homing for UAVs,DOI Match
+Scopus,SCOPUS_0554,A Distributed SLAM with UWB-VIO Fusion Framework for Enhanced Relative Localization of Multi-UAVs System,DOI Match
+Scopus,SCOPUS_0556,Autonomous Quadcopter with Cascaded Control and Vision Tracking for GPS-Denied Indoor Missions,DOI Match
+Scopus,SCOPUS_0561,Spectrum Monitoring for Public Safety Application in UAV GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0562,Visual Odometry/Inertial Integration for Enhanced Land Vehicle Navigation in GNSS Denied Environment,DOI Match
+Scopus,SCOPUS_0565,Coarse-to-Fine Global Localization for Autonomous Vehicles in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0566,Stable Cycles for Underwater Navigation,DOI Match
+Scopus,SCOPUS_0570,GNSS-Independent Navigation of UAV through Utilization of Sensor Fusion and Intelligence System,DOI Match
+Scopus,SCOPUS_0573,Formation Maintenance Method for Multi-UAV in Unknown Environments,DOI Match
+Scopus,SCOPUS_0583,Design a Novel Target to Improve Positioning Accuracy of Autonomous Vehicular Navigation System in GPS Denied Environments,DOI Match
+Scopus,SCOPUS_0585,Autonomous Flight Control Design Based on Multi-Sensor Fusion for a Low-Cost Quadrotor in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0594,Reinforcement Learning-Based Autonomous UAV Navigation in Indoor Environments Towards Human Detection,DOI Match
+Scopus,SCOPUS_0595,Autonomous Aerial Navigation in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0596,Cooperative Localization in Unknown Environment towards Multi-Robot Systems,DOI Match
+Scopus,SCOPUS_0599,Relative visual-inertial odometry for fixed-wing aircraft in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0607,Radar-Based High-Accuracy 3D Localization of UAVs for Landing in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0611,GPR Based Positioning System for Robust Autonomous Vehicle Navigation: A Low-Latency SLAM Framework with V2X Capabilities in Mixed-GPS Environments,DOI Match
+Scopus,SCOPUS_0619,Navigation of USV for GPS-Disabled Environment based on Extended Kalman Filter,DOI Match
+Scopus,SCOPUS_0621,Performance analysis of filter based airborne simultaneous localization and mapping methods,DOI Match
+Scopus,SCOPUS_0625,Seamless Indoor and Outdoor Navigation for Ugvs Using Image-Based Localization,DOI Match
+Scopus,SCOPUS_0627,Design and Implementation of a Behavior-Based Navigation and Obstacle Avoidance System for Quadrotor UAVs in Indoor Environments Using RPLIDAR Sensor,DOI Match
+Scopus,SCOPUS_0628,Efficient Analog Ultrasonic Detection for Autonomous Drone Navigation in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0630,Semantic LiDAR Point Cloud Mapping and Cloud-Based SLAM for Autonomous Driving,DOI Match
+Scopus,SCOPUS_0631,Laser-based cooperative tracking of vehicles and people by multiple mobile robots in GNSS-denied environments,DOI Match
+Scopus,SCOPUS_0637,Recursive Extended Finite-Memory Positioning Algorithm for Robust UAV Positioning in GNSS-Denied Environment,DOI Match
+Scopus,SCOPUS_0640,Benchmarking Navigation Paradigms in GPS-Denied Environments: Insights from Simulated Multi-Modal Sensor Data,DOI Match
+Scopus,SCOPUS_0644,Integrated UWB-vision approach for autonomous docking of UAVS in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0646,Vision-based Navigation of Unmanned Aerial Vehicles,DOI Match
+Scopus,SCOPUS_0653,Distributed Cooperative Localization for Unmanned Systems Using UWB/INS Integration in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0654,Landmark Placement for Localization in a GPS-denied Environment,DOI Match
+Scopus,SCOPUS_0655,Efficiently Kinematic-Constraint-Coupled State Estimation for Integrated Aerial Platforms in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0666,CNN-LiDAR-SLAM: Multimodal Fusion With Object Detection for Indoor Localization,DOI Match
+Scopus,SCOPUS_0668,P3-LOAM: PPP/LiDAR Loosely Coupled SLAM with Accurate Covariance Estimation and Robust RAIM in Urban Canyon Environment,DOI Match
+Scopus,SCOPUS_0670,Position Estimation for Drones based on Visual SLAM and IMU in GPS-denied Environment,DOI Match
+Scopus,SCOPUS_0671,UAV State Estimation and Trajectory Prediction using Transformer-based Neural Networks and Feature-based Visual Odometry,DOI Match
+Scopus,SCOPUS_0673,An Open-Source UAV Platform for Swarm Robotics Research: Using Cooperative Sensor Fusion for Inter-Robot Tracking,DOI Match
+Scopus,SCOPUS_0674,Vehicle Control in GNSS-Denied Environments Using Map-Based Localization and Model Predictive Control,DOI Match
+Scopus,SCOPUS_0677,Adaptive-Robust Fusion Strategy for Autonomous Navigation in GNSS-Challenged Environments,DOI Match
+Scopus,SCOPUS_0681,A Survey on Odometry for Autonomous Navigation Systems,DOI Match
+Scopus,SCOPUS_0684,Design and Flight Test of an Aerial Manipulator for Applications in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0686,A simple and parallel algorithm for real-time robot localization by fusing monocular vision and odometry/AHRS sensors,DOI Match
+Scopus,SCOPUS_0688,Feature 3D Gaussian Splatting for UAV-to-Ship Pose Estimation in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0691,UAV Deployment Optimization for ISAC in Aerial GPS Denied Environments,DOI Match
+Scopus,SCOPUS_0704,Monocular Vision Aided Autonomous UAV Navigation in Indoor Corridor Environments,DOI Match
+Scopus,SCOPUS_0705,A stereo and rotating laser framework for UAV navigation in GPS denied environment,DOI Match
+Scopus,SCOPUS_0708,Cooperative Relative Localization for UAV Swarm in GNSS-Denied Environment: A Coalition Formation Game Approach,DOI Match
+Scopus,SCOPUS_0710,Stereo Vision SLAM for Autonomous Uncrewed Surface Vessels in GPS-Denied and Uncharted Ports,DOI Match
+Scopus,SCOPUS_0716,Vision-Based Autonomous Drone Navigation Using Deep Reinforcement Learning,DOI Match
+Scopus,SCOPUS_0719,Development of nano UAV platform for navigation in GPS-denied environment using snapdragon,DOI Match
+Scopus,SCOPUS_0732,Comparative performance of simultaneous localization and mapping algorithms for unmanned aircraft based navigation systems,DOI Match
+Scopus,SCOPUS_0735,ROS+unity: An efficient high-fidelity 3D multi-UAV navigation and control simulator in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0738,PINNARX: A Physics-Informed Framework for Resilient Inertial Navigation in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0743,Micro-Drone Ego-Velocity and Height Estimation in GPS-Denied Environments Using an FMCW MIMO Radar,DOI Match
+Scopus,SCOPUS_0744,High-Accuracy Autonomous Navigation Algorithm for Long-Distance Land Navigation in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0747,Asymmetric Cooperative Localization for UAV Inspection Inside Wind Turbine Towers Based on 3D Semantic Segmentation,DOI Match
+Scopus,SCOPUS_0753,A Robust Passive Target Localization for Substation Inspection of UAV in a GPS-denied Environment,DOI Match
+Scopus,SCOPUS_0754,Aircraft Navigation in GNSS-Denied Environments via Radio SLAM with Terrestrial Signals of Opportunity,DOI Match
+Scopus,SCOPUS_0758,Comparing UAV camera data with satellite imagery for global localization,DOI Match
+Scopus,SCOPUS_0768,P2P-DroneLoc: Peer-to-Peer Localization for GPS-Denied Drones using Camera and WiFi Fine Time Measurement,DOI Match
+Scopus,SCOPUS_0776,Small-UAS navigation using 3D imager and infrared camera in structured environments,DOI Match
+Scopus,SCOPUS_0782,UAV-BS Operation Plan Using Reinforcement Learning for Unified Communication and Positioning in GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0784,Visual Localization system for GPS-Blind Environments in Unmanned Aerial Vehicles,DOI Match
+Scopus,SCOPUS_0791,A proposal for UAV clustering-based relative localization in GNSS-denied environments,DOI Match
+Scopus,SCOPUS_0793,Low Computational Data Fusion Approach Using INS and UWB for UAV Navigation Tasks in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0799,Multistage Learning-Based Fusion Framework for Autonomous Vehicle Localization in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0804,A Resilient Cooperative Homing Method with Foundation Models for Multi-Robot Systems in GPS-Denied Unknown Environments,DOI Match
+Scopus,SCOPUS_0812,WBF-PS: WiGig Beam Fingerprinting for UAV Positioning System in GPS-denied Environments,DOI Match
+Scopus,SCOPUS_0815,A Multi-UAV System for Exploration and Target Finding in Cluttered and GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0823,Quaternion-Based Unscented Kalman Filter for 6-DoF Vision-Based Inertial Navigation in GPS-Denied Regions,DOI Match
+Scopus,SCOPUS_0824,Thermal-Inertial Localization for Autonomous Navigation of Aerial Robots through Obscurants,DOI Match
+Scopus,SCOPUS_0831,Google map aided visual navigation for UAVs in GPS-denied environment,DOI Match
+Scopus,SCOPUS_0832,Deep Reinforcement Learning Based UAV for Indoor Navigation and Exploration in Unknown Environments,DOI Match
+Scopus,SCOPUS_0833,SIGNAV: Semantically-Informed GPS-Denied Navigation and Mapping in Visually-Degraded Environments,DOI Match
+Scopus,SCOPUS_0837,Voxel-Based Localization and Mapping for Multirobot System in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0839,A Review of ROS-Based Robot Navigation Technologies,DOI Match
+Scopus,SCOPUS_0842,Design and Experimental Validation of an Autonomous USV for Sensor Fusion-Based Navigation in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0843,Autonomous Cooperative Mapping of GPS-Denied Cluttered Environments Using Gaussian Process Regression,DOI Match
+Scopus,SCOPUS_0844,RANGE - Robust autonomous navigation in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0859,Inside Bridges: Autonomous Crack Inspection with Nano UAVs in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0863,Multi-Sensor 6-DoF Localization for Aerial Robots in Complex GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0865,Multi-UAV Cooperative Localization with PSO-Based Configuration Optimization for Bridge Inspection in GNSS-Denied Environment,DOI Match
+Scopus,SCOPUS_0873,Drone Positioning in a Specified Location Using Visual Data Under GPS-denied Conditions,DOI Match
+Scopus,SCOPUS_0874,A VIO-Based Localization Approach in GPS-denied Environments for an Unmanned Surface Vehicle,DOI Match
+Scopus,SCOPUS_0879,Multi-UAVs Cooperative Localization with Deep Reinforcement Learning in GPS-Denied Environment,DOI Match
+Scopus,SCOPUS_0883,A Hierarchical Clustered Relative Localization Algorithm in GNSS-denied UAV Swarm Environments,DOI Match
+Scopus,SCOPUS_0893,LiDAR-Based Decentralized Collaborative Localization and Mapping for Multi-AAV With Stable Triangle Descriptor,DOI Match
+Scopus,SCOPUS_0895,A Multi-Sensor Fusion Self-Localization System of a Miniature Underwater Robot in Structured and GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0899,Scalable and precise multi-UAV indoor navigation using TDOA-based UWB localization,DOI Match
+Scopus,SCOPUS_0900,Leonardo Drone Contest 2021: Politecnico di Milano team architecture,DOI Match
+Scopus,SCOPUS_0901,Digital Twin for Drone Indoor Autonomous Navigation,DOI Match
+Scopus,SCOPUS_0904,Vision-based object path following on a quadcopter for GPS-denied environments,DOI Match
+Scopus,SCOPUS_0914,Fast Swarming of UAVs in GNSS-Denied Feature-Poor Environments Without Explicit Communication,DOI Match
+Scopus,SCOPUS_0916,Multimodal Image Registration for GPS-denied UAV Navigation Based on Disentangled Representations,DOI Match
+Scopus,SCOPUS_0920,Vision aided motion estimation for unmanned helicopters in GPS denied environments,DOI Match
+Scopus,SCOPUS_0921,UAV Vision Aided INS/Odometer Integration for Land Vehicle Autonomous Navigation,DOI Match
+Scopus,SCOPUS_0925,Robust GPR-Aided Localization for Autonomous Vehicles in GPS-Denied Environments,DOI Match
+Scopus,SCOPUS_0933,Robust autonomous flight and mission management for MAVs in GPS-denied environments,DOI Match
+Scopus,SCOPUS_0942,A Relative Navigation Method Based on Wireless Ranging for UAV in GPS Denied Environment,DOI Match
+Scopus,SCOPUS_0953,Distance function based 6DOF localization for unmanned aerial vehicles in GPS denied environments,DOI Match
+Scopus,SCOPUS_0958,A Novel Three-Stage Robust Adaptive Filtering Algorithm for Visual-Inertial Odometry in GNSS-Denied Environments,DOI Match
+Scopus,SCOPUS_0964,A Marker-based Method of Autonomous Landing for Unmanned Aerial Vehicles,DOI Match
+Scopus,SCOPUS_0968,A New Velocity Meter Based on Hall Effect Sensors for UAV Indoor Navigation,DOI Match
+Scopus,SCOPUS_0978,Large-Scale Autonomous Flight with Real-Time Semantic SLAM under Dense Forest Canopy,DOI Match
+Scopus,SCOPUS_0984,Omni-Bot: An Autonomous Inspection Robot for Underground Parking Garages Using Multi-Modal SLAM and Reinforcement Learning-Based Navigation,DOI Match
+Scopus,SCOPUS_0987,Integration of Extended Kalman Filtering and Deep Reinforcement Learning for Autonomous UAV Navigation Under GPS Jamming,DOI Match
+Scopus,SCOPUS_0988,Research on An Autonomous Tunnel Inspection UAV based on Visual Feature Extraction and Multi-sensor Fusion Indoor Navigation System,DOI Match
+Scopus,SCOPUS_0992,Hybrid IMU-aided approach for optimized visual odometry,DOI Match
+Scopus,SCOPUS_0998,Recent Advances in SLAM for Degraded Environments: A Review,DOI Match
+IEEE,IEEE Conferences,Pose estimation based on laser range finder for a quadrotor unmanned aerial vehicle in GPS-denied environment,Title/DOI Match
+Scopus,SCOPUS_0211,Enhancing UAV Autonomy and Path Optimization Through SBAS and Visual-Inertial Odometry; [Mejora de la autonomía de UAV y optimización de trayectorias mediante odometría visual–inercial integrada con SBAS],Title/DOI Match
+Scopus,SCOPUS_0487,Relative navigation approach for vision-based aerial GPS-denied navigation,Title/DOI Match
+Scopus,SCOPUS_0787,"Autonomous targeted flight of a rotary-wing micro aerial vehicle in indoor, GPS-denied environments",Title/DOI Match
