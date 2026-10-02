@@ -67,7 +67,7 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 
 | Asset Layer | Canonical Location | Verified Quantity | Integrity Status |
 | :--- | :--- | :---: | :--- |
-| **Full-Text PDFs** | [`01_data/03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) (and mirrored in [`01_data/01_pdfs/`](file:///e:/slr_project/01_data/01_pdfs/)) | **291 PDFs** | Exact match (1,613,079,524 bytes, ~1.50 GB) |
+| **Full-Text PDFs** | [`01_data/03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) | **291 PDFs** | Exact match (1,613,079,524 bytes, ~1.50 GB, Bible canonical location) |
 | **Extracted Text** | [`01_data/03_pdfs/*.txt`](file:///e:/slr_project/01_data/03_pdfs/) | Verified | Raw extractions (`REC_1582.txt`, `REC_1688.txt`, `REC_1715.txt`) & English translation (`REC_1688_translated_EN.txt`) |
 | **Evidence Cards** | [`02_cards/`](file:///e:/slr_project/02_cards/) | **291 Cards** | Complete 18-section schema compliance across all cards |
 | **Card Manifest** | [`02_cards/FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv) | **291 Rows** | Cryptographic SHA256 re-hashed, 0 mismatches |

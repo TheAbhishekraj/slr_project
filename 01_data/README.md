@@ -9,7 +9,7 @@ This directory organizes all primary search and full-text data assets for:
 
 - [`01_data_raw/`](file:///e:/slr_project/01_data/01_data_raw/) — Initial database export files (IEEE Xplore & Scopus, 2,000 total raw records).
 - [`02_data_proceesed/`](file:///e:/slr_project/01_data/02_data_proceesed/) — Deduplication audit logs (`01_deduplicated_master.csv`), preliminary screening (`02_screened_included_v2.csv`), PRISMA full-text screening results (`03_screening_results.csv`), retrieved PDF manifest (`04_retrieved_pdfs_291.csv`), and master Excel review workbook (`PRISMA_MASTER_WORKBOOK_v2.xlsx`).
-- [`03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) — 291 full-text research paper PDFs (`REC_0001.pdf` to `REC_1715.pdf`), extracted text files (`.txt`), and English translations. (Mirrored in `01_pdfs/` for backward link compatibility).
+- [`03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) — 291 full-text research paper PDFs (`REC_0001.pdf` to `REC_1715.pdf`), extracted text files (`.txt`), and English translations (canonical Bible Part 3 location).
 
 ---
 
