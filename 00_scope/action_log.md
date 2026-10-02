@@ -20,6 +20,7 @@
 | 2026-10-02 | Repo-wide label sweep | Agent | E1/E3 exclusion labels renamed to X1/X3 in 12 live MDs (root README, 01_data x3, 02_cards x3, 03_ai_checks x5, 07_certificates x2, PRISMA_FLOWCHART node IDs). |
 | 2026-10-02 | Stale facts corrected | Agent | 02_data_proceesed README: 280->284 dups; ghost MASTER_EVIDENCE.csv + evidence_batches/ marked REMOVED; stale REC_1688 translation paths fixed in 3 files; AUDIT_PROMPT file paths corrected. |
 | 2026-10-02 | Defect D-C logged | Agent | FROZEN_MANIFEST_20260927.csv SHA256 mismatches disk for 291/291 cards (content rewritten post-freeze). T1 hash verification will FAIL until re-stamp or human ruling. |
+| 2026-10-02 | Defect D-C closed | Human+Agent | Old manifest retired to 07_certificates/old_manifests/; FROZEN_MANIFEST_20261002.csv in force. REC_1688 row re-stamped after X3 label edit. Verified 291/291 match, 0 mismatches. FROZEN.md manifest SHA refreshed (BB0ABB67...22F9). |
 
 
 | 2026-10-02 | Manifest regenerated | Agent | Old manifest retired to 07_certificates/old_manifests/. New manifest: 02_cards/FROZEN_MANIFEST_20261002.csv. Reason: card hashes changed after author-field anonymization. Cards unchanged. |
