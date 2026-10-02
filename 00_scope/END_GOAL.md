@@ -42,14 +42,14 @@ D2  SUPPLEMENTARY TABLES
       S4  Inclusion/exclusion criteria (X1, X3)
 
 D3  CERTIFIED MASTER
-    04_master/MASTER_EVIDENCE_v2.csv
+    04_master/MASTER_EVIDENCE.csv
       287 rows, 28 cols, every quote carries [p.N]
-    Certificate: 07_certificates/CERTIFICATE_MASTER_287.md
+    Certificate: 07_certificates/CERTIFICATE_MASTER.md
 
 D4  AUDIT TRAIL
     07_certificates/
       MERGE_DECISIONS.md        (one line per diff vs old 279)
-      CERTIFICATE_MASTER_287.md
+      CERTIFICATE_MASTER.md
       CERTIFICATE_MANUSCRIPT.md
       CENSUS_AUDIT_REPORT_20261002.md
     03_ai_checks/                (one P1 report per card — 287)

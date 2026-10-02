@@ -176,7 +176,7 @@ STEP 3 VERIFY CARDS — run P1 on all 287 in-corpus cards (start with the
   5 historically corrupt: REC_1083, 1084, 1085, 1095, 1096). Reports to
   03_ai_checks/.
 STEP 4 BUILD MASTER — python tools/build_master.py 02_cards
-  04_master/MASTER_EVIDENCE_v2.csv (script reads only VERIFIED cards;
+  04_master/MASTER_EVIDENCE.csv (script reads only VERIFIED cards;
   expected count 287). Then validate_master.py (expected 287; the 4
   excluded IDs must be ABSENT). Then certify.py.
 STEP 5 CROSS-CERTIFY — python tools/compare_masters.py new vs old

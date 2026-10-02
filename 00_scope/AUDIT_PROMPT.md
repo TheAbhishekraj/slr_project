@@ -3,7 +3,7 @@
 Version: 1.0
 Issued: 2026-10-02
 Applies to: T1 through T7 and the final submission audit
-Authority: MASTER_REFERENCE_BIBLE.md v3 + MASTER_PROMPT_5.md
+Authority: MASTER_REFERENCE_BIBLE.md v3 + MASTER_PROMPT.md
 
 ================================================================
 PURPOSE
@@ -23,7 +23,7 @@ READ FIRST, IN THIS ORDER (every audit session)
 ================================================================
 1. 00_scope/FROZEN_SCOPE.md
 2. 00_scope/MASTER_REFERENCE_BIBLE.md v3
-3. 00_scope/MASTER_PROMPT_5.md
+3. 00_scope/MASTER_PROMPT.md
 4. 00_scope/EXTRACTION_RULES.md
 5. 00_scope/EXTRACTION_SCHEMA.md
 6. This file (AUDIT_PROMPT.md)
@@ -115,7 +115,7 @@ The 4 excluded IDs must be ABSENT from every downstream artefact:
 
 | # | Artefact | Check | Expected |
 |---|---|---|---|
-| 3.1 | 04_master/MASTER_EVIDENCE_v2.csv | grep each ID | 0 hits |
+| 3.1 | 04_master/MASTER_EVIDENCE.csv | grep each ID | 0 hits |
 | 3.2 | 05_analysis/*.csv | grep each ID | 0 hits |
 | 3.3 | 05_analysis/figures/ filenames | grep | 0 hits |
 | 3.4 | 06_manuscript/*.md | grep each ID | 0 hits |
@@ -145,7 +145,7 @@ Report: cards checked | cards passed | cards failed | failures listed.
 ================================================================
 SECTION 5 — MASTER FILE INTEGRITY
 ================================================================
-Required: 04_master/MASTER_EVIDENCE_v2.csv
+Required: 04_master/MASTER_EVIDENCE.csv
 
 | # | Check | Expected |
 |---|---|---|
@@ -211,10 +211,10 @@ Report every hit with file, line number, snippet.
 SECTION 9 — HASH CERTIFICATION
 ================================================================
 Compute and record SHA256 for:
-  04_master/MASTER_EVIDENCE_v2.csv
-  05_analysis/quality_appraisal_scored_v2.csv
-  05_analysis/inference_table_v2.csv
-  05_analysis/taxonomy_distribution_v2.csv
+  04_master/MASTER_EVIDENCE.csv
+  05_analysis/quality_appraisal_scored.csv
+  05_analysis/inference_table.csv
+  05_analysis/taxonomy_distribution.csv
   06_manuscript/MANUSCRIPT_V2.md
   06_manuscript/NUMBER_TRACE.md
   06_manuscript/references.bib
@@ -274,19 +274,19 @@ T2 (Card Verification)
 
 T3 (Master Build + Certify)
   Run: Sections 1, 2, 3, 5, 9, 10
-  Required artefacts: MASTER_EVIDENCE_v2.csv,
-    CERTIFICATE_MASTER_287.md
+  Required artefacts: MASTER_EVIDENCE.csv,
+    CERTIFICATE_MASTER.md
   Exit token: T3 PASS
 
 T4 (QA Scoring)
   Run: Sections 1, 3, 5, 9, 10
-  Required artefacts: quality_appraisal_scored_v2.csv
+  Required artefacts: quality_appraisal_scored.csv
   Exit token: T4 PASS
 
 T5 (Analytics)
   Run: Sections 1, 3, 5, 9, 10
-  Required artefacts: inference_table_v2.csv,
-    taxonomy_distribution_v2.csv, figures/, LOCKED_NUMBERS_287.md
+  Required artefacts: inference_table.csv,
+    taxonomy_distribution.csv, figures/, LOCKED_NUMBERS_287.md
   Exit token: T5 PASS
 
 T6 (Manuscript)

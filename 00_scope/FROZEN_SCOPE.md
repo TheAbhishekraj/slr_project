@@ -20,7 +20,7 @@ CORPUS ASSET VERIFICATION:
 
 EXTRACTION SCHEMA: 28 columns (see EXTRACTION_SCHEMA.md).
 RULES: The 7 Golden Rules. Frozen on 2026-10-02 by System.
-Latest Version Reference: FROZEN_SCOPE_v6.md.
+Latest Version Reference: FROZEN_SCOPE.md.
 Supersedes: v2, v3, v4, v5 (retained in 07_certificates/old_scopes/ for audit).
 Census authority: 07_certificates/CENSUS_AUDIT_REPORT_20261002.md
 X3 evidence hash: 926a229415d9df488843413fc6a2a099ca3430f05017c8de8fc7a915de88ab8c

@@ -24,3 +24,7 @@
 
 
 | 2026-10-02 | Manifest regenerated | Agent | Old manifest retired to 07_certificates/old_manifests/. New manifest: 02_cards/FROZEN_MANIFEST_20261002.csv. Reason: card hashes changed after author-field anonymization. Cards unchanged. |
+
+| 2026-10-02 | Scope cleanup | Agent | version refs removed; MASTER_PROMPT_5 -> MASTER_PROMPT; END_GOAL_287 -> END_GOAL; FROZEN_SCOPE_v6 removed; README read order updated. |
+| 2026-10-02 | Build Master | Agent | MASTER_EVIDENCE.csv generated, 287 rows. |
+| 2026-10-02 | Build Master | Agent | MASTER_EVIDENCE.csv generated, 287 rows. |

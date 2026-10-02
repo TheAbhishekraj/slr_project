@@ -82,23 +82,23 @@ T2  CARD VERIFICATION (P1, per card)
     master. Human PASS.
 
 T3  BUILD + CERTIFY MASTER
-    tools/build_master.py 02_cards 04_master/MASTER_EVIDENCE_v2.csv
+    tools/build_master.py 02_cards 04_master/MASTER_EVIDENCE.csv
     tools/validate_master.py   (expect 287 rows; excluded IDs absent;
       unique REC_XXXX; years 2010-2026; quotes carry [p.N])
-    tools/certify.py 04_master/MASTER_EVIDENCE_v2.csv
-    Output: 07_certificates/CERTIFICATE_MASTER_287.md
+    tools/certify.py 04_master/MASTER_EVIDENCE.csv
+    Output: 07_certificates/CERTIFICATE_MASTER.md
     Human PASS.
 
 T4  QA SCORING (P3) for the 287 corpus
     0-10 rubric (rigor 0-4, reporting 0-3, baseline 0-2, repro 0-1;
     tiers 8-10 Q-High, 5-7 Q-Medium, 0-4 Q-Low; simulation-only capped
-    at Q-Medium). Output 05_analysis/quality_appraisal_scored_v2.csv;
+    at Q-Medium). Output 05_analysis/quality_appraisal_scored.csv;
     certify.py it. Human PASS.
 
 T5  ANALYTICS
     tools/analyze.py with corpus target 287. Produce
-    05_analysis/inference_table_v2.csv,
-    05_analysis/taxonomy_distribution_v2.csv,
+    05_analysis/inference_table.csv,
+    05_analysis/taxonomy_distribution.csv,
     05_analysis/figures/ (F1-F9). Freeze results in
     00_scope/LOCKED_NUMBERS_287.md. These become the ONLY numbers the
     manuscript may use. Human PASS.

@@ -4,13 +4,15 @@ Authoritative scope, rules, and active prompt for the GPS-Denied UAV SLR.
 Corpus LOCKED at 287. Frozen 2026-10-02 (Decision B).
 
 ## Read order, every session
-1. FROZEN_SCOPE.md               — anchor, exclusions, corpus verification
-2. EXTRACTION_SCHEMA.md          — 28-column card schema
-3. EXTRACTION_RULES.md           — rules E1–E12 (extraction quality)
-4. PHASE_C_MANUAL_EXTRACTION.md  — card template + 5 hand-checks
-5. MASTER_REFERENCE_BIBLE.md     — golden rules R1–R7, prompt pack P0–P6
-6. MASTER_PROMPT_5.md            — active execution prompt (tasks T1–T7)
-7. END_GOAL_287.md               — definition of done (D1–D5)
+
+1. FROZEN_SCOPE.md
+2. EXTRACTION_SCHEMA.md
+3. EXTRACTION_RULES.md
+4. PHASE_C_MANUAL_EXTRACTION.md
+5. MASTER_REFERENCE_BIBLE.md
+6. MASTER_PROMPT.md
+7. AUDIT_PROMPT.md
+8. END_GOAL.md
 
 ## LABEL COLLISION — READ THIS BEFORE WRITING ANY CARD
 EXTRACTION_RULES.md uses E1–E12 for extraction quality rules.
