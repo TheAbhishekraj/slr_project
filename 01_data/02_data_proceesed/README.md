@@ -10,9 +10,9 @@ This directory contains the core processed datasets, screening registers, and ba
 ```text
 02_data_processed/
 ├── README.md                      # Directory guide, schema catalog, and cryptographic manifest (this file)
-├── MASTER_EVIDENCE.csv            # LIVE: Final 279-paper multi-sensor extraction master (28 columns)
+├── MASTER_EVIDENCE.csv            # REMOVED: legacy 279-row pre-Decision-B master; successor 04_master/MASTER_EVIDENCE_v2.csv (287 rows, built in T3)
 ├── 01_deduplicated_master.csv       # FROZEN: 1,716 unique records after cross-database deduplication
-├── dedup_log.csv                  # FROZEN: 280 dropped duplicate records log
+├── dedup_log.csv                  # FROZEN: 284 dropped duplicate records log
 ├── DEDUP_REPORT.md                # Deduplication audit report and metric breakdown
 ├── DEDUP_VERIFY.md                # Verification checklist and SHA256 audit for deduplication
 ├── 02_screened_included_v2.csv    # FROZEN: 501 candidate records passing preliminary screening
@@ -21,9 +21,7 @@ This directory contains the core processed datasets, screening registers, and ba
 ├── PRISMA_MASTER_WORKBOOK_v2.xlsx # MASTER REVIEW: Excel workbook containing sheets 01 to 04 for easy manual review
 ├── screening_spreadsheet.xlsx     # Working spreadsheet for screening evaluations
 ├── pdf_removal_log.csv            # Audit of 3 byte-identical duplicate PDFs excluded from corpus
-└── evidence_batches/              # Batch extraction processing directory (28 batches)
-    ├── BATCH_B01.csv ... BATCH_B28.csv       # 28 batch CSV tables (279 rows total)
-    └── BATCH_B01_pages/ ... BATCH_B28_pages/ # Full-text page extraction snippets per batch
+└── evidence_batches/              # REMOVED: legacy 279-era batch directory (superseded by Decision B, 287 corpus)
 ```
 
 ---
@@ -34,9 +32,9 @@ All active core files have been audited and cryptographically verified:
 
 | File | Type | Data Rows | Size | SHA256 Hash | Status |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **`MASTER_EVIDENCE.csv`** | CSV | **279** | 134,087 B | `15B26C59DFAAAD0A62A3D473AC7EB4DFC0491A89B7B6D4D5CF78BB8FB512B2C6` | **LIVE MASTER** |
+| ~~`MASTER_EVIDENCE.csv`~~ | CSV | ~~279~~ | — | — | REMOVED (pre-Decision-B legacy); successor `04_master/MASTER_EVIDENCE_v2.csv` (287 rows, built in T3) |
 | **`01_deduplicated_master.csv`**| CSV | **1,716** | 2,485,100 B | `B6C8359D2355AF6E7CB057E035C9B84309C476D9CD06FD6777FCA1B26FE06810` | **FROZEN ANCHOR** |
-| **`dedup_log.csv`** | CSV | **280** | 34,801 B | `F725F1A367FB47DE5969FFAF3EB4615B600F4937DC16F3DBD5A7129097C24F04` | **FROZEN AUDIT** |
+| **`dedup_log.csv`** | CSV | **284** | 34,801 B | `F725F1A367FB47DE5969FFAF3EB4615B600F4937DC16F3DBD5A7129097C24F04` | **FROZEN AUDIT** |
 | **`DEDUP_REPORT.md`** | Markdown | — | 2,309 B | `093992EB3364DAB9C14080524ECAA57D1B2640134D3330D72D1BF7A27AB74798` | Audit Log |
 | **`DEDUP_VERIFY.md`** | Markdown | — | 975 B | `CD9AAA38722E6A5BE2BD9244807C814908FDF287D5D4A65E21E64D7A73A8598E` | Audit Log |
 | **`02_screened_included_v2.csv`** | CSV | **501** | 786,996 B | `7528BA3B929B8FE800D3457FEFFD59C39EACAAC6289A40AF58069DD5D78F2CEA` | **FROZEN ANCHOR** |
@@ -61,7 +59,7 @@ The files in this directory represent the quantitative stages of the PRISMA 2020
                            ▼ [Automated Deduplication]
 ┌────────────────────────────────────────────────────────┐
 │ 01_deduplicated_master.csv: 1,716 Unique Records       │
-│ (280 Duplicate records documented in dedup_log.csv)    │
+│ (284 Duplicate records documented in dedup_log.csv)    │
 └──────────────────────────┬─────────────────────────────┘
                            │
                            ▼ [Title & Abstract Screening]
@@ -73,7 +71,7 @@ The files in this directory represent the quantitative stages of the PRISMA 2020
 ┌────────────────────────────────────────────────────────┐
 │ 03_screening_results.csv: 291 Assessed Records         │
 │ ├── 287 INCLUDED                                       │
-│ └── 4 EXCLUDED (3 Scope E1, 1 Language E3: REC_1688)   │
+│ └── 4 EXCLUDED (3 Scope X1, 1 Language X3: REC_1688)   │
 └──────────────────────────┬─────────────────────────────┘
                            │
                            ▼ [Corpus Refinement & Deduplication]
@@ -87,12 +85,13 @@ The files in this directory represent the quantitative stages of the PRISMA 2020
 
 ---
 
-## 4. `evidence_batches/` Details
+## 4. `evidence_batches/` Details (REMOVED — legacy)
 
-To ensure scalable, reproducible extraction without memory overruns, the 279 in-corpus papers are divided into **28 sequential batches**:
-- **Batches B01 to B27:** Exactly 10 papers each (27 × 10 = 270 papers).
-- **Batch B28:** Exactly 9 papers (270 + 9 = 279 papers).
-- **Page Extraction Folders (`BATCH_BXX_pages/`):** Full-text page extractions corresponding to each paper in the batch, used by extraction scripts and human spot-check validators.
+The legacy `evidence_batches/` directory has been removed. It was built
+on the old 279-paper corpus (27 batches x 10 papers + 1 batch x 9) which
+Decision B (2026-10-02) superseded. The frozen corpus is now **287
+studies**; any future batch artefacts must be regenerated against the
+287-corpus master (`04_master/MASTER_EVIDENCE_v2.csv`, built in T3).
 
 ---
 

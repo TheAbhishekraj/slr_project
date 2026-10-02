@@ -51,9 +51,9 @@
 │ Assessed for Full-Text Eligibility: 291 Records        │
 │ Retrieved as Physical PDFs (03_pdfs/): 291 (100%)      │
 │ Excluded Full-Text Studies: 4 Records                  │
-│   • E1 (Scope / Metrology Bench Test / Survey): 3      │
+│   • X1 (Scope / Metrology Bench Test / Survey): 3      │
 │     - REC_0053, REC_0693, REC_0866                     │
-│   • E3 (Foreign Language - Chinese Full Text): 1       │
+│   • X3 (Foreign Language - Chinese Full Text): 1       │
 │     - REC_1688 (English translation provided)         │
 └──────────────────────────┬─────────────────────────────┘
                            │
@@ -71,10 +71,10 @@
 
 | Sl. No | Record ID | Title | Exclusion Rule | Methodological & PRISMA Justification |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | **`REC_0053`** | *A Survey of Deep Learning Techniques and Computer Vision in Robotic and Drone with Applications* | **Rule E1 (Scope)** | Broad, non-empirical educational review of generic computer vision algorithms (YOLO, CNNs) across robotics/drones; no novel multi-sensor state estimation in GPS-denied environments. |
-| 2 | **`REC_0693`** | *Characterization and Testing of a High-Resolution Time-of-Flight Camera for Autonomous Navigation* | **Rule E1 (Scope)** | Isolated laboratory bench-test and sensor metrology study evaluating depth noise and reflectivity of a ToF camera on an optical bench rail; no flying UAV platform or integrated multi-sensor navigation filter. |
-| 3 | **`REC_0866`** | *Autonomous Aerial Robots for Search and Rescue Missions* | **Rule E1 (Scope)** | High-level conceptual survey describing search-and-rescue drone missions; contains no algorithmic formulation, state estimation mathematics, or empirical quantitative flight navigation benchmarks. |
-| 4 | **`REC_1688`** | *Pose estimation based on laser range finder for a quadrotor unmanned aerial vehicle in GPS-denied environment* | **Rule E3 (Language)** | Full-text published entirely in Chinese (Chinese Control Conference 2013). Excluded under standard PRISMA English-language protocol criteria. Preserved in full-text archive with complete English translation (`REC_1688_translated_EN.txt`) and extraction card. |
+| 1 | **`REC_0053`** | *A Survey of Deep Learning Techniques and Computer Vision in Robotic and Drone with Applications* | **X1 (Scope)** | Broad, non-empirical educational review of generic computer vision algorithms (YOLO, CNNs) across robotics/drones; no novel multi-sensor state estimation in GPS-denied environments. |
+| 2 | **`REC_0693`** | *Characterization and Testing of a High-Resolution Time-of-Flight Camera for Autonomous Navigation* | **X1 (Scope)** | Isolated laboratory bench-test and sensor metrology study evaluating depth noise and reflectivity of a ToF camera on an optical bench rail; no flying UAV platform or integrated multi-sensor navigation filter. |
+| 3 | **`REC_0866`** | *Autonomous Aerial Robots for Search and Rescue Missions* | **X1 (Scope)** | High-level conceptual survey describing search-and-rescue drone missions; contains no algorithmic formulation, state estimation mathematics, or empirical quantitative flight navigation benchmarks. |
+| 4 | **`REC_1688`** | *Pose estimation based on laser range finder for a quadrotor unmanned aerial vehicle in GPS-denied environment* | **X3 (Language)** | Full-text published entirely in Chinese (Chinese Control Conference 2013). Excluded under standard PRISMA English-language protocol criteria. Preserved in full-text archive with complete English translation (`REC_1688_translated_EN.txt`) and extraction card. |
 
 ---
 

@@ -21,7 +21,7 @@ This directory organizes all primary search and full-text data assets for:
 - **291 Full-Text Retrieved & Assessed:** 100% of candidate PDFs retrieved and preserved on disk.
 - **287 Included Studies:** Exactly 287 studies formally included in the review corpus (291 assessed - 4 excluded = 287 included).
 - **4 Excluded Studies:**
-  - 3 Scope Exclusions (Rule E1: `REC_0053`, `REC_0693`, `REC_0866`).
-  - 1 Foreign Language Exclusion (Rule E3: `REC_1688`, Chinese full-text; translation preserved in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`).
+  - 3 Scope Exclusions (X1: `REC_0053`, `REC_0693`, `REC_0866`).
+  - 1 Foreign Language Exclusion (X3: `REC_1688`, Chinese full-text; translation preserved in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`).
 - **291 Extraction Cards:** Exactly corresponds to the 291 markdown extraction cards in [`02_cards/`](file:///e:/slr_project/02_cards/).
 - **Sl. No Parity:** Sl. No 1 to 291 in `PRISMA_MASTER_WORKBOOK_v2.xlsx` matches 1-to-1 with `pdf_file_name` on disk.

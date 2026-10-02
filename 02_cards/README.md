@@ -19,7 +19,7 @@ This directory contains the standardized, per-paper markdown extraction evidence
   - Every included study has a corresponding extraction card in this directory and full-text PDF on disk.
   - Mapped 1-to-1 with Sl. No 1 to 291 in `PRISMA_MASTER_WORKBOOK_v2.xlsx`.
 - **4 Excluded Full-Text Studies:**
-  - `REC_0053`: Excluded under **Rule E1** (General non-empirical deep learning survey).
-  - `REC_0693`: Excluded under **Rule E1** (Isolated ToF camera optical bench metrology).
-  - `REC_0866`: Excluded under **Rule E1** (High-level conceptual search-and-rescue survey).
-  - `REC_1688`: Excluded under **Rule E3** (Foreign language: Full text in Chinese; complete English translation provided in `01_data/03_pdfs/REC_1688_translated_EN.txt`).
+  - `REC_0053`: Excluded under **X1** (General non-empirical deep learning survey).
+  - `REC_0693`: Excluded under **X1** (Isolated ToF camera optical bench metrology).
+  - `REC_0866`: Excluded under **X1** (High-level conceptual search-and-rescue survey).
+  - `REC_1688`: Excluded under **X3** (Foreign language: Full text in Chinese; complete English translation provided in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`).

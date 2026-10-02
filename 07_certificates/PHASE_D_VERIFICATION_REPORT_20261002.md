@@ -32,11 +32,11 @@ Individual Automated Check Reports Generated:   291 (03_ai_checks/REC_XXXX.check
 
 Corpus Composition:
   - Included Empirical Studies (Rule I2): 287 (Frozen Synthesis Corpus)
-  - Excluded Studies Audited (Rules E1/E3): 4
-      * REC_0053 (Rule E1: General review, non-empirical)
-      * REC_0693 (Rule E1: Optical bench metrology; no UAV flight)
-      * REC_0866 (Rule E1: Conceptual search survey; no fusion math)
-      * REC_1688 (Rule E3: Foreign language; English translation in 01_data/03_pdfs/)
+  - Excluded Studies Audited (codes X1/X3): 4
+      * REC_0053 (X1: General review, non-empirical)
+      * REC_0693 (X1: Optical bench metrology; no UAV flight)
+      * REC_0866 (X1: Conceptual search survey; no fusion math)
+      * REC_1688 (X3: Foreign language; English translation in 01_data/02_data_proceesed/)
 
 Verification Certification Rate:
   - Cards Marked "verification_status: VERIFIED": 291 / 291 (100.0%)
@@ -57,7 +57,7 @@ Prior to full certification, 6 known failure cards were completely re-extracted 
 3. **REC_1085:** Re-extracted from `REC_1085.pdf` (Gallo & Barrientos, *Aerospace* 2023, DOI: `10.3390/aerospace10030220`). Standardized into Phase C schema.
 4. **REC_1095:** Re-extracted from `REC_1095.pdf` (López et al., *Sensors* 2017, DOI: `10.3390/s17040802`). Standardized into Phase C schema.
 5. **REC_1096:** Re-extracted from `REC_1096.pdf` (Luo et al., *Drones* 2026, DOI: `10.3390/drones10010049`). Standardized into Phase C schema.
-6. **REC_1688:** Enriched with quoted English excerpts from `REC_1688.pdf` (page 1 English abstract) and complete translation `01_data/03_pdfs/REC_1688_translated_EN.txt`. Explicitly marked `status: complete (excluded from synthesis corpus: Rule E3 - Foreign Language)`.
+6. **REC_1688:** Enriched with quoted English excerpts from `REC_1688.pdf` (page 1 English abstract) and complete translation `01_data/02_data_proceesed/REC_1688_translated_EN.txt`. Explicitly marked `status: complete (excluded from synthesis corpus: X3 - Foreign Language)`.
 
 ---
 

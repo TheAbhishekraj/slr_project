@@ -32,10 +32,10 @@ Each check file (`REC_XXXX.check.md`) documents four comprehensive auditing dime
 - **Total Extraction Cards Audited:** 291
 - **Total Check Reports Generated:** 291 (`REC_0001.check.md` through `REC_1715.check.md`)
 - **Included Studies Certified:** 287 (Rule `I2`)
-- **Excluded Studies Audited:** 4 (Rules `E1` and `E3`)
-  - `REC_0053`: Excluded under Rule `E1` (General computer vision review)
-  - `REC_0693`: Excluded under Rule `E1` (ToF camera optical bench metrology)
-  - `REC_0866`: Excluded under Rule `E1` (Conceptual search-and-rescue survey)
-  - `REC_1688`: Excluded under Rule `E3` (Foreign Language - Chinese; translated text in `01_data/03_pdfs/REC_1688_translated_EN.txt`)
+- **Excluded Studies Audited:** 4 (codes `X1` and `X3`)
+  - `REC_0053`: Excluded under code `X1` (General computer vision review)
+  - `REC_0693`: Excluded under code `X1` (ToF camera optical bench metrology)
+  - `REC_0866`: Excluded under code `X1` (Conceptual search-and-rescue survey)
+  - `REC_1688`: Excluded under code `X3` (Foreign Language - Chinese; translated text in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`)
 - **Certification Rate:** **100.0%** (`verdict = VERIFIED`, `[SELF-AUDIT: PASS]`)
 - **Corpus Eligibility Rule (Rule R6):** Only cards certified with `verification_status: VERIFIED` are permitted to enter the master synthesis file (`04_master/`).

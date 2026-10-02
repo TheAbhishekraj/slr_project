@@ -79,7 +79,7 @@ Verify each line below. Report PASS/FAIL per line with the source.
 | # | Check | Command / Source | Expected |
 |---|---|---|---|
 | 1.1 | Raw record count | 01_data/01_data_raw/*.csv | 2,000 |
-| 1.2 | Dedup unique count | 01_data/02_data_proceesed/deduplicated_master.csv | 1,716 |
+| 1.2 | Dedup unique count | 01_data/02_data_proceesed/01_deduplicated_master.csv | 1,716 |
 | 1.3 | Duplicates removed | 2,000 − 1,716 | 284 |
 | 1.4 | Screened-in count | wc -l on 02_screened_included_v2.csv | 501 records (502 lines) |
 | 1.5 | Full-text PDFs on disk | ls 01_data/03_pdfs/*.pdf | 291 |
@@ -269,7 +269,7 @@ T1 (Census + Hygiene)
 
 T2 (Card Verification)
   Run: Sections 1, 2, 4, 10
-  Required artefacts: 03_ai_checks/REC_*_verification.md (287)
+  Required artefacts: 03_ai_checks/REC_XXXX.check.md (287)
   Exit token: T2 PASS
 
 T3 (Master Build + Certify)

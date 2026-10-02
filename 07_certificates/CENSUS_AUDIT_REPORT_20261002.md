@@ -36,8 +36,8 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 │ Retrieved as Physical PDFs (01_data/03_pdfs/): 291     │
 │ Retrieval Success Rate: 100.0%                         │
 │ Full-Text Excluded Studies: 4 Records                  │
-│   • E1 (Scope / Metrology Bench Test / Survey): 3      │
-│   • E3 (Foreign Language - Chinese Full Text): 1       │
+│   • X1 (Scope / Metrology Bench Test / Survey): 3      │
+│   • X3 (Foreign Language - Chinese Full Text): 1       │
 └──────────────────────────┬─────────────────────────────┘
                            │
                            ▼ [Systematic Review Synthesis]
@@ -56,10 +56,10 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 
 | Record ID | Study Title & Authors | Year & Venue | PRISMA Decision | Code | Technical & Methodological Justification |
 | :--- | :--- | :---: | :---: | :---: | :--- |
-| **`REC_0053`** | *A Survey of Deep Learning Techniques and Computer Vision in Robotic and Drone with Applications*<br>(H. Gahlot et al.) | 2024 | **EXCLUDE** | **E1** | **Scope:** Broad conceptual review of generic computer vision algorithms (YOLO, CNNs, image segmentation) across generic robotics/consumer drones. Contains no state estimation formulation, sensor fusion mathematics, or experimental odometry in GPS-denied environments. |
-| **`REC_0693`** | *Characterization and Testing of a High-Resolution Time-of-Flight Camera for Autonomous Navigation*<br>(R. Opromolla et al.) | 2018<br>MetroAeroSpace | **EXCLUDE** | **E1** | **Scope:** Isolated laboratory bench-top sensor metrology evaluating depth noise and reflectivity of a Basler ToF camera on an optical bench rail. Lacks a flying UAV platform, dynamic flight maneuvers, and integrated navigation filter. |
-| **`REC_0866`** | *Autonomous Aerial Robots for Search and Rescue Missions*<br>(K. Sangeeta et al.) | 2023<br>IEEE UPCON | **EXCLUDE** | **E1** | **Scope:** High-level qualitative survey of disaster response search-and-rescue UAV operations. Mentions GPS-denied environments conceptually but presents no novel sensor fusion algorithm, mathematical state estimation, or flight navigation error benchmarks. |
-| **`REC_1688`** | *Pose estimation based on laser range finder for a quadrotor unmanned aerial vehicle in GPS-denied environment*<br>(Xun Gu, Bin Xian et al., Tianjin Univ.) | 2013<br>Chinese Control Conf. | **EXCLUDE** | **E3** | **Foreign Language:** Full-text published entirely in Chinese. Excluded under standard pre-registered PRISMA English language criteria to prevent translation bias and ensure peer-review compliance. Preserved in full-text archive with complete English translation (`REC_1688_translated_EN.txt`) and structured card. |
+| **`REC_0053`** | *A Survey of Deep Learning Techniques and Computer Vision in Robotic and Drone with Applications*<br>(H. Gahlot et al.) | 2024 | **EXCLUDE** | **X1** | **Scope:** Broad conceptual review of generic computer vision algorithms (YOLO, CNNs, image segmentation) across generic robotics/consumer drones. Contains no state estimation formulation, sensor fusion mathematics, or experimental odometry in GPS-denied environments. |
+| **`REC_0693`** | *Characterization and Testing of a High-Resolution Time-of-Flight Camera for Autonomous Navigation*<br>(R. Opromolla et al.) | 2018<br>MetroAeroSpace | **EXCLUDE** | **X1** | **Scope:** Isolated laboratory bench-top sensor metrology evaluating depth noise and reflectivity of a Basler ToF camera on an optical bench rail. Lacks a flying UAV platform, dynamic flight maneuvers, and integrated navigation filter. |
+| **`REC_0866`** | *Autonomous Aerial Robots for Search and Rescue Missions*<br>(K. Sangeeta et al.) | 2023<br>IEEE UPCON | **EXCLUDE** | **X1** | **Scope:** High-level qualitative survey of disaster response search-and-rescue UAV operations. Mentions GPS-denied environments conceptually but presents no novel sensor fusion algorithm, mathematical state estimation, or flight navigation error benchmarks. |
+| **`REC_1688`** | *Pose estimation based on laser range finder for a quadrotor unmanned aerial vehicle in GPS-denied environment*<br>(Xun Gu, Bin Xian et al., Tianjin Univ.) | 2013<br>Chinese Control Conf. | **EXCLUDE** | **X3** | **Foreign Language:** Full-text published entirely in Chinese. Excluded under standard pre-registered PRISMA English language criteria to prevent translation bias and ensure peer-review compliance. Preserved in full-text archive with complete English translation (`REC_1688_translated_EN.txt`) and structured card. |
 
 ---
 
@@ -71,7 +71,7 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 | **Extracted Text** | Purged from `01_data/03_pdfs/` | 0 TXT | All txt purged; strictly PDFs retained. Translation in `01_data/02_data_proceesed/` |
 | **Evidence Cards** | [`02_cards/`](file:///e:/slr_project/02_cards/) | **291 Cards** | Complete 18-section schema compliance across all cards |
 | **Card Manifest** | [`02_cards/FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv) | **291 Rows** | Cryptographic SHA256 re-hashed, 0 mismatches |
-| **Screening Results**| [`01_data/02_data_proceesed/03_screening_results.csv`](file:///e:/slr_project/01_data/02_data_proceesed/03_screening_results.csv) | **291 Rows** | 287 INCLUDE, 4 EXCLUDE (3 E1, 1 E3) |
+| **Screening Results**| [`01_data/02_data_proceesed/03_screening_results.csv`](file:///e:/slr_project/01_data/02_data_proceesed/03_screening_results.csv) | **291 Rows** | 287 INCLUDE, 4 EXCLUDE (3 X1, 1 X3) |
 | **Retrieved Manifest**| [`01_data/02_data_proceesed/04_retrieved_pdfs_291.csv`](file:///e:/slr_project/01_data/02_data_proceesed/04_retrieved_pdfs_291.csv) | **291 Rows** | Synchronized with retrieved PDF set |
 | **Master Workbook** | [`01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK_v2.xlsx`](file:///e:/slr_project/01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK_v2.xlsx) | **4 Sheets** | Sheets 01 to 04 covering complete audit stages |
 

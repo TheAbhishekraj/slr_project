@@ -43,7 +43,8 @@ SHA256 926a229415d9df488843413fc6a2a099ca3430f05017c8de8fc7a915de88ab8c
 - FROZEN_SCOPE.md mirrors v6.
 
 ## Open defects
-- D-A  Rule E3 references `_source_pages`, not in the 28-column schema.
-- D-B  Rule E11 requires `_AUDIT/rules_log.md`, not yet created.
+- D-A  OPEN — Rule E3 references `_source_pages`, not in the 28-column schema (Ruling R-B pending in _AUDIT/rules_log.md).
+- D-B  CLOSED 2026-10-02 — `_AUDIT/rules_log.md` created; Rule E11 logging target exists.
+- D-C  OPEN — FROZEN_MANIFEST_20260927.csv SHA256 mismatches disk for 291/291 cards (cards were rewritten after the freeze stamp; verified 2026-10-02). T1 must re-stamp the manifest or the human must rule before T1 can PASS.
 
 

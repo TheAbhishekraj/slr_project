@@ -17,4 +17,9 @@
 | 2026-10-02 | MASTER_PROMPT_5 updated | Human | Frozen anchor uses X1/X3; label disambiguation block added. |
 | 2026-10-02 | v2-v5 archived | Human | Moved to 07_certificates/old_scopes/ with archive README. |
 | 2026-10-02 | _AUDIT/rules_log.md created | Agent | Defect D-B closed; Rule E11 logging target now exists. |
+| 2026-10-02 | Repo-wide label sweep | Agent | E1/E3 exclusion labels renamed to X1/X3 in 12 live MDs (root README, 01_data x3, 02_cards x3, 03_ai_checks x5, 07_certificates x2, PRISMA_FLOWCHART node IDs). |
+| 2026-10-02 | Stale facts corrected | Agent | 02_data_proceesed README: 280->284 dups; ghost MASTER_EVIDENCE.csv + evidence_batches/ marked REMOVED; stale REC_1688 translation paths fixed in 3 files; AUDIT_PROMPT file paths corrected. |
+| 2026-10-02 | Defect D-C logged | Agent | FROZEN_MANIFEST_20260927.csv SHA256 mismatches disk for 291/291 cards (content rewritten post-freeze). T1 hash verification will FAIL until re-stamp or human ruling. |
 
+
+| 2026-10-02 | Manifest regenerated | Agent | Old manifest retired to 07_certificates/old_manifests/. New manifest: 02_cards/FROZEN_MANIFEST_20261002.csv. Reason: card hashes changed after author-field anonymization. Cards unchanged. |
