@@ -19,7 +19,7 @@ This directory holds the **291 full-text research paper PDFs** collected for the
     * 1 Foreign Language Exclusion (Rule E3: `REC_1688`, Chinese full-text). English translation preserved in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`.
   * **1-to-1 Serial Number Parity:** Sl. No 1 to 291 in `PRISMA_MASTER_WORKBOOK_v2.xlsx` matches 1-to-1 with every physical `REC_XXXX.pdf` file in this directory.
   * Exactly matches the 291 extraction markdown files in [`02_cards/`](file:///e:/slr_project/02_cards/).
-  * Exactly matches the 291 AI verification reports in [`03_ai_checks/`](file:///e:/slr_project/03_ai_checks/).
+  * Exactly matches the 291 Automated verification reports in [`03_ai_checks/`](file:///e:/slr_project/03_ai_checks/).
 
 ---
 

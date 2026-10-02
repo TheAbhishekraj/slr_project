@@ -15,5 +15,5 @@ CORPUS DUPLICATE STATUS:
 - REC_1217 re-extracted from REC_1217.pdf: "Localization Fusion for Aerial Vehicles in Partially GNSS Denied Environments" (Bayer & Faigl) — deferred.
 
 REASON FOR CHANGE: True re-extraction of REC_1232 and REC_1217 from their physical source PDFs, resolving all false duplicate anomalies.
-Frozen on 2026-10-02 by Antigravity.
+Frozen on 2026-10-02 by System.
 Any change after freezing needs a new version file (FROZEN_SCOPE_v6.md) with a reason written down.

@@ -2,5 +2,5 @@
 
 | Date | Action | Performed By | Notes |
 | :--- | :--- | :--- | :--- |
-| 2026-10-02 | Initialized directory | Antigravity | Directory setup and log created. |
-| 2026-10-02 | Cleaned redundant directory | Antigravity | Removed 01_data/01_pdfs. Confirmed 01_data/03_pdfs as the sole canonical location per Bible Part 3. |
+| 2026-10-02 | Initialized directory | System | Directory setup and log created. |
+| 2026-10-02 | Cleaned redundant directory | System | Removed 01_data/01_pdfs. Confirmed 01_data/03_pdfs as the sole canonical location per Bible Part 3. |

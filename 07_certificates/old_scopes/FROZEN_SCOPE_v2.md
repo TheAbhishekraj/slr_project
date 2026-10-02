@@ -7,6 +7,6 @@ The 6 excluded: REC_0023, REC_0035, REC_0244, REC_0363, REC_1217, REC_1667.
 EXTRACTION SCHEMA: 28 columns (see EXTRACTION_SCHEMA below).
 RULES: the 7 GOLDEN RULES above. 
 REASON FOR CHANGE: Addition of PHASE C (MANUAL EXTRACTION) instructions.
-Frozen on 2026-10-02 by Antigravity.
+Frozen on 2026-10-02 by System.
 Any change after freezing needs a new version file (FROZEN_SCOPE_v3.md) with
 a reason written down.

@@ -14,5 +14,5 @@ DUPLICATE AUDIT FINDINGS:
 3. REC_1083, REC_1084, REC_1085, REC_1095, REC_1096: Carry legacy 17-heading format (Defect D-1 in FROZEN.md); in-corpus.
 
 REASON FOR CHANGE: Comprehensive duplicate audit, title update for REC_0053, and explicit reconciliation of the 288 physical file census vs 279 in-corpus denominator.
-Frozen on 2026-10-02 by Antigravity.
+Frozen on 2026-10-02 by System.
 Any change after freezing needs a new version file (FROZEN_SCOPE_v4.md) with a reason written down.

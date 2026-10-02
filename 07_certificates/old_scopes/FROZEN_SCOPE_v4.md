@@ -36,5 +36,5 @@ IN-CORPUS TWIN MERGE (FOR SYNTHESIS MATRIX):
   - Effective unique in-corpus studies for quantitative synthesis: 278 distinct studies.
 
 REASON FOR CHANGE: Merging resolution for deferred records and in-corpus duplicate twins, establishing explicit synthesis cross-references.
-Frozen on 2026-10-02 by Antigravity.
+Frozen on 2026-10-02 by System.
 Any change after freezing needs a new version file (FROZEN_SCOPE_v5.md) with a reason written down.

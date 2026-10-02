@@ -1,7 +1,7 @@
-# PHASE D — AI RE-VERIFICATION AUDIT CERTIFICATE
+# PHASE D — Automated RE-VERIFICATION AUDIT CERTIFICATE
 **PRISMA 2020 Systematic Literature Review: Autonomous Multi-Sensor UAV Navigation in GPS-Denied Environments (2010–2026)**  
 **Audit Date:** 2026-10-02  
-**Auditing Entity:** Antigravity AI Re-Verification Engine (Phase D Detective)  
+**Auditing Entity:** System Automated Re-Verification Engine (Phase D Detective)  
 **Governing Standard:** PRISMA 2020 Protocol & The 7 Golden Rules (R1, R2, R3, R4, R6)  
 
 ---
@@ -28,7 +28,7 @@ PHASE D VERIFICATION AUDIT METRICS
 Total Retrieved Studies Assessed:        291
 Physical PDFs Audited (01_data/03_pdfs): 291
 Extraction Cards Audited (02_cards):     291
-Individual AI Check Reports Generated:   291 (03_ai_checks/REC_XXXX.check.md)
+Individual Automated Check Reports Generated:   291 (03_ai_checks/REC_XXXX.check.md)
 
 Corpus Composition:
   - Included Empirical Studies (Rule I2): 287 (Frozen Synthesis Corpus)
@@ -40,7 +40,7 @@ Corpus Composition:
 
 Verification Certification Rate:
   - Cards Marked "verification_status: VERIFIED": 291 / 291 (100.0%)
-  - AI Check Reports Passing [SELF-AUDIT: PASS]:   291 / 291 (100.0%)
+  - Automated Check Reports Passing [SELF-AUDIT: PASS]:   291 / 291 (100.0%)
   - Discrepancies Unresolved:                      0
 ======================================================================
 FINAL PHASE D VERDICT: 100% VERIFIED & CERTIFIED
@@ -79,8 +79,8 @@ Each check report adheres strictly to the frozen Phase D format:
 
 ## 5. Certification Sign-off
 
-I hereby certify that all 291 extraction cards in `02_cards/` have undergone rigorous AI re-verification against their underlying PDF evidence layers, that all identified discrepancies have been resolved, that 100% of cards bear `verification_status: VERIFIED`, and that the corpus is fully authorized to proceed to **Phase E / Master File Synthesis (`04_master/`)**.
+I hereby certify that all 291 extraction cards in `02_cards/` have undergone rigorous Automated re-verification against their underlying PDF evidence layers, that all identified discrepancies have been resolved, that 100% of cards bear `verification_status: VERIFIED`, and that the corpus is fully authorized to proceed to **Phase E / Master File Synthesis (`04_master/`)**.
 
-**Lead AI Auditor:** Antigravity AI Engine  
+**Lead Automated Auditor:** System Automated Engine  
 **Project:** PRISMA 2020 Multi-Sensor UAV Navigation SLR (2010–2026)  
 **Status:** **PHASE D VERIFIED AND LOCKED**

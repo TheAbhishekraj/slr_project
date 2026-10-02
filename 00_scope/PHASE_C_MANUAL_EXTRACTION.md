@@ -1,6 +1,6 @@
 # PHASE C — MANUAL EXTRACTION (you + PDF, one card per paper)
 
-For each PDF in `01_pdfs/`, create `02_cards/REC_XXXX.md` using this exact shape:
+For each PDF in `01_data/03_pdfs/`, create `02_cards/REC_XXXX.md` using this exact shape:
 
 ---- CARD TEMPLATE (copy for every paper) ----
 ID: REC_XXXX

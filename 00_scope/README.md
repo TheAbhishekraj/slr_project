@@ -1,4 +1,49 @@
-# 00_scope
+# 00_scope — slr_project
 
-This directory contains the 00_scope files for the SLR project.
+Authoritative scope, rules, and active prompt for the GPS-Denied UAV SLR.
+Corpus LOCKED at 287. Frozen 2026-10-02 (Decision B).
+
+## Read order, every session
+1. FROZEN_SCOPE.md               — anchor, exclusions, corpus verification
+2. EXTRACTION_SCHEMA.md          — 28-column card schema
+3. EXTRACTION_RULES.md           — rules E1–E12 (extraction quality)
+4. PHASE_C_MANUAL_EXTRACTION.md  — card template + 5 hand-checks
+5. MASTER_REFERENCE_BIBLE.md     — golden rules R1–R7, prompt pack P0–P6
+6. MASTER_PROMPT_5.md            — active execution prompt (tasks T1–T7)
+7. END_GOAL_287.md               — definition of done (D1–D5)
+
+## LABEL COLLISION — READ THIS BEFORE WRITING ANY CARD
+EXTRACTION_RULES.md uses E1–E12 for extraction quality rules.
+FROZEN_SCOPE.md uses X1/X3 for PRISMA exclusion codes. These are DIFFERENT.
+
+Disambiguation:
+  E1–E12  = extraction quality rules (per EXTRACTION_RULES.md)
+  X1, X3  = PRISMA exclusion codes
+
+Exclusion code mapping:
+  X1 = out of scope             -> REC_0053, REC_0693, REC_0866
+  X3 = non-English full text    -> REC_1688 (EN translation retained)
+
+## Corpus in one line
+2,000 -> 1,716 (284 dup) -> 501 screened -> 291 full-text
+-> 4 excluded (REC_0053, 0693, 0866 X1; REC_1688 X3)
+-> 287 INCLUDED.
+
+## Excluded — never cited in any count, table, figure, or sentence
+REC_0053 | REC_0693 | REC_0866 | REC_1688
+
+## X3 evidence
+REC_1688 English translation retained at
+01_data/02_data_proceesed/REC_1688_translated_EN.txt
+SHA256 926a229415d9df488843413fc6a2a099ca3430f05017c8de8fc7a915de88ab8c
+
+## Version history
+- v2–v5  superseded (279 corpus, wrong excluded IDs, wrong dup count)
+- v6     current — 287 corpus, 284 dups, 4 excluded
+- FROZEN_SCOPE.md mirrors v6.
+
+## Open defects
+- D-A  Rule E3 references `_source_pages`, not in the 28-column schema.
+- D-B  Rule E11 requires `_AUDIT/rules_log.md`, not yet created.
+
 

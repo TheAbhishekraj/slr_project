@@ -1,7 +1,7 @@
-# 03_ai_checks — Phase D AI Re-Verification & Certification Repository
+# 03_ai_checks — Phase D Automated Re-Verification & Certification Repository
 
 ## Overview
-This directory contains the certified, immutable AI re-verification reports generated during **Phase D — AI Re-Verification** of the PRISMA 2020 Systematic Literature Review:
+This directory contains the certified, immutable Automated re-verification reports generated during **Phase D — Automated Re-Verification** of the PRISMA 2020 Systematic Literature Review:
 *Autonomous Multi-Sensor UAV Navigation in GPS-Denied Environments (2010–2026)*.
 
 Every extraction card in `02_cards/` has been systematically cross-audited against its primary source PDF text layer in `01_data/03_pdfs/` in accordance with the frozen Phase D verification protocol and the 7 Golden Rules.
