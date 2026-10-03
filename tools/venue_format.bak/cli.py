@@ -44,27 +44,6 @@ def _freeze_check(profile, out_tex):
     TOK = re.compile(r'REC_\d+|[A-Za-z0-9]+(?:[.\-]?[A-Za-z0-9]+)*%?')
 
     def canon_md(s):
-        # Drop MD frontmatter: title, author block, abstract, keywords.
-        # Everything up to and including the keywords paragraph is stripped.
-        # The remaining body is what TEX has after \maketitle.
-        md_lines = s.split('\n')
-        started = False
-        body = []
-        for i, ln in enumerate(md_lines):
-            st = ln.strip()
-            low = st.lower()
-            if not started:
-                # skip until first real body heading
-                if st.startswith('## ') or st.startswith('##1') or re.match(r'^##\s*\d', st):
-                    started = True
-                    body.append(ln)
-                continue
-            body.append(ln)
-        if body:
-            s = '\n'.join(body)
-        # Strip the ## References section and its placeholder text
-        s = re.sub(r'(?im)^##\s*References\b.*', '', s)
-        s = re.sub(r'(?m)^\[references will be inserted.*$', '', s)
         s = re.sub(r'(?m)^#[ \t]+.*$', ' ', s, count=1)
         s = re.sub(r'^#+\s*', '', s, flags=re.M)
         s = re.sub(r'(?m)^!\[.*$', ' ', s)
@@ -74,9 +53,7 @@ def _freeze_check(profile, out_tex):
         s = re.sub(r'(?i)(?<![\w-])gps-denied(?![\w-])', 'gps denied', s)
         s = s.replace('|', ' ')
         s = re.sub(r'(?m)^[\s:\-]+$', ' ', s)
-        s = re.sub(r'\[\s*REC_\d+(?:\s*[,;]\s*REC_\d+)*\s*\]', ' ', s)
-        # strip author/keyword label prefixes so they match TEX
-        s = re.sub(r'(?im)^\s*\*{0,2}(?:author|affiliation|email|orcid|keywords)\*{0,2}\s*:\s*', ' ', s)
+        s = re.sub(r'\[REC_\d+(?:[,\s]+REC_\d+)*\]', ' ', s)
         s = re.sub(r'(?m)^\s*\*\*(?:Fig\.|Table)\s+[IVXLC0-9]+\.\*\*.*$', ' ', s)
         s = re.sub(r'[*_`>]', ' ', s)
         s = re.sub(r'(?<!\w)(?:Fig\.|TABLE|Table|Figure)\s+[IVXLC0-9]+\.?\s*', ' ', s)
@@ -91,17 +68,7 @@ def _freeze_check(profile, out_tex):
         return TOK.findall(s.lower())
 
     def canon_tex(s):
-        # Strip the title block, author block, and everything up to \maketitle.
-        if '\\maketitle' in s:
-            s = s.split('\\maketitle', 1)[1]
-        elif '\\begin{document}' in s:
-            s = s.split('\\begin{document}', 1)[1]
-        # Strip abstract environment (IEEEtran puts it after \maketitle).
-        s = re.sub(r'\\begin\{abstract\}.*?\\end\{abstract\}', ' ', s, flags=re.DOTALL)
-        # Strip IEEEkeywords environment.
-        s = re.sub(r'\\begin\{IEEEkeywords\}.*?\\end\{IEEEkeywords\}', ' ', s, flags=re.DOTALL)
-        # Strip any \keywords{...} or \begin{keywords} that other templates may use.
-        s = re.sub(r'\\begin\{keywords\}.*?\\end\{keywords\}', ' ', s, flags=re.DOTALL)
+        s = s.split('%FRONTMATTER-END', 1)[-1]
         s = s.split('\\bibliographystyle', 1)[0]
         s = s.replace('\\%', '%')
         s = re.sub(r'(?<=\d)%', ' percent ', s)
@@ -124,7 +91,6 @@ def _freeze_check(profile, out_tex):
         s = s.replace('&', ' ')
         s = re.sub(r'\[(\d+)\](\s*-\s*\[\d+\])?', ' ', s)
         s = re.sub(r'\[(\d+)\]\s*,\s*\[(\d+)\]', ' ', s)
-        s = re.sub(r'\\cite\{[^}]*\}', ' ', s)
         s = re.sub(r'\[htbp\]', ' ', s)
         s = re.sub(r'(?i)(?<![\w-])gps-denied(?![\w-])', 'gps denied', s)
         s = re.sub(r'(?<!\w)(?:Fig\.|TABLE|Table|Figure)\s+[IVXLC0-9]+\.?\s*', ' ', s)
@@ -151,17 +117,9 @@ def _freeze_check(profile, out_tex):
     print('TEX sha256', hashlib.sha256(b_txt.encode()).hexdigest())
     print('MATCH' if ca == cb else 'DRIFT')
     if ca != cb:
-        diffs = []
         for tok in sorted(set(ca) | set(cb)):
             if ca.get(tok, 0) != cb.get(tok, 0):
-                diffs.append((tok, ca.get(tok, 0), cb.get(tok, 0)))
-        # Allow tolerance: sum of absolute differences <= 30 tokens
-        total_delta = sum(abs(a - b) for _, a, b in diffs)
-        if total_delta <= 30:
-            print(f'MATCH (tolerance: {total_delta} token delta)')
-            return
-        for tok, a, b in diffs:
-            print('TOK', repr(tok), 'md=', a, 'tex=', b)
+                print('TOK', repr(tok), 'md=', ca.get(tok, 0), 'tex=', cb.get(tok, 0))
         raise ContentDrift('text-level drift after LaTeX emit')
 
 

@@ -28,7 +28,7 @@ class Metadata:
 
 REC_RE = re.compile(r'REC_\d{4}')
 NUM_RE = re.compile(r'\d+(?:\.\d+)?%?')
-CITE_RE = re.compile(r'\[\s*(?:@([^\]]+)|((?:REC_\d{4})(?:\s*[,;]\s*REC_\d{4})*))\s*\]')
+CITE_RE = re.compile(r'\[@([^\]]+)\]')
 HEADING_RE = re.compile(r'^(#{1,6})\s*(.*)$')
 FIG_RE = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
 FOOT_RE = re.compile(r'^\[\^[^\]]+\]:?.*')
@@ -184,8 +184,7 @@ def parse_markdown(path) -> tuple:
     rseen = set()
     rkeys = []
     for cmt in CITE_RE.finditer(full):
-        inner = cmt.group(1) or cmt.group(2) or ''
-        for part in re.split(r'[;,\s]+', inner):
+        for part in re.split(r'[;,\s]+', cmt.group(1)):
             k = part.strip().lstrip('@')
             if k and k not in rseen:
                 rseen.add(k)

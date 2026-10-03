@@ -57,8 +57,6 @@ def build(blocks, meta, maps, venue, profile) -> str:
     if not bool(getattr(venue, 'page_numbers', False)):
         L.append('\\pagestyle{empty}')
     L.append('')
-    L.append('\\begin{document}')
-    L.append('')
 
     if _is_ieee(tcls):
         L.append('\\title{' + fl.tex_escape(title) + '}')
@@ -75,6 +73,7 @@ def build(blocks, meta, maps, venue, profile) -> str:
             L.append('\\end{IEEEkeywords}')
             L.append('')
     else:
+        L.append('\\begin{document}')
         L.append(f'{{\\fontsize{{{getattr(venue, "title_pt", 24)}pt}}{{1.2em}}\\selectfont {fl.tex_escape(title)}}}')
         L.append('')
         L.append(f'{{\\fontsize{{{getattr(venue, "author_pt", 11)}pt}}{{1.2em}}\\selectfont {fl.tex_escape(authors)}}}')
@@ -101,9 +100,6 @@ def build(blocks, meta, maps, venue, profile) -> str:
                 continue
             if 'keyword' in low:
                 skip_section = 'keywords'
-                continue
-            if 'reference' in low:
-                skip_section = 'references'
                 continue
             skip_section = None
             if b.meta.get('level', 1) == 1 and b.text.strip() == (getattr(meta, 'title', '') or '').strip():

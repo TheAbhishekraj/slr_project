@@ -28,7 +28,7 @@ class Metadata:
 
 REC_RE = re.compile(r'REC_\d{4}')
 NUM_RE = re.compile(r'\d+(?:\.\d+)?%?')
-CITE_RE = re.compile(r'\[\s*(?:@([^\]]+)|((?:REC_\d{4})(?:\s*[,;]\s*REC_\d{4})*))\s*\]')
+CITE_RE = re.compile(r'\[@([^\]]+)\]')
 HEADING_RE = re.compile(r'^(#{1,6})\s*(.*)$')
 FIG_RE = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
 FOOT_RE = re.compile(r'^\[\^[^\]]+\]:?.*')
@@ -144,7 +144,6 @@ def parse_markdown(path) -> tuple:
                 abs_text.append(b.text)
     if abs_text:
         meta.abstract = ' '.join(abs_text).strip()[:4000]
-    # keywords — accept heading OR paragraph that starts with **Keywords:**
     for idx, b in enumerate(blocks):
         if b.kind == 'heading' and 'keyword' in b.text.lower():
             for nb in blocks[idx + 1:]:
@@ -154,23 +153,10 @@ def parse_markdown(path) -> tuple:
                 if nb.kind == 'heading':
                     break
             break
-    if meta.keywords_as_found == 'NOT_REPORTED':
-        for b in blocks:
-            if b.kind not in ('paragraph', 'list_item'):
-                continue
-            clean = re.sub(r'^\*+\s*', '', b.raw.strip())
-            if clean.lower().startswith('keywords:'):
-                meta.keywords_as_found = clean.split(':', 1)[1].strip().strip('*').strip()
-                break
     for b in blocks:
-        if b.kind not in ('paragraph', 'list_item'):
-            continue
-        raw = b.raw.strip()
-        # strip leading ** and possible spaces
-        clean = re.sub(r'^\*+\s*', '', raw)
-        low = clean.lower()
-        if low.startswith('author:'):
-            meta.authors_as_found = clean.split(':', 1)[1].strip().strip('*').strip()
+        t = b.text.strip()
+        if t.lower().startswith('authors:') or t.lower().startswith('author:'):
+            meta.authors_as_found = t.split(':', 1)[1].strip() if ':' in t else t
             break
     seen = set()
     recs = []
@@ -184,8 +170,7 @@ def parse_markdown(path) -> tuple:
     rseen = set()
     rkeys = []
     for cmt in CITE_RE.finditer(full):
-        inner = cmt.group(1) or cmt.group(2) or ''
-        for part in re.split(r'[;,\s]+', inner):
+        for part in re.split(r'[;,\s]+', cmt.group(1)):
             k = part.strip().lstrip('@')
             if k and k not in rseen:
                 rseen.add(k)

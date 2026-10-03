@@ -44,22 +44,6 @@ def reorder(entries: dict, citation_map: dict, venue) -> list:
     return cited_sorted + uncited
 
 
-def _sanitize_entry(raw: str) -> str:
-    """Make a bib entry safe for LaTeX.
-    - Replace NOT_REPORTED (underscore crashes text-mode LaTeX) with NOT-REPORTED.
-    - Escape any remaining unescaped underscores inside {…} values.
-    """
-    raw = raw.replace('NOT_REPORTED', 'NOT-REPORTED')
-
-    def _esc(m):
-        inner = m.group(1)
-        inner = re.sub(r'(?<!\\)_', r'\\_', inner)
-        return '{' + inner + '}'
-
-    raw = re.sub(r'\{([^{}]*)\}', _esc, raw)
-    return raw
-
-
 def emit(entries, path, venue) -> None:
     p = pathlib.Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +63,6 @@ def emit(entries, path, venue) -> None:
             if any(c for _, _, c in items):
                 lines.append('% UNCITED')
             uncited_started = True
-        lines.append(_sanitize_entry(raw.strip()))
+        lines.append(raw.strip())
         lines.append('')
     p.write_text('\n'.join(lines).strip() + '\n', encoding='utf-8')

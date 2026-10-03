@@ -1,4 +1,4 @@
-r"""Citation mapping: emit LaTeX \cite{...} commands. Let bibtex number."""
+"""Citation mapping: emit LaTeX cite commands. Let bibtex number."""
 from __future__ import annotations
 import re
 
