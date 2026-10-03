@@ -1,0 +1,57 @@
+# CLINE RULES — SLR PROJECT
+
+## Project
+- Repo: E:\slr_project
+- Title: GPS-Denied Navigation for UAVs — Multi-Sensor Fusion (2010–2026)
+- Protocol: PRISMA 2020
+- Corpus: 287 included studies, frozen 2026-10-02
+- Tags: v287-certified, pre-latex-cleanup-complete
+
+## Absolute rules
+- Read disk only. No internet. No memory.
+- Never modify source files without explicit confirmation.
+- Never touch excluded IDs: REC_0053, REC_0693, REC_0866, REC_1688.
+- Never touch _BIBLE after commit unless told.
+- Write only inside the active output tree.
+- One task per turn. Stop after each. Wait for CONFIRM.
+- Every number cites file + line.
+- Quotes character-exact.
+- Two sources conflict → STOP and report.
+- Missing info = NOT_REPORTED.
+- American spelling. Plain words.
+
+## Folder map
+- 00_scope/       Protocol, locked numbers
+- 01_data/        Raw and processed data
+- 02_cards/       Evidence cards
+- 03_ai_checks/   AI screening checks
+- 04_master/      MASTER_EVIDENCE.csv
+- 05_analysis/    Figures and QA
+- 06_manuscript/  source/, ieee/, presentation/
+- 07_certificates/ Certificates
+- _AUDIT/         Governance logs
+- _BIBLE/         Project bible
+- _INSTRUCTIONS/  All prompts
+- _PACKAGES/      Deliverables
+- tools/          Automation
+
+## Content freeze
+- Body sentences byte-for-byte.
+- Every numeral traceable.
+- Reference keys unchanged.
+- PRISMA: 2000 → 1716 → 501 → 291 → 287.
+
+## Banned words (manuscript only)
+delve, landscape (metaphor), crucial, pivotal,
+state-of-the-art (unless named baseline follows), very, really,
+It is important to note, It should be noted, In conclusion.
+
+Banned paragraph openers: Moreover, Furthermore, Additionally.
+
+## Build
+    cd E:\slr_project
+    python tools\venue_format.py `
+      --repo . `
+      --format tools\formats\IEEE.conf `
+      --profile tools\formats\slr_profile.generic.conf `
+      --strict --confirm
