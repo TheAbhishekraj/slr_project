@@ -51,7 +51,7 @@ def pair_float_captions(blocks) -> tuple:
             if j >= 0 and blocks[j].kind == 'paragraph':
                 m = TABCAP_RE.match(blocks[j].raw)
                 if m:
-                    tab_caps[id(b)] = m.group(2)
+                    tab_caps[id(b)] = (m.group(1), m.group(2))
                     consumed.add(id(blocks[j]))
     return fig_caps, tab_caps, consumed
 
@@ -80,7 +80,11 @@ def collect_tables(blocks) -> list:
         if b.kind == 'table':
             n += 1
             rows = b.meta.get('rows', b.raw.splitlines())
-            tbls.append({'source_path': '', 'number': n, 'caption_wording': tab_caps.get(id(b), ''), 'rows': list(rows), 'block': b})
+            rn_cap = tab_caps.get(id(b))
+            if rn_cap:
+                tbls.append({'source_path': '', 'number': _roman_to_int(rn_cap[0]), 'caption_wording': rn_cap[1], 'rows': list(rows), 'block': b})
+            else:
+                tbls.append({'source_path': '', 'number': n, 'caption_wording': '', 'rows': list(rows), 'block': b})
     return tbls
 
 
@@ -94,6 +98,17 @@ def _roman(n: int) -> str:
     return out or 'I'
 
 
+def _roman_to_int(r: str) -> int:
+    vals = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100}
+    total = 0
+    prev = 0
+    for ch in reversed(r.upper()):
+        v = vals.get(ch, 0)
+        total += -v if v < prev else v
+        prev = max(prev, v)
+    return total or 1
+
+
 def emit_figure_latex(fig: dict, venue) -> str:
     n = fig.get('number', 1)
     fmt = getattr(venue, 'fig_label_fmt', 'Fig. {n}.')
@@ -103,6 +118,8 @@ def emit_figure_latex(fig: dict, venue) -> str:
         label_txt = f'Fig. {n}.'
     cap = tex_escape(fig.get('caption_wording', ''))
     src = fig.get('source_path', '')
+    if src:
+        src = 'FIGURES/' + src.replace('\\', '/').rstrip('/').rsplit('/', 1)[-1]
     return '\n'.join(['\\begin{figure}[htbp]', '\\centering', f'\\includegraphics[width=\\columnwidth]{{{src}}}', f'\\caption{{{label_txt} {cap}}}', f'\\label{{fig:{n}}}', '\\end{figure}'])
 
 
@@ -149,13 +166,15 @@ def copy_float_assets(repo, out) -> list:
     repo_p = pathlib.Path(repo)
     out_p = pathlib.Path(out)
     copied = []
-    for name in ('FIGURES', 'TABLES'):
-        src = repo_p / name
-        if src.is_dir():
-            dst = out_p / name
-            dst.mkdir(parents=True, exist_ok=True)
-            for f in src.iterdir():
-                if f.is_file():
-                    shutil.copy2(f, dst / f.name)
-                    copied.append(str(dst / f.name))
+    srcs = {'FIGURES': [repo_p / 'FIGURES', repo_p / '05_analysis' / 'figures'],
+            'TABLES': [repo_p / 'TABLES']}
+    for name, candidates in srcs.items():
+        for src in candidates:
+            if src.is_dir():
+                dst = out_p / name
+                dst.mkdir(parents=True, exist_ok=True)
+                for f in src.iterdir():
+                    if f.is_file():
+                        shutil.copy2(f, dst / f.name)
+                        copied.append(str(dst / f.name))
     return copied

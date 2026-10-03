@@ -55,20 +55,20 @@
 - excluded_ids = []
 - locked_numbers = 00_scope/LOCKED_NUMBERS.md
 - manifest_glob = 02_cards/FROZEN_MANIFEST_*.csv
-- manuscript_md = 06_manuscript\MANUSCRIPT.md
-- number_trace = 06_manuscript/NUMBER_TRACE.md
+- manuscript_md = 06_manuscript\source\MANUSCRIPT.md
+- number_trace = 06_manuscript/source/NUMBER_TRACE.md
 - output_style = slr
 - prisma_chain = ['2000', '1716', '501', '291', '287']
 - rec_id_pattern = ^REC_\d{4}$
-- references_bib = 06_manuscript\references.bib
+- references_bib = 06_manuscript\source\references.bib
 - slr_name = gps_denied_uav
 
 ## Source hashes (path, sha256, bytes)
-- 06_manuscript\MANUSCRIPT.md d51877ed40d95cf613bb0069a60e0360b0ae15625be5dc54f1264cc5dcf9d5c2 45784
-- 06_manuscript\references.bib caaca8a5142360ef4e17aa5aa7f18691828fce4e595289d7411383af34ff041b 97217
+- 06_manuscript\source\MANUSCRIPT.md d51877ed40d95cf613bb0069a60e0360b0ae15625be5dc54f1264cc5dcf9d5c2 45784
+- 06_manuscript\source\references.bib caaca8a5142360ef4e17aa5aa7f18691828fce4e595289d7411383af34ff041b 97217
 
 ## Emitted hashes (path, sha256, bytes)
-- 06_manuscript\ieee\main.tex 07fb0e63f593b1ccc0d577189fa428e94e57782a8a57fd735991058a68f272a8 50276
+- 06_manuscript\ieee\main.tex 5cd5b082822e7939ebe9690ecaae0a00bdfbb8ffaff5660c22c2ad3565b7f8c3 50145
 - 06_manuscript\ieee\references_ieee.bib fc6d045f3b506b2065f29439fdf9c7997143641c59ffcbc9270284e1d1f14a7c 99534
 
 ## REC IDs — before/after

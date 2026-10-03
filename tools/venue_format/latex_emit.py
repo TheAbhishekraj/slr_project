@@ -82,7 +82,9 @@ def build(blocks, meta, maps, venue, profile) -> str:
         elif b.kind == 'table':
             tbl = fl.collect_tables([b])[0]
             if id(b) in tab_caps:
-                tbl['caption_wording'] = tab_caps[id(b)]
+                rn, tcap = tab_caps[id(b)]
+                tbl['number'] = fl._roman_to_int(rn)
+                tbl['caption_wording'] = tcap
             L.append(fl.emit_table_latex(tbl, venue))
             L.append('')
         elif b.kind == 'equation':
