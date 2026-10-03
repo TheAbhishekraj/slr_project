@@ -35,5 +35,8 @@ graph TD
 * **Raw:** 2,000
 * **Unique:** 1,716
 * **Screened-in (Title/Abstract):** 501
+* **Sought for Retrieval:** 501
+* **Not Retrieved:** 210 (501 sought − 291 assessed = 210; title/abstract candidates
+  that did not progress to the full-text stage)
 * **Full-text Retrieved:** 291
 * **Final Included:** 287

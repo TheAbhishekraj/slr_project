@@ -146,6 +146,4 @@ These are not trace rows. They are card-exact quotes anchoring each sensor famil
 
 
 Misclassification scan withdrawn. The extraction record for sensor fields is a partial, non-normalized capture of quoted descriptions. Validating sensor_primary against it produces false positives in both directions. Primary-sensor classification is therefore reported as derived (Fig. 3) and not independently validated. The same limitation applies to sub-table 2a.
-
-Misclassification scan withdrawn. The extraction record for sensor fields is a partial, non-normalized capture of quoted descriptions. Validating sensor_primary against it produces false positives in both directions. Primary-sensor classification is therefore reported as derived (Fig. 3) and not independently validated. The same limitation applies to sub-table 2a.
 | CORRECTION | Duplicate withdrawal paragraph above. See rules_log row 2026-10-03 CORRECTION. Original paragraph stands once. |

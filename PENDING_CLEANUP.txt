@@ -1,0 +1,306 @@
+# Complete pending cleanup list — from scratch
+
+Save this as `PENDING_CLEANUP.txt` on your Desktop. Work through it top to bottom. One item at a time.
+
+---
+
+## Already done — do NOT touch
+
+These are finished. Leave them alone.
+
+- MANUSCRIPT title added
+- MANUSCRIPT funding section added
+- MANUSCRIPT COI section added
+- MANUSCRIPT data availability added
+- MANUSCRIPT Levenshtein sentence fixed
+- MANUSCRIPT search query sentence fixed
+- REC_1208 card title fixed
+- REC_1208 pipeline title fixed
+
+---
+
+## The 4 excluded files — NEVER touch
+
+```
+REC_0053, REC_0693, REC_0866, REC_1688
+```
+
+Their cards, PDFs, pipeline rows, justifications — leave all four alone. They are archival. Editing them breaks the PRISMA chain.
+
+---
+
+## PENDING ITEMS — 12 total
+
+### ITEM 1 — Mojibake sweep
+
+**What:** Bad characters from encoding. Look like `â€"`, `â€™`, `â€œ`, `â€`, `Â`.
+
+**Where:** Any `.md`, `.csv`, `.bib` file. **Skip the 4 excluded.**
+
+**Fix:** Replace with correct characters:
+- `â€"` → `–`
+- `â€™` → `'`
+- `â€œ` → `"`
+- `â€` → `"`
+- `Â` → (remove)
+
+**How to find:**
+```powershell
+Get-ChildItem E:\slr_project -Recurse -Include *.md,*.csv,*.bib | ForEach-Object {
+    if ($_.Name -notmatch "REC_0053|REC_0693|REC_0866|REC_1688") {
+        $hits = Select-String -Path $_.FullName -Pattern "â€|Â" -SimpleMatch
+        if ($hits) { Write-Host "=== $($_.FullName) ==="; $hits | Select-Object LineNumber }
+    }
+}
+```
+
+**Fix one file at a time.** Open in Notepad. Find and replace. Save.
+
+---
+
+### ITEM 2 — README stale manifest name
+
+**File:** `E:\slr_project\README.md`
+
+**Find:** `FROZEN_MANIFEST_20260927.csv`
+
+**Replace with:** `FROZEN_MANIFEST_20261002.csv`
+
+**Do the same in:** `E:\slr_project\02_cards\README.md`
+
+**Save.**
+
+---
+
+### ITEM 3 — SUBMISSION_CHECKLIST word count
+
+**File:** `E:\slr_project\06_manuscript\SUBMISSION_CHECKLIST.md`
+
+**Problem:** Declared total 6,031. Actual manuscript count 6,052. Per-section sum 6,007.
+
+**Fix:** Open the file. Update the total to match the real manuscript count. If the per-section counts are wrong, fix each.
+
+**Save.**
+
+---
+
+### ITEM 4 — Duplicate row in action log
+
+**File:** `E:\slr_project\00_scope\action_log.md`
+
+**Problem:** The last two rows are identical: `Build Master | Agent | MASTER_EVIDENCE.csv generated, 287 rows.`
+
+**Fix:** Delete one of the two duplicate rows.
+
+**Save.**
+
+---
+
+### ITEM 5 — Stale file references
+
+**Problem:** Three files are named in the repo but do not exist:
+- `00_scope/FROZEN_SCOPE_v6.md`
+- `07_certificates/CERTIFICATE_MANUSCRIPT.md`
+- `tools/build_master.py`
+
+**Fix:** Open the files that mention them. Delete the mention, or rewrite the sentence so it does not reference a missing file.
+
+**Find mentions:**
+```powershell
+Get-ChildItem E:\slr_project -Recurse -Include *.md | ForEach-Object {
+    $hits = Select-String -Path $_.FullName -Pattern "FROZEN_SCOPE_v6|CERTIFICATE_MANUSCRIPT|build_master.py"
+    if ($hits) { Write-Host "=== $($_.FullName) ==="; $hits | Select-Object LineNumber, Line }
+}
+```
+
+**Save each file after fixing.**
+
+---
+
+### ITEM 6 — E1/E3 → X1/X3 in CSV
+
+**File:** `E:\slr_project\01_data\02_data_proceesed\03_screening_results.csv`
+
+**Problem:** The 4 EXCLUDE rows use old labels `E1` and `E3`. Every other doc uses `X1` and `X3`.
+
+**Fix:** Open the CSV. Change:
+- `E1` → `X1` (3 rows)
+- `E3` → `X3` (1 row)
+
+Do not change the row contents. Only the `rule` column.
+
+**Save.**
+
+---
+
+### ITEM 7 — Exclusion justifications in CSV
+
+**File:** Same as Item 6 — `03_screening_results.csv`
+
+**Problem:** The 4 EXCLUDE rows have the same justification text that reads like an inclusion reason:
+
+> "UAV platform with primary GNSS-denied navigation contribution and quantitative results."
+
+**Fix:** Open `README.md` lines 74–77. Copy the correct justifications. Paste them into the CSV's `justification` column for the matching REC IDs.
+
+The 4 rows to fix:
+- REC_0053 → copy README:74 text
+- REC_0693 → copy README:75 text
+- REC_0866 → copy README:76 text
+- REC_1688 → copy README:77 text
+
+**Save.**
+
+---
+
+### ITEM 8 — Filename drift in docs
+
+**Files and fixes:**
+
+- `DEDUP_REPORT.md:41` — change `deduplicated_master.csv` → `01_deduplicated_master.csv`
+- `README.md:45` — change `screened_included_v2.csv` → `02_screened_included.csv`
+
+**Save each.**
+
+---
+
+### ITEM 9 — Manifest verified column
+
+**File:** `E:\slr_project\02_cards\FROZEN_MANIFEST_20261002.csv`
+
+**Problem:** Every row's `verified` column says `PENDING`. But `02_cards/FROZEN.md:9` says all 291 are verified.
+
+**Fix — pick one:**
+- **Option A:** Change every `PENDING` to `PASS` in the manifest CSV. Save.
+- **Option B:** Change `FROZEN.md:9` to say the manifest has not been marked verified in the CSV. Save.
+
+**Recommendation: Option A.** It is simpler.
+
+---
+
+### ITEM 10 — 7 cards with no title
+
+**The 7 cards:**
+```
+REC_0023, REC_1167, REC_1171, REC_1217,
+REC_1251, REC_1270, REC_1274
+```
+
+**Problem:** The card's `title:` field says `NOT_REPORTED`.
+
+**Fix for each:**
+1. Open `E:\slr_project\01_data\03_pdfs\REC_XXXX.pdf`
+2. Read the real title on page 1
+3. Open `E:\slr_project\02_cards\REC_XXXX.md`
+4. Find `title: NOT_REPORTED`
+5. Replace with `title: "<real title>"`
+6. Save
+7. Next card
+
+**These are included studies, not excluded.** Safe to fix.
+
+---
+
+### ITEM 11 — 3 pipeline title errors
+
+**The 3:**
+```
+REC_0035, REC_0244, REC_1667
+```
+
+**Problem:** The pipeline CSV has a different title than the PDF for these records.
+
+**Fix for each:**
+1. Open `E:\slr_project\01_data\03_pdfs\REC_XXXX.pdf`
+2. Read the real title
+3. Open `03_screening_results.csv`
+4. Find the row with that REC ID
+5. Change `title` column to the real title
+6. Save
+
+**Save after each.**
+
+---
+
+### ITEM 12 — 19 cosmetic card title fixes
+
+**Problem:** These cards differ from the pipeline in casing, hyphens, or small typos. Not wrong papers, just formatting.
+
+**From your Phase 6 output, the 19 are:**
+```
+REC_1019, REC_1032, REC_1069, REC_1084, REC_1130,
+REC_1146, REC_1150, REC_1216, REC_1223, REC_1232,
+REC_1286, REC_1298, REC_1330, REC_1451, REC_1637,
+REC_0475, REC_0951, REC_0995, REC_1110
+```
+
+**Fix for each:**
+1. Open the card
+2. Change the title so it exactly matches the pipeline title
+3. Save
+
+**This is optional.** If you run out of time, skip. Reviewers will not see card titles.
+
+---
+
+## Order to work
+
+```
+Phase A — quick text edits (5 items):
+  1. Mojibake
+  2. README stale names
+  3. SUBMISSION_CHECKLIST word count
+  4. Duplicate row in action_log
+  5. Stale file references
+
+Phase B — CSV cleanup (4 items):
+  6. E1/E3 → X1/X3
+  7. Exclusion justifications
+  8. Filename drift
+  9. Manifest verified column
+
+Phase C — PDF reads (3 items):
+  10. 7 NOT_REPORTED cards
+  11. 3 pipeline title errors
+  12. 19 cosmetic card title fixes
+
+Phase D — build:
+  - Convert to LaTeX (IEEE format)
+  - Compile to PDF
+  - Final proofread
+  - Push to GitHub (your call)
+```
+
+---
+
+## One at a time
+
+Pick Item 1. Fix it. Save. Move to Item 2.
+
+Do not mix items. Do not reopen finished items. Do not touch the 4 excluded IDs.
+
+---
+
+## Your progress tracker
+
+```
+[ ] 1.  Mojibake
+[ ] 2.  README stale names
+[ ] 3.  SUBMISSION_CHECKLIST word count
+[ ] 4.  Duplicate action_log row
+[ ] 5.  Stale file references
+[ ] 6.  E1/E3 → X1/X3
+[ ] 7.  Exclusion justifications
+[ ] 8.  Filename drift
+[ ] 9.  Manifest verified column
+[ ] 10. 7 NOT_REPORTED cards
+[ ] 11. 3 pipeline title errors
+[ ] 12. 19 cosmetic card titles
+[ ] 13. Build to LaTeX
+[ ] 14. Final proofread
+[ ] 15. Push (when ready)
+```
+
+Cross off each as you finish. When all 15 have `[x]`, you are done.
+
+Start with Item 1. Open the mojibake search command. Paste the output here if you want me to help identify files.

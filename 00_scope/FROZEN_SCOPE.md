@@ -13,8 +13,8 @@ PIPELINE CENSUS: 2,000 -> 1,716 (284 dup removed) -> 501 screened -> 291 full-te
      * Every included study has its verified full-text PDF on disk and corresponding extraction card in 02_cards/.
 
 CORPUS ASSET VERIFICATION:
-- Exactly 291 PDFs in 01_data/03_pdfs/ matching Sl. No 1 to 291 in PRISMA_MASTER_WORKBOOK_v2.xlsx.
-- Exactly 291 extraction cards in 02_cards/ tracked by FROZEN_MANIFEST_20260927.csv.
+- Exactly 291 PDFs in 01_data/03_pdfs/ matching Sl. No 1 to 291 in PRISMA_MASTER_WORKBOOK.xlsx.
+- Exactly 291 extraction cards in 02_cards/ tracked by FROZEN_MANIFEST_20261002.csv.
 - Exactly 287 studies marked as INCLUDE (Rule I2) in 03_screening_results.csv and 04_retrieved_pdfs_291.csv.
 - Exactly 4 studies marked as EXCLUDE (Rules X1 and X3) in 03_screening_results.csv and 04_retrieved_pdfs_291.csv.
 

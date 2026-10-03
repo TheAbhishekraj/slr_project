@@ -33,13 +33,14 @@ CORPUS BOUNDARY — READ THIS BEFORE QUOTING ANY COUNT
       REC_0693  EXCLUDE   (X1, out of scope ToF bench test)
       REC_0866  EXCLUDE   (X1, out of scope SAR survey)
       REC_1688  EXCLUDE   (X3, non-English full text - Chinese)
-  - 8 Deferred / Twin Studies:
+  - Deferred / Twin Studies (8 records in 7 groups; the 6 deferred
+    records of 00_scope/action_log.md plus the REC_1232/1235 twin pair):
       REC_0023  INCLUDE   (deferred preprint of REC_1541)
       REC_0035  INCLUDE   (deferred duplicate of REC_0896)
       REC_0244  INCLUDE   (deferred swarm)
       REC_0363  INCLUDE   (deferred)
       REC_1217  INCLUDE   (deferred)
-      REC_1232/1235 INCLUDE (twin merge)
+      REC_1232/1235 INCLUDE (twin merge: 2 records)
       REC_1667  INCLUDE   (deferred)
   - Final Synthesis Corpus Denominator: 287 included studies (1-to-1 parity with Sl. No 1 to 291).
 

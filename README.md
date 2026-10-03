@@ -16,7 +16,7 @@
   - [`01_data_raw/`](file:///e:/slr_project/01_data/01_data_raw/) — 2,000 raw search records (IEEE Xplore & Scopus).
   - [`02_data_proceesed/`](file:///e:/slr_project/01_data/02_data_proceesed/) — Deduplication reports (`01_deduplicated_master.csv`), candidate screening (`02_screened_included_v2.csv`), PRISMA full-text screening (`03_screening_results.csv`), retrieved manifests (`04_retrieved_pdfs_291.csv`), and master Excel review workbook (`PRISMA_MASTER_WORKBOOK_v2.xlsx`).
   - [`03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) — 291 full-text primary study PDF documents (`REC_0001.pdf` to `REC_1715.pdf`). Canonical Bible Part 3 location; strictly PDF binaries. Status: FROZEN.
-- [`02_cards/`](file:///e:/slr_project/02_cards/) — 291 per-paper markdown extraction evidence cards (`REC_XXXX.md`), tracked by [`FROZEN.md`](file:///e:/slr_project/02_cards/FROZEN.md) and [`FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv).
+- [`02_cards/`](file:///e:/slr_project/02_cards/) — 291 per-paper markdown extraction evidence cards (`REC_XXXX.md`), tracked by [`FROZEN.md`](file:///e:/slr_project/02_cards/FROZEN.md) and [`FROZEN_MANIFEST_20261002.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20261002.csv).
 - [`03_ai_checks/`](file:///e:/slr_project/03_ai_checks/) — Cross-validation logs and automated extraction audit outputs.
 - [`04_master/`](file:///e:/slr_project/04_master/) — Master synthesis tables and consolidated data matrices.
 - [`05_analysis/`](file:///e:/slr_project/05_analysis/) — Meta-analysis scripts, bibliometric plots, and taxonomic statistics.
@@ -90,5 +90,5 @@
 ---
 
 ## 5. Governance & Freeze Rules
-- Every extraction card in `02_cards/` is cryptographically locked with its SHA256 in [`FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv).
+- Every extraction card in `02_cards/` is cryptographically locked with its SHA256 in [`FROZEN_MANIFEST_20261002.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20261002.csv).
 - Primary corpus denominator for all quantitative synthesis in the review is **287 included studies**.

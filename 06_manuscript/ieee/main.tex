@@ -1,274 +1,527 @@
-# Abstract
+\documentclass[10pt,letter]{article}
+% venue: ieee IEEEtran conference
+\usepackage[letterpaper,top=0.75in,bottom=0.75in,left=0.75in,right=0.75in]{geometry}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{url}
+\pagestyle{empty}
+\begin{document}
+{\fontsize{24pt}{1.2em}\selectfont Abstract}
+
+{\fontsize{11pt}{1.2em}\selectfont NOT_REPORTED}
+
+{\fontsize{9pt}{1.2em}\selectfont \textbf{\textit{Abstract---Autonomous navigation for unmanned aerial vehicles (UAVs) in Global Positioning System-denied (GPS-denied) environments requires robust multi-sensor fusion, yet published research exhibits substantial fragmentation across operational domains, sensor modalities, and validation standards. Following the PRISMA 2020 framework, this systematic literature review examines 287 peer-reviewed studies published between 2010 and 2026. The review investigates sensor-fusion configurations and longitudinal adoption shifts (RQ1), localization accuracy across operational environments and vehicle platforms (RQ2), algorithmic architectures and flight validation modalities (RQ3), and operational limitations under electronic warfare and contested settings (RQ4). Methodological quality appraisal stratifies the corpus into 145 high-quality (Q-High), 118 medium-quality (Q-Medium), and 24 low-quality (Q-Low) investigations. Across the analyzed literature, 192 of 287 studies (67%) evaluate mixed operational environments, 99 of 287 investigations (34%) evaluate generic UAV platforms without airframe-specific dynamics, and 5 of 287 studies (1.7%) evaluate adversarial or contested conditions. Because sensor extraction records comprise non-normalized quoted descriptions rather than standardized inventories, quantitative sensor-combination synthesis is not supportable, and sensor families are reported via derived primary classifications. This review delivers an audit-traced corpus establishing empirical baselines and characterizing the deployment gaps that separate laboratory flight demonstrations from mission-critical operations in denied airspace.}} }
+
+{\fontsize{9pt}{1.2em}\selectfont \textbf{\textit{Keywords---NOT_REPORTED}} }
+%FRONTMATTER-END
+
 
 Autonomous navigation for unmanned aerial vehicles (UAVs) in Global Positioning System-denied (GPS-denied) environments requires robust multi-sensor fusion, yet published research exhibits substantial fragmentation across operational domains, sensor modalities, and validation standards. Following the PRISMA 2020 framework, this systematic literature review examines 287 peer-reviewed studies published between 2010 and 2026. The review investigates sensor-fusion configurations and longitudinal adoption shifts (RQ1), localization accuracy across operational environments and vehicle platforms (RQ2), algorithmic architectures and flight validation modalities (RQ3), and operational limitations under electronic warfare and contested settings (RQ4). Methodological quality appraisal stratifies the corpus into 145 high-quality (Q-High), 118 medium-quality (Q-Medium), and 24 low-quality (Q-Low) investigations. Across the analyzed literature, 192 of 287 studies (67%) evaluate mixed operational environments, 99 of 287 investigations (34%) evaluate generic UAV platforms without airframe-specific dynamics, and 5 of 287 studies (1.7%) evaluate adversarial or contested conditions. Because sensor extraction records comprise non-normalized quoted descriptions rather than standardized inventories, quantitative sensor-combination synthesis is not supportable, and sensor families are reported via derived primary classifications. This review delivers an audit-traced corpus establishing empirical baselines and characterizing the deployment gaps that separate laboratory flight demonstrations from mission-critical operations in denied airspace.
 
 
-## 1. Introduction
+
+\subsection*{A 1. Introduction}
+
 
 Autonomous navigation in Global Positioning System (GPS)-denied environments is a prerequisite for sustained unmanned aerial vehicle (UAV) operation across infrastructure inspection, emergency response, and contested airspace. However, these systems inherently depend on Global Positioning System (GPS) or broader Global Navigation Satellite System (GNSS) signals for accurate absolute positioning. In environments where these signals are degraded, jammed, spoofed, or naturally denied—such as urban canyons, dense forests, subterranean structures, and indoor facilities—UAVs must rely on alternative navigation strategies. Autonomous navigation in GPS-denied environments requires robust multi-sensor fusion to maintain stability, estimate ego-motion, and map the surrounding area. Ensuring mission reliability under these constraints remains a significant challenge for researchers and practitioners alike, as single-sensor approaches often lack the redundancy required for sustained autonomous flight in complex, unstructured spaces.
 
+
 Existing literature reviews and surveys on UAV navigation provide valuable insights into specific algorithms, such as visual-inertial odometry (VIO) or simultaneous localization and mapping (SLAM), and often focus on isolated operational environments. These prior works generally target either specific sensor modalities—such as camera-based systems—or particular algorithmic architectures, leaving a noticeable gap in comprehensive, cross-domain synthesis. They frequently miss the broader integration patterns across different degraded environments and do not adequately characterize the flight validation standards used to evaluate these systems. In addition, few systematic reviews critically assess the methodological quality of the underlying primary studies or the resilience of these navigation frameworks against active electronic warfare, including jamming and spoofing. Consequently, the research community lacks a unified, evidence-based understanding of the structural gaps between laboratory demonstrations and real-world, mission-critical deployments.
+
 
 To address this fragmentation, this review systematically synthesizes the state of GPS-denied UAV navigation research. Following the PRISMA 2020 framework, this systematic literature review examines a comprehensive corpus of 287 peer-reviewed studies published between 2010 and 2026. The scope encompasses diverse operational domains, sensor modalities, and validation standards, aiming to provide a clear empirical baseline of current capabilities and methodological rigor. Methodological quality appraisal stratifies the corpus into 145 high-quality (Q-High), 118 medium-quality (Q-Medium), and 24 low-quality (Q-Low) investigations, ensuring that strong claims are anchored in high-quality evidence. This approach allows for a transparent evaluation of the field's progression over the past sixteen years.
 
+
 This review is guided by the following four explicit research questions:
+
 1. RQ1 (Sensors & Trends): Which primary sensor family dominates GPS-denied UAV navigation research, and how has its prevalence shifted between 2010 and 2026?
+
 2. RQ2 (Accuracy & Environments): What localization accuracy and robustness metrics are reported across different GPS-denied environments (indoor, urban canyon, subterranean, forest, adversarial), and how do they vary by environment and platform?
+
 3. RQ3 (Algorithmic Approaches & Validation): Which algorithmic approaches (VIO, SLAM, LIO, filter-based fusion, learning-based methods) dominate the literature, and how do they compare on validation type (real flight vs. simulation) and reported performance?
+
 4. RQ4 (Limitations & Adversarial Conditions): What limitations and future research directions are identified in the corpus, particularly regarding adversarial conditions, electronic warfare (jamming/spoofing), and resource constraints?
 
+
 The contributions of this systematic review are anchored in four primary findings derived from the evidence corpus. First, synthesis reveals that 192 of 287 studies (67%) evaluate within mixed or composite operational environments, indicating a strong trend toward testing in diverse settings. Second, 99 of 287 investigations (34%) utilize generic UAV platforms without airframe-specific dynamics modeling, highlighting a gap in platform-specific validation. Third, only 5 of 287 studies (1.7%) explicitly address adversarial or contested conditions, such as electronic warfare jamming and spoofing, underscoring a critical vulnerability in current research. Finally, because sensor extraction records comprise non-normalized quoted descriptions rather than standardized hardware inventories, quantitative sensor-combination synthesis is not supportable; consequently, sensor families are characterized by derived primary classifications. 
+
 
 The remainder of this paper is structured as follows. Section 2 reviews related work on GPS-denied UAV navigation and positions this review against it. Section 3 details the methodology, including the search strategy, screening process, and quality appraisal criteria based on the PRISMA 2020 guidelines. Section 4 presents the results and synthesis, addressing the four research questions. Section 5 discusses the implications, focusing on deployment gaps between laboratory demonstrations and mission-critical operations. Section 6 identifies limitations of the corpus and this review. Section 7 concludes.
 
 
-## 2. Related Work
+
+\subsection*{B 2. Related Work}
+
 
 The problem of autonomous unmanned aerial vehicle (UAV) navigation in environments where satellite positioning is unavailable has motivated extensive research across multiple domains. To contextualize the contributions of this review, this section examines the primary thematic clusters within the corpus. Rather than summarizing prior surveys, this review groups the primary evidence base by sensor modality, algorithmic architecture, operational environment, and adversarial resilience. Across the corpus, research spans vision, LiDAR, UWB, and radar as primary modalities; filter-based and factor-graph fusion as algorithmic families; and indoor, urban, forest, and subterranean settings as testing environments.
 
+
 A substantial portion of the collected literature focuses on the development of specific sensor modalities for localization and mapping. Vision-primary studies represent a major thrust in the corpus, heavily utilizing monocular and stereo cameras to extract ego-motion and environmental features. Parallel to visual methods, Light Detection and Ranging (LiDAR) has become increasingly common for building dense three-dimensional maps, utilizing active illumination to operate independently of ambient lighting. In situations where visual and LiDAR sensors suffer from degradation, Ultra-Wideband (UWB) and radar technologies provide necessary robustness. The corpus contains several UWB-focused investigations leveraging ranging measurements for localization within pre-calibrated areas. Similarly, radar-centric approaches explore millimeter-wave reflections to maintain velocity and altitude estimates under perceptual constraints. 
+
 
 Beyond hardware configuration, a significant volume of literature is dedicated to refining algorithmic architectures for sensor fusion. The corpus is divided between traditional filtering mechanisms, modern graph-based optimization techniques, LiDAR-inertial odometry (LIO), and emerging learning-based methods. Filter-based fusion remains widely deployed due to its computational efficiency on resource-constrained platforms, integrating asynchronous sensor feeds for low-latency state estimation. Conversely, factor graph optimization incorporates delayed measurements to perform global trajectory smoothing. Both filtering and graph-based approaches are central to the maturation of Simultaneous Localization and Mapping (SLAM) and Visual-Inertial Odometry (VIO) pipelines. In parallel, LIO architectures have emerged to handle high-rate point cloud registration, while learning-based families increasingly explore end-to-end neural pipelines for feature extraction and depth estimation.
 
+
 The operational environment heavily influences the chosen navigation strategy, driving a third major thematic cluster. Indoor environments, characterized by structured geometries and absolute GPS denial, serve as the primary testing ground for many visual and LiDAR frameworks. In contrast, urban canyons present the challenge of intermittent satellite availability and multipath interference, requiring seamless transitions between absolute and relative positioning systems. Natural environments introduce dynamic obstacles and unstructured features. Forest canopy navigation requires active obstacle avoidance and robustness against wind disturbances. Subterranean settings shift the emphasis to perceptual degradation, dust, lack of ambient lighting, and the necessity of active sensing payloads to navigate highly constrained tunnel networks.
+
 
 Despite the breadth of research across various sensors, algorithms, and environments, a significant gap remains regarding system resilience under active threat. Within the entire 287-study corpus, only 5 of 287 studies address adversarial or contested conditions, spanning GNSS spoofing ([REC_0010], [REC_0489]), electronic warfare ([REC_1083]), and long-term denial ([REC_1084], [REC_1085]).
 
-### 4.5 Cross-cutting synthesis
+
+\subsubsection*{(1) 4.5 Cross-cutting synthesis}
+
 
 The preceding results, encompassing sensor modalities, deployment environments, algorithmic architectures, and systemic limitations (Fig. 2–8), collectively demonstrate an escalating emphasis on multi-sensor integration for GNSS-denied operations. Yet, a synthesis across all four research questions reveals a fundamental gap between algorithmic ambition and rigorous, context-specific validation. While primary sensor usage heavily favors vision, and algorithms increasingly rely on hybrid architectures to mitigate individual modality failures, testing remains overwhelmingly concentrated in generic, mixed, or indoor conditions. This concentration is compounded by a heavy reliance on generic unmanned aerial vehicle and standard multirotor platforms. This indicates that the community is actively solving the state estimation problem in mathematically controlled or operationally benign settings, but broadly failing to evaluate these complex fusion pipelines under the adversarial, high-speed, or severely constrained dynamics that GPS denial typically implies.
+
 
 In Q-High studies, the simultaneous concentration of generic airframes and generalized mixed environments further confirms that current methodological quality reflects algorithmic mathematical rigor rather than operational testing fidelity. Strong evidence exists for algorithmic innovation, but empirical validation is lagging behind theoretical design. No single research question alone exposes this pervasive disconnect; only by cross-examining the hardware selections, algorithmic formulations, and validation typologies simultaneously does it become evident that the field's rapid advancement in sensor fusion complexity has significantly outpaced its commitment to representative physical deployment. Bridging this substantial divide requires the research community to move beyond baseline trajectory error reporting. Future investigations must actively incorporate physical stress-testing under the adversarial conditions, dynamic hardware constraints, and specific environmental degradation documented only in the distant margins of this literature corpus. No corpus study or prior review covers the full cross-domain synthesis with quality appraisal stratification that this review provides. By systematically evaluating these dimensions, this review establishes an empirical baseline for the field, identifying the persistent deployment gaps that separate controlled laboratory demonstrations from mission-critical operations.
 
 
 
-## 3. Methods
 
-### 3.1 Protocol and registration
+\subsection*{C 3. Methods}
+
+
+\subsubsection*{(1) 3.1 Protocol and registration}
+
 
 This systematic literature review follows the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 guidelines. The review protocol was defined prior to data collection and is documented in full in the project scope record. No formal protocol registration was performed.
 
-### 3.2 Information sources and search strategy
+
+\subsubsection*{(2) 3.2 Information sources and search strategy}
+
 
 Two primary indexing databases in engineering and applied sciences were searched: IEEE Xplore and Scopus. The search was executed on 2026-06-15, covering publications from 2010-01-01 through 2026-06-15 (inclusive). The year 2026 is partial, covering January through mid-June, and all temporal trend analyses treat it accordingly.
 
+
 The search query combined three concept groups using Boolean AND logic: (1) GPS/GNSS denial terminology ("GPS-denied," "GNSS-denied," "GPS-degraded," "GPS-free," "navigation without GPS"); (2) UAV platform descriptors ("UAV," "unmanned aerial vehicle," "drone," "quadrotor," "multirotor," "fixed-wing"); and (3) navigation task descriptors ("localization," "navigation," "SLAM," "odometry," "positioning," "sensor fusion"). Filters restricted results to English-language journal articles and conference proceedings published within the search window. Each database was harvested to a cap of 1,000 relevance-ranked records, yielding a total raw corpus of 2,000 records (1,000 IEEE Xplore + 1,000 Scopus).
 
-### 3.3 Screening and selection
+
+\subsubsection*{(3) 3.3 Screening and selection}
+
 
 The PRISMA 2020 flow for this review proceeded as follows. From the 2,000 raw harvested records, 284 duplicate entries were removed via exact cross-database matching on normalized DOI, a normalized title-year pair, and an MD5 content hash of title, authors, and abstract. This left 1,716 unique records. Title and abstract screening against the inclusion and exclusion criteria reduced this set to 501 candidate studies. Full-text PDFs were sought for these 501 candidates, and 291 were successfully retrieved (100% retrieval rate for assessed studies). At the full-text eligibility stage, 4 studies were excluded (IDs listed here for auditability only; they are not included in any count or table that follows): 3 were classified as out of scope (X1: REC_0053, REC_0693, REC_0866) and 1 was excluded for non-English full text (X3: REC_1688). The remaining 287 studies constitute the frozen corpus denominator for all subsequent analyses (Fig. 1).
 
-![PRISMA 2020 Flow Diagram](../05_analysis/figures/F1_PRISMA_flow.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F1_PRISMA_flow.png}
+\caption{Fig. 1. PRISMA 2020 Flow Diagram}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 1.** PRISMA 2020 flow diagram showing the identification, screening, eligibility, and inclusion stages of the systematic review (frozen corpus: 287 studies)
 
-### 3.4 Inclusion and exclusion criteria
+
+\subsubsection*{(4) 3.4 Inclusion and exclusion criteria}
+
 
 Studies were included if they met all of the following criteria: (I1) published between 2010-01-01 and 2026-06-15; (I2) written and published in English; (I3) peer-reviewed journal article or full conference proceeding; (I4) addressed GPS/GNSS-denied, degraded, or contested aerial navigation as the central research focus; (I5) focused explicitly on UAV platforms; (I6) implemented or evaluated an integrated multi-sensor navigation solution fusing measurements from at least two distinct sensing modalities; and (I7) presented empirical quantitative validation via physical flight tests, ground-robot surrogate experiments, or high-fidelity simulation.
 
+
 Studies were excluded if they were: (E1) purely conceptual, tutorial, or theoretical papers lacking validation; (E2) systems requiring active, uninterrupted nominal GNSS signals; (E3) focused on non-UAV platforms such as ground vehicles, AUVs, or spacecraft; (E4) single-sensor navigation methods lacking multi-sensor fusion; (E5) published in languages other than English; (E6) published prior to 2010; (E7) non-peer-reviewed preprints, theses, patents, or trade publications; (E8) duplicate records; (E9) formally retracted articles; or (E10) papers lacking extractable localization accuracy or quantitative performance data.
 
-### 3.5 Data extraction
+
+\subsubsection*{(5) 3.5 Data extraction}
+
 
 Each included study was subjected to structured evidence extraction using a 28-column schema. Extracted fields included bibliographic metadata (title, authors, year, venue, DOI, country), technical content (problem statement, approach summary, method category, sensors, GPS-denied type, fusion method, algorithm, dataset, platform), validation details (real-world vs. simulation, baseline comparisons, headline results, metrics, ablation studies), and contextual information (limitations, future work, funding, notes). All extracted values were anchored to verbatim quotes from the source texts to ensure traceability and auditability. Because included studies vary in metric definition, trajectory length, and sensor configuration, quantitative meta-analysis is not appropriate; findings are synthesized narratively and reported as ranges rather than pooled estimates.
 
-### 3.6 Quality appraisal
+
+\subsubsection*{(6) 3.6 Quality appraisal}
+
 
 Methodological quality was assessed using a 10-point scoring rubric spanning four dimensions. Dimension A (Experimental Rigor, 0-4 points) awarded points for real-world flight tests (+2), ground-truth reference comparison (+1), and repeatability reporting (+1). Dimension B (Reporting Completeness, 0-3 points) assessed quantitative trajectory error reporting (+1), operational environment parameters (+1), and robustness characterization (+1). Dimension C (Baseline Fairness, 0-2 points) evaluated direct quantitative comparison against established benchmarks (+1) and evaluation under matched conditions (+1). Dimension D (Reproducibility, 0-1 point) awarded a point for public release of code, data, or full hardware specifications (+1).
 
+
 Based on total scores, studies were classified into three quality tiers: Q-High (8-10 points, n = 145), Q-Medium (5-7 points, n = 118), and Q-Low (0-4 points, n = 24). A simulation cap policy was applied: simulation-only studies scoring 8-10 on the raw rubric were capped at Q-Medium, with the raw score preserved in logs. The appraisal rubric was designed so that a reader could replicate the scoring independently from the published criteria.
+
 
 SCOPE.md specifies a 20% dual-appraiser calibration sample with a target weighted Cohen's Kappa of 0.75 or higher. Whether this calibration was performed during the project could not be verified from the available audit records. Accordingly, this review does not claim inter-rater reliability.
 
-### 3.7 Limitations of the review method
+
+\subsubsection*{(7) 3.7 Limitations of the review method}
+
 
 Several methodological limitations should be acknowledged. First, the search was restricted to two databases (IEEE Xplore and Scopus), and the 1,000-record harvest cap per database may have excluded relevant studies ranked lower in relevance ordering. Second, the restriction to English-language publications introduces a language bias that may underrepresent contributions from non-English-speaking research communities. Third, the multi-sensor fusion requirement (I6) excludes single-sensor navigation studies that may contain relevant algorithmic contributions. Fourth, extraction records capture quoted sensor descriptions rather than a normalized hardware inventory, limiting the granularity of sensor-combination analyses. Finally, the quality appraisal was designed for methodological rigor assessment and does not evaluate the novelty or theoretical contribution of individual studies. Effect-size pooling was not attempted. Heterogeneity across metric definitions, error formulations, and validation setups exceeds what meta-analytic pooling could meaningfully summarize. Effect measures, certainty assessment, and per-study results are not reported because the review synthesizes at the corpus level; see Limitations §6.
 
 
-## 4. Results
 
-### 4.1 RQ1: Primary sensor distribution and temporal shift
+\subsection*{D 4. Results}
+
+
+\subsubsection*{(1) 4.1 RQ1: Primary sensor distribution and temporal shift}
+
 
 To address the first research question regarding sensor-fusion configurations and their evolution, this review analyzes the primary sensor modalities utilized across the corpus. Analysis reveals that camera-based systems dominate GPS-denied UAV navigation. Specifically, the primary sensor distribution is led by vision systems at 182/287 studies (63.4%, Fig. 3). Inertial-only approaches (IMU_ONLY) account for 35/287 (12.2%), followed by OTHER modalities at 27/287 (9.4%). Light Detection and Ranging (LiDAR) represents 22/287 (7.7%), while Ultra-Wideband (UWB) and RADAR comprise 14/287 (4.9%) and 7/287 (2.4%), respectively. Table I presents the primary sensor family distribution.
 
+
 **Table I.** Primary sensor family distribution
 
-| Sensor family | Studies | Share (%) |
-|---|---|---|
-| VISION | 182 | 63.4 |
-| IMU_ONLY | 35 | 12.2 |
-| OTHER | 27 | 9.4 |
-| LIDAR | 22 | 7.7 |
-| UWB | 14 | 4.9 |
-| RADAR | 7 | 2.4 |
-| **Total** | **287** | **100.0** |
+
+\begin{table}[htbp]
+\centering
+\label{tab:1}
+\begin{tabular}{l l l}
+\hline
+Sensor family & Studies & Share (%) \\
+\hline
+VISION & 182 & 63.4 \\
+\hline
+IMU_ONLY & 35 & 12.2 \\
+\hline
+OTHER & 27 & 9.4 \\
+\hline
+LIDAR & 22 & 7.7 \\
+\hline
+UWB & 14 & 4.9 \\
+\hline
+RADAR & 7 & 2.4 \\
+\hline
+**Total** & **287** & **100.0** \\
+\hline
+\end{tabular}
+\end{table}
+
 
 
 The temporal trajectory of the corpus reveals substantial shifts in sensor adoption across the three year buckets (2010–2015, 2016–2020, and 2021–2026). Vision systems grew the fastest, increasing from just 6 studies in the earliest period to 66 in the middle period, before reaching 110 studies in the most recent bucket. This dominant acceleration aligns with the broad availability of lightweight optical sensors. Other modalities demonstrated more modest growth trajectories. Inertial-only configurations expanded from zero early studies to 9, and eventually 26 in the final period. Light detection and ranging (LiDAR) setups rose from a single early study to 5, and then 16. Ultra-wideband (UWB) applications similarly increased from zero to 3, reaching 11 studies by 2026. Radar systems remained the smallest minority, progressing from zero to 2, and finally 5 studies. The remaining studies grouped under the OTHER classification grew from 2 to 11, and then 14. These counts reflect primary sensor assignments, illustrating a clear hardware preference for vision-based estimation over time.
 
+
 This distribution has shifted significantly over the sixteen-year search window. Across the three defined temporal buckets, the overall volume of research has accelerated from 9 studies in the 2010–2015 period, to 96 studies between 2016–2020, and reaching 182 studies in the 2021–2026 timeframe (Fig. 5). Vision-primary and LiDAR-primary studies account for the largest share of the 2016-2020 and 2021-2026 buckets. However, detailed quantitative synthesis of specific multi-sensor combinations (e.g., vision plus UWB versus vision plus radar) is not supportable. The extraction record captures non-normalized quoted descriptions of hardware rather than a standardized sensor inventory, making granular combination analysis unreliable. Consequently, findings are grouped by the single primary exteroceptive or proprioceptive modality anchoring the fusion pipeline. Table II summarizes the temporal distribution.
+
 
 **Table II.** Temporal distribution by year bucket
 
-| Year bucket | Studies | Share (%) |
-|---|---|---|
-| 2010-2015 | 9 | 3.1 |
-| 2016-2020 | 96 | 33.4 |
-| 2021-2026 | 182 | 63.4 |
-| **Total** | **287** | **100.0** |
+
+\begin{table}[htbp]
+\centering
+\label{tab:1}
+\begin{tabular}{l l l}
+\hline
+Year bucket & Studies & Share (%) \\
+\hline
+2010-2015 & 9 & 3.1 \\
+\hline
+2016-2020 & 96 & 33.4 \\
+\hline
+2021-2026 & 182 & 63.4 \\
+\hline
+**Total** & **287** & **100.0** \\
+\hline
+\end{tabular}
+\end{table}
 
 
-![Sensor Distribution](../05_analysis/figures/F3_Sensor_Distribution.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F3_Sensor_Distribution.png}
+\caption{Fig. 1. Sensor Distribution}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 3.** Primary sensor family distribution across the 287-study corpus
 
-![Year Trajectory](../05_analysis/figures/F5_Year_Trajectory.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F5_Year_Trajectory.png}
+\caption{Fig. 1. Year Trajectory}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 5.** Publication year trajectory across 2010-2026
 
 
-### 4.2 RQ2: Accuracy and robustness by environment and platform
+
+\subsubsection*{(2) 4.2 RQ2: Accuracy and robustness by environment and platform}
+
 
 To determine the performance of navigation systems under various constraints, this review evaluates localization accuracy across reported environments and platform types. The environment distribution reveals a strong preference for composite testing scenarios: MIXED environments account for 192/287 studies (67.0%). Dedicated INDOOR testing represents 72/287 studies (25.1%), while edge-case environments remain sparse: UNDERGROUND (7/287), FOREST (5/287), GNSS_DENIED_OTHER (5/287), and URBAN_CANYON (4/287), with 2 studies not reporting a specific environment (Fig. 6). Table III details the environment distribution.
 
+
 **Table III.** Environment distribution
 
-| Environment | Studies | Share (%) |
-|---|---|---|
-| MIXED | 192 | 66.9 |
-| INDOOR | 72 | 25.1 |
-| UNDERGROUND | 7 | 2.4 |
-| GNSS_DENIED_OTHER | 5 | 1.7 |
-| FOREST | 5 | 1.7 |
-| URBAN_CANYON | 4 | 1.4 |
-| NOT_REPORTED | 2 | 0.7 |
-| **Total** | **287** | **100.0** |
+
+\begin{table}[htbp]
+\centering
+\label{tab:1}
+\begin{tabular}{l l l}
+\hline
+Environment & Studies & Share (%) \\
+\hline
+MIXED & 192 & 66.9 \\
+\hline
+INDOOR & 72 & 25.1 \\
+\hline
+UNDERGROUND & 7 & 2.4 \\
+\hline
+GNSS_DENIED_OTHER & 5 & 1.7 \\
+\hline
+FOREST & 5 & 1.7 \\
+\hline
+URBAN_CANYON & 4 & 1.4 \\
+\hline
+NOT_REPORTED & 2 & 0.7 \\
+\hline
+**Total** & **287** & **100.0** \\
+\hline
+\end{tabular}
+\end{table}
+
 
 
 Regarding platform distribution, a significant portion of the literature does not customize algorithms for specific vehicle dynamics. MULTI_ROTOR platforms lead with 134/287 studies (46.7%), followed by GENERIC_UAV at 99/287 (34.5%). The remaining 54 studies distribute across OTHER (17), FLAPPING_WING_MAV (11), SWARM (10), FIXED_WING (10), NOT_REPORTED (3), and HYBRID_VTOL (3). Table IV presents the full platform distribution.
 
+
 **Table IV.** Platform distribution
 
-| Platform | Studies | Share (%) |
-|---|---|---|
-| MULTI_ROTOR | 134 | 46.7 |
-| GENERIC_UAV | 99 | 34.5 |
-| OTHER | 18 | 6.3 |
-| FLAPPING_WING_MAV | 11 | 3.8 |
-| SWARM | 10 | 3.5 |
-| FIXED_WING | 10 | 3.5 |
-| NOT_REPORTED | 2 | 0.7 |
-| HYBRID_VTOL | 3 | 1.0 |
-| **Total** | **287** | **100.0** |
+
+\begin{table}[htbp]
+\centering
+\label{tab:1}
+\begin{tabular}{l l l}
+\hline
+Platform & Studies & Share (%) \\
+\hline
+MULTI_ROTOR & 134 & 46.7 \\
+\hline
+GENERIC_UAV & 99 & 34.5 \\
+\hline
+OTHER & 18 & 6.3 \\
+\hline
+FLAPPING_WING_MAV & 11 & 3.8 \\
+\hline
+SWARM & 10 & 3.5 \\
+\hline
+FIXED_WING & 10 & 3.5 \\
+\hline
+NOT_REPORTED & 2 & 0.7 \\
+\hline
+HYBRID_VTOL & 3 & 1.0 \\
+\hline
+**Total** & **287** & **100.0** \\
+\hline
+\end{tabular}
+\end{table}
+
 
 
 
 In terms of localization accuracy, synthesis reveals that errors cannot be pooled across studies. Metric definitions, trajectory lengths, and sensor qualities vary substantially, and the extraction record does not carry a normalized error metric. Accuracy is therefore reported as NOT_REPORTED at the aggregate level; individual ranges appear in the corpus but are not comparable across studies.
+
 Environment and platform distribute unevenly in the corpus. Of the 192 MIXED-environment studies, 73 deploy GENERIC_UAV platforms, and 17 report a quadrotor in the platform field. The 72 INDOOR studies show a similar concentration on GENERIC_UAV platforms, while the small edge-case buckets — UNDERGROUND (7), FOREST (5), GNSS_DENIED_OTHER (5), and URBAN_CANYON (4) — are too small for sub-category breakdown. In Q-High studies, this concentration on generic airframes across the dominant MIXED environment limits the ability to attribute localization performance to airframe-specific dynamics.
 
-Accuracy reporting quality varies considerably when analyzed by deployment environment. Across all quality tiers, 233 studies report some form of quantitative error metric across their headline results and metrics fields, while 54 do not. However, the precise breakdown of how many studies per environment report a quantitative error metric is NOT_REPORTED in the extracted aggregate traces. Without these specific counts, it is difficult to assess whether highly constrained settings, such as subterranean tunnels or dense forests, enforce stricter evaluation standards than generic mixed environments. The absence of this environment-specific reporting fidelity prevents a granular synthesis of where the most rigorous accuracy claims originate. Consequently, the relationship between the physical testing domain and the standardization of error reporting remains an unresolved dimension of the corpus. Future reviews must enforce normalized extraction protocols for metric availability to map evaluation rigor directly to the deployment conditions.
- 
 
-![Real vs Sim Validation](../05_analysis/figures/F4_Real_vs_Sim.png)
+Accuracy reporting quality varies considerably when analyzed by deployment environment. Across all quality tiers, 233 studies report some form of quantitative error metric across their headline results and metrics fields, while 54 do not. However, the precise breakdown of how many studies per environment report a quantitative error metric is NOT_REPORTED in the extracted aggregate traces. Without these specific counts, it is difficult to assess whether highly constrained settings, such as subterranean tunnels or dense forests, enforce stricter evaluation standards than generic mixed environments. The absence of this environment-specific reporting fidelity prevents a granular synthesis of where the most rigorous accuracy claims originate. Consequently, the relationship between the physical testing domain and the standardization of error reporting remains an unresolved dimension of the corpus. Future reviews must enforce normalized extraction protocols for metric availability to map evaluation rigor directly to the deployment conditions.
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F4_Real_vs_Sim.png}
+\caption{Fig. 1. Real vs Sim Validation}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 4.** Distribution of validation methods (real vs. simulation) across the corpus
 
-![Geographic Distribution](../05_analysis/figures/F6_Geography.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F6_Geography.png}
+\caption{Fig. 1. Geographic Distribution}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 6.** Geographic distribution of study origins
 
-### 4.3 RQ3: Algorithmic approaches and validation type
+
+\subsubsection*{(3) 4.3 RQ3: Algorithmic approaches and validation type}
+
 
 Analysis of algorithmic pipelines demonstrates the dominance of sensor fusion paradigms. According to the method category distribution, HYBRID approaches lead with 78/287 studies (Fig. 2). VISION_OBJECT tracking follows with 55/287, and COOPERATIVE fusion accounts for 41/287. Other notable families include OTHER (29), VIO (19), UNKNOWN (16), SLAM (13), LIDAR (9), UWB (8), and SURVEY (8). Table V details the full method category distribution.
 
+
 **Table V.** Method category distribution
 
-| Method category | Studies | Share (%) |
-|---|---|---|
-| HYBRID | 78 | 27.2 |
-| VISION_OBJECT | 55 | 19.2 |
-| COOPERATIVE | 41 | 14.3 |
-| OTHER | 29 | 10.1 |
-| VIO | 19 | 6.6 |
-| UNKNOWN | 16 | 5.6 |
-| SLAM | 13 | 4.5 |
-| LIDAR | 9 | 3.1 |
-| UWB | 8 | 2.8 |
-| SURVEY | 8 | 2.8 |
-| Remaining 11 categories | 11 | 3.8 |
-| **Total** | **287** | **100.0** |
+
+\begin{table}[htbp]
+\centering
+\label{tab:1}
+\begin{tabular}{l l l}
+\hline
+Method category & Studies & Share (%) \\
+\hline
+HYBRID & 78 & 27.2 \\
+\hline
+VISION_OBJECT & 55 & 19.2 \\
+\hline
+COOPERATIVE & 41 & 14.3 \\
+\hline
+OTHER & 29 & 10.1 \\
+\hline
+VIO & 19 & 6.6 \\
+\hline
+UNKNOWN & 16 & 5.6 \\
+\hline
+SLAM & 13 & 4.5 \\
+\hline
+LIDAR & 9 & 3.1 \\
+\hline
+UWB & 8 & 2.8 \\
+\hline
+SURVEY & 8 & 2.8 \\
+\hline
+Remaining 11 categories & 11 & 3.8 \\
+\hline
+**Total** & **287** & **100.0** \\
+\hline
+\end{tabular}
+\end{table}
+
 
 
 The validation types across these algorithms show a strong emphasis on physical deployment. Empirical validation on physical hardware (REAL) is present in 123/287 studies, while 88/287 studies utilize BOTH simulation and real-world testing. Purely simulated evaluations (SIM) account for 69/287 studies, and 7 studies are NOT_REPORTED (Fig. 4, Fig. 8).
-Across the three largest method categories, QA tier distributions differ. HYBRID studies skew toward Q-High (50 of 78, 64%), VISION_OBJECT studies show a similar pattern (33 of 55, 60% Q-High), while COOPERATIVE studies are predominantly Q-Medium (25 of 41, 61%). In Q-High investigations, HYBRID and VISION_OBJECT together account for 83 of 145 studies (57%), indicating that the highest-quality evidence concentrates in multi-modal and vision-centric architectures.
- 
 
-![Method Category](../05_analysis/figures/F2_Method_Category.png)
+Across the three largest method categories, QA tier distributions differ. HYBRID studies skew toward Q-High (50 of 78, 64%), VISION_OBJECT studies show a similar pattern (33 of 55, 60% Q-High), while COOPERATIVE studies are predominantly Q-Medium (25 of 41, 61%). In Q-High investigations, HYBRID and VISION_OBJECT together account for 83 of 145 studies (57%), indicating that the highest-quality evidence concentrates in multi-modal and vision-centric architectures.
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F2_Method_Category.png}
+\caption{Fig. 1. Method Category}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 2.** Method category distribution across the corpus
 
-![Fusion Method](../05_analysis/figures/F8_Fusion_Method.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F8_Fusion_Method.png}
+\caption{Fig. 1. Fusion Method}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 8.** Algorithmic fusion method distribution
 
-### 4.4 RQ4: Limitations and adversarial conditions
+
+\subsubsection*{(4) 4.4 RQ4: Limitations and adversarial conditions}
+
 
 The review also examines the recognized limitations and vulnerabilities within current navigation systems. A critical vulnerability emerges regarding adversarial resilience. Out of 287 studies, only 5 (1.7%) address adversarial or contested conditions, spanning GNSS spoofing ([REC_0010], [REC_0489]), electronic warfare ([REC_1083]), and long-term denial ([REC_1084], [REC_1085]).
 
+
 Regarding general limitations reported in the literature, the extraction taxonomy categorizes the core contribution types as CORE (270), IMPORTANT (11), NOT_REPORTED (5), and PERIPHERAL (1). The extraction taxonomy does not carry limitation text directly; therefore, specific qualitative limitations cannot be synthesized from the categorical schema, and only these classification counts are reported (Fig. 7).
 
-![Quality Tier](../05_analysis/figures/F7_Quality_Tier.png)
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F7_Quality_Tier.png}
+\caption{Fig. 1. Quality Tier}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 7.** Methodological quality tier distribution across the 287-study corpus
 
 
-## 5. Discussion
 
-![Headline Accuracy](../05_analysis/figures/F9_Headline_Accuracy.png)
+\subsection*{E 5. Discussion}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{../05_analysis/figures/F9_Headline_Accuracy.png}
+\caption{Fig. 1. Headline Accuracy}
+\label{fig:1}
+\end{figure}
+
 
 **Fig. 9.** Headline accuracy reporting distribution across the corpus
 
+
 This systematic literature review synthesized evidence from 287 peer-reviewed studies to characterize the state of autonomous unmanned aerial vehicle (UAV) navigation in environments where satellite positioning is unavailable. The analysis reveals several critical insights regarding operational testing (Fig. 9), hardware selection, and the persistent vulnerabilities that constrain real-world deployment. The findings confirm that while multi-sensor fusion architectures have matured significantly over the past sixteen years, substantial methodological and operational gaps remain that prevent seamless transition from simulation to mission-critical execution.
+
 
 First, the environment distribution underscores a positive trend toward rigorous testing conditions. Results indicate that two-thirds of the corpus (192 of 287 studies, or 67%) evaluate navigation systems in MIXED environments, requiring algorithms to perform across multiple distinct scenarios rather than relying on the structural advantages of a single domain. This trend toward composite environment testing—such as transitioning from indoor corridors to unstructured outdoor canopies, or from brightly lit environments to subterranean darkness—suggests that the field is moving away from overly constrained laboratory demonstrations. Many Q-High studies pair composite testing with physical UAV validation, indicating that top-tier research treats domain generalization as a primary barrier to autonomy. However, performance degradation during environment transitions remains a recognized challenge, particularly when exteroceptive modalities like LiDAR and vision experience simultaneous perceptual failures due to sudden illumination changes or featureless corridors. The prevalence of MIXED evaluations highlights the community's recognition that true autonomy requires algorithmic adaptability, yet the literature still struggles to define standardized benchmarks that adequately capture these transitional failure modes. 
 
+
 Second, the analysis of platform distributions reveals a significant constraint on the field's ability to draw platform-specific conclusions. The data shows that 99 of 287 studies (34%) deploy generic UAV platforms without incorporating airframe-specific dynamics or customizing the fusion algorithm to the vehicle's flight envelope. Because a substantial proportion of the evidence base treats the UAV merely as a generic sensor-carrying chassis, researchers are often unable to leverage the predictive capabilities of aerodynamic models within their filtering frameworks. In Q-High and Q-Medium investigations, the absence of tight coupling between the navigation estimator and the underlying flight controller limits the system's ability to recover from aggressive maneuvers, high-speed turns, or severe external aerodynamic disturbances such as wind gusts. This reliance on generic platforms ultimately restricts the generalizability of the reported localization accuracies to mission-critical or fixed-wing operations, where vehicle dynamics play an outsized role in state estimation. The gap suggests that future advances in GPS-denied navigation must move beyond purely kinematic models and deeply integrate vehicle-specific kinetics into the core sensor fusion architecture.
+
 
 Third, despite the increasing deployment of autonomous UAVs in contested airspaces, adversarial navigation remains severely under-addressed. Out of the 287 included studies, only 5 (1.7%) explicitly investigate navigation under adversarial or contested conditions, spanning GNSS spoofing, electronic warfare, and long-term denial. This finding exposes a glaring vulnerability in the current research trajectory. The overwhelming majority of the corpus assumes a benign operational environment where signal denial is environmental (e.g., urban multipath or subterranean occlusion) rather than malicious. This assumption fails to reflect the realities of modern deployment scenarios, where malicious actors actively attempt to disrupt, deceive, or degrade navigation sensors. While many studies evaluate robustness against natural sensor degradation, few subject their fusion pipelines to the deliberate signal manipulation characteristic of contested environments. Consequently, the resilience of the most commonly proposed architectures against coordinated adversarial attacks remains largely unquantified in the open literature. Bridging this gap requires a paradigm shift in how robustness is defined and evaluated, demanding the incorporation of adversarial threat models directly into the algorithmic design and validation phases.
 
+
 Finally, a fundamental limitation in the corpus reporting structure restricts the depth of sensor-level analysis that can be reliably performed. While this review identifies vision and LiDAR as the dominant primary modalities driving the field, a granular, quantitative synthesis of specific sensor combinations is not supportable. The extraction record relies on non-normalized quoted descriptions of hardware rather than a standardized sensor inventory. Because primary studies frequently omit exhaustive hardware bills of materials, or fail to detail the exact specifications, noise profiles, and calibration parameters of secondary sensors, it is impossible to reliably correlate specific fusion permutations with downstream accuracy. For instance, distinguishing the performance delta between a system fusing monocular vision with millimeter-wave radar versus one utilizing stereo vision with ultra-wideband ranging becomes speculative without standardized reporting. This lack of standardized hardware documentation prevents the formulation of definitive, evidence-based recommendations regarding optimal sensor suites for specific environmental challenges. It also severely limits the reproducibility of the reported algorithms, as the underlying sensor noise characteristics are often the determining factor in fusion performance. Future research must adopt more rigorous, standardized reporting frameworks, ensuring that all integrated hardware is explicitly inventoried, to enable the cross-study comparisons necessary for advancing the field.
+
 
 In summary, the progression of GPS-denied UAV navigation algorithms from theoretical concepts to robust field demonstrations is evident across the literature. However, the pathway to fully resilient autonomy requires addressing these critical gaps. The field must prioritize adversarial resilience, integrate platform-specific aerodynamic models to enhance high-speed state estimation, and adopt standardized hardware reporting. Only by bridging these gaps can the research community transition from controlled, generic demonstrations to the deployment of mission-critical systems capable of surviving and succeeding in complex, contested environments.
 
-## 6. Limitations
+
+\subsection*{F 6. Limitations}
+
 
 This review covers 287 studies published between 2010 and 2026, appraised as Q-High (145), Q-Medium (118), and Q-Low (24), as reported in Section 3.6. Two ablation fields (REC_1432 and REC_1435) were waived in extraction and are excluded from all quantitative synthesis. The limitations below fall into two groups: those inherent to the corpus and those inherent to the review method.
 
+
 The first group concerns the corpus itself.
 
+
 - Sensor extraction is non-normalized. The record captures quoted hardware descriptions rather than a standardized inventory, and inclusion criterion I6 (Section 3.4) sits in tension with the single-modality studies the corpus reflects, because I6 admits only work that fuses at least two sensing modalities. The primary-sensor families in Section 4.1 are therefore derived classifications rather than reported inventories, and granular sensor-combination synthesis is unsupportable, as stated in Section 4.1 and Section 4.4.
+
 - Platform classification is coarse. The taxonomy in Section 4.2 is derived by regular expression from a free-text platform field, which collapses heterogeneous hardware into broad labels: GENERIC_UAV (99/287), 18 studies labeled OTHER, and 2 labeled NOT_REPORTED. Airframe-specific effects such as rotor configuration, mass, or wing loading cannot be isolated for a large share of the corpus, so platform-level conclusions are indicative rather than exact.
+
 - Environment labels are aggregated. The GNSS_DENIED_OTHER label combines spoofing, contested operation, long-term denial, and total outage into a single count (5 studies). Because these threat types are pooled under one label, this review cannot report how many studies address each condition, and the aggregate understates the breadth of contested threats the label represents.
+
 - Inter-rater reliability is not claimed. The dual-appraiser calibration described in Section 3.6 could not be verified from the available audit records. The quality tiers that anchor the strong claims in Section 4 therefore rest on a single scoring pass, and an independent re-scoring could shift individual tier assignments.
+
 
 The second group concerns the review method.
 
+
 - The search covered two databases, IEEE Xplore and Scopus, and stopped at a 1,000-record cap per database (Section 3.2). Work ranked below the cap, or indexed only elsewhere, may be absent even when relevant.
+
 - Only English-language publications were included (Section 3.4). This introduces a language bias that may underrepresent contributions from non-English research communities.
+
 - The multi-sensor requirement (I6) excludes single-sensor navigation studies, which may contain algorithmic contributions relevant to degraded-signal operation.
+
 - No formal protocol registration was performed (Section 3.1), so the review criteria cannot be verified against a dated registry entry.
+
 - The appraisal assesses methodological rigor, not novelty or theoretical contribution. Cost, onboard computational load, and certification or regulatory constraints were not extracted and are not covered.
+
 
 These limitations do not alter the direction of the findings, but they bound the precision attributed to any single figure. Counts derived from free-text fields, labels that aggregate distinct conditions, and a single-pass quality appraisal each add a margin of uncertainty to the tables in Section 4. The corpus is large enough for the reported patterns to be robust at the level of shares and trends, but it is not uniform enough to support fine-grained claims about individual sensor combinations or platform classes.
 
-## 7. Conclusion
+
+\subsection*{G 7. Conclusion}
+
 
 This review set out to map how GPS-denied UAV navigation research is distributed across sensor modalities, operational environments, vehicle platforms, algorithmic architectures, and validation standards, and to test whether that distribution matches the demands of contested operations. It answers four research questions over a frozen corpus of 287 peer-reviewed studies published between 2010 and 2026, drawing only on auditable, trace-recorded evidence. Its purpose is not to propose new algorithms but to establish the empirical baseline against which future claims in this domain can be measured.
 
+
 The evidence supports three principal findings. First, the field tests broadly but shallowly: MIXED environments account for 192 of 287 studies (67%), while dedicated edge cases remain sparse. Second, platform specificity is weak: GENERIC_UAV platforms account for 99 of 287 studies (34%), so roughly a third of the literature does not model airframe-specific dynamics. Third, adversarial readiness is nearly absent: only 5 of 287 studies (1.7%) address adversarial or contested conditions. A fourth, cross-cutting result is methodological: because sensor extraction is non-normalized, granular synthesis of specific fusion combinations is not supportable, and sensor families are reported as derived primary classifications.
+
 
 Across the corpus the same pattern recurs. Fusion architecture and composite testing have matured, with the corpus growing from 9 studies in the 2010–2015 bucket to 182 in 2021–2026, yet the questions that matter most operationally remain thinly addressed: airframe-specific kinetics, standardized hardware reporting, and resilience under deliberate interference. Pure simulation still accounts for 69 of 287 studies, so a measurable share of the field concludes without physical flight validation.
 
+
 What the field needs next follows directly from these gaps. Adversarial threat models should move from the periphery into algorithmic design and validation, so robustness is defined against deliberate interference rather than natural degradation alone. Platform-specific aerodynamic and kinetic models should be integrated into state estimation, so navigation holds under agile and fixed-wing flight rather than generic multirotor motion alone. The community should adopt standardized hardware reporting, with explicit sensor inventories and their noise and calibration parameters, so fusion combinations become comparable across studies and reproducible by others. And validation should consistently pair simulation with physical flight, since simulation alone leaves deployment behavior untested.
 
+
 None of these needs requires new theory. Each is a reporting and testing discipline the evidence already shows to be missing. Closing them would let the field convert its accumulating methodological strength into autonomy that survives the contested, signal-denied environments it was built to serve. The corpus already contains the evidence needed to act; what remains is the discipline to act on it.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references_ieee}
+\end{document}

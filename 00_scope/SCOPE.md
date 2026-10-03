@@ -263,7 +263,7 @@ Every included study has a verified full-text PDF in `01_data/03_pdfs/` and an e
 
 ## Appendix D — Known discrepancies to reconcile
 
-1. **Manifest filename.** This file references `FROZEN_MANIFEST_20260927.csv` (per `AUDIT_PROMPT.md §2`). The live manifest on disk is `FROZEN_MANIFEST_20261002.csv`. Reconcile: either the manifest was renamed, or two manifests exist.
+1. **Manifest filename.** ~~This file references `FROZEN_MANIFEST_20260927.csv` (per `AUDIT_PROMPT.md §2`). The live manifest on disk is `FROZEN_MANIFEST_20261002.csv`.~~ RESOLVED 2026-10-03: the 20260927 manifest was retired to `07_certificates/old_manifests/` (see FROZEN.md Manifest History); the live manifest is `02_cards/FROZEN_MANIFEST_20261002.csv` and `AUDIT_PROMPT.md §2` now names it.
 
 2. **Path drift.** Earlier drafts of this scope referenced `01_data_raw/`, `02_data_processed/`, `08_docs/`. Current project layout uses `01_data/`, `02_cards/`, `00_scope/`. Paths in this file have been reconciled to the live tree.
 

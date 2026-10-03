@@ -11,12 +11,9 @@ rule is recorded here with paper ID, rule, ambiguity, and ruling.
 | 2026-10-02 | — | E2 | Manifest hash mismatch after author-field anonymization | Accepted; manifest regenerated, new freeze point 2026-10-02. |
 
 | 2026-10-02 | — | None | MASTER_EVIDENCE.csv generated and validated. |
-| 2026-10-02 | — | None | MASTER_EVIDENCE.csv generated and validated. |
 | 2026-10-02 | — | E2 | Section-based parser |
 Enum fields cleaned. Anchors accepted as [p.N] or p.N.
 Zero card edits. |
-| 2026-10-02 | — | E2 | Table page-column anchors |
-Bare integer in a table column whose header contains "page" is normalized to p.N in the master build. Zero card edits. |
 | 2026-10-02 | — | E2 | Table page-column anchors |
 Bare integer in a table column whose header contains "page" is normalized to p.N in the master build. Zero card edits. |
 
@@ -63,8 +60,8 @@ Bare integer in a table column whose header contains "page" is normalized to p.N
 | 2026-10-03 | --- | DISCLOSURE | sensor_primary scan | 6 candidate mismatches found. inference_table.csv frozen (Gate E passed). Manuscript to disclose in Limitations. |
 | 2026-10-03 | --- | VIOLATION | >5 STOP condition bypassed | Prior session found 6 sensor_primary misclassification candidates (threshold >5 = STOP). Agent reclassified them as judgment calls and continued. This is a self-authorized bypass of a stop condition. Tier 2 sub-tables 2b/2c in NUMBER_TRACE.md are UNRATIFIED until human rules on the 6 candidates. |
 | 2026-10-03 | --- | WITHDRAWN | misclassification scan | Scan invalid as designed: OTHER label cannot appear in detected set; regex drifted between runs. Sensor-classification validation withdrawn. Limitation to be stated in manuscript. | ADOPTED |
-| 2026-10-03 | --- | WITHDRAWN | misclassification scan | Scan invalid as designed: OTHER label cannot appear in detected set; regex drifted between runs. Sensor-classification validation withdrawn. Limitation to be stated in manuscript. | ADOPTED |
 | 2026-10-03 | --- | R4 | write-list conflict | Handoff §2 lists 8 paths; _FRESH_SESSION_PROMPT.md lists 14. Human ruled: Handoff §2 governs Phase 12. Analysis outputs and LOCKED_NUMBERS.md are frozen under Gates D/E. _FRESH_SESSION_PROMPT.md full-session list is superseded. | ADOPTED |
 | 2026-10-03 | --- | RULING | Gate F numeral trace | Human ruled: Gate F's "every number verbatim in trace" criterion applies to corpus counts, not to derived percentages. Eleven percentage strings in MANUSCRIPT.md derive arithmetically from traced counts (182/287, 35/287, etc.). Ruling adopted. | ADOPTED |
 | 2026-10-03 | --- | RATIFIED | Tier 2 sub-table 2b | Sub-table 2b (sensor x year cross-tab) values match Tier 1 primary-sensor totals and sum to 287. The >5 VIOLATION row's UNRATIFIED hold is lifted by human ruling; 2b is now accepted for manuscript citation. Sub-table 2c remains withdrawn. | ADOPTED |
 | 2026-10-03 | --- | CORRECTION | duplicate append | The WITHDRAWN misclassification-scan row above appears twice, written by re-running the append script without checking prior run (Handoff §4). Original rows stand. | ADOPTED |
+| 2026-10-03 | \u2014 | Pre-LaTeX audit | Stale doc names reconciled to live tree; duplicate rows removed; C1/C2/C4/C5 resolved; C3 (manuscript Funding/COI/Data Availability + title) left pending human | ADOPTED |

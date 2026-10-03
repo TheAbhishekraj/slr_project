@@ -5,7 +5,7 @@
 # Research paper PDF binaries (291 files, ~1.50 GB)
 # Excluded from git version control per project governance (01_data/03_pdfs/README.md)
 # to prevent repository bloat and avoid GitHub's 100MB single-file limit (REC_1032.pdf is 187.57 MB).
-# All 291 PDFs are permanently preserved on local disk and tracked via FROZEN_MANIFEST_20260927.csv.
+# All 291 PDFs are permanently preserved on local disk and tracked via 02_cards/FROZEN_MANIFEST_20261002.csv (retired original: 07_certificates/old_manifests/).
 *.pdf
 01_data/03_pdfs/*.pdf
 01_data/01_pdfs/*.pdf

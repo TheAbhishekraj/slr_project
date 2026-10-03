@@ -8,7 +8,7 @@ This directory organizes all primary search and full-text data assets for:
 ## Directory Structure
 
 - [`01_data_raw/`](file:///e:/slr_project/01_data/01_data_raw/) — Initial database export files (IEEE Xplore & Scopus, 2,000 total raw records).
-- [`02_data_proceesed/`](file:///e:/slr_project/01_data/02_data_proceesed/) — Deduplication audit logs (`01_deduplicated_master.csv`), preliminary screening (`02_screened_included_v2.csv`), PRISMA full-text screening results (`03_screening_results.csv`), retrieved PDF manifest (`04_retrieved_pdfs_291.csv`), and master Excel review workbook (`PRISMA_MASTER_WORKBOOK_v2.xlsx`).
+- [`02_data_proceesed/`](file:///e:/slr_project/01_data/02_data_proceesed/) — Deduplication audit logs (`01_deduplicated_master.csv`), preliminary screening (`02_screened_included.csv`), PRISMA full-text screening results (`03_screening_results.csv`), retrieved PDF manifest (`04_retrieved_pdfs_291.csv`), and master Excel review workbook (`PRISMA_MASTER_WORKBOOK.xlsx`).
 - [`03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) — 291 full-text research paper PDFs (`REC_0001.pdf` to `REC_1715.pdf`). Canonical Bible Part 3 location; strictly PDF binaries. Status: FROZEN.
 
 ---
@@ -24,4 +24,4 @@ This directory organizes all primary search and full-text data assets for:
   - 3 Scope Exclusions (X1: `REC_0053`, `REC_0693`, `REC_0866`).
   - 1 Foreign Language Exclusion (X3: `REC_1688`, Chinese full-text; translation preserved in `01_data/02_data_proceesed/REC_1688_translated_EN.txt`).
 - **291 Extraction Cards:** Exactly corresponds to the 291 markdown extraction cards in [`02_cards/`](file:///e:/slr_project/02_cards/).
-- **Sl. No Parity:** Sl. No 1 to 291 in `PRISMA_MASTER_WORKBOOK_v2.xlsx` matches 1-to-1 with `pdf_file_name` on disk.
+- **Sl. No Parity:** Sl. No 1 to 291 in `PRISMA_MASTER_WORKBOOK.xlsx` matches 1-to-1 with `pdf_file_name` on disk.

@@ -2,18 +2,18 @@
 
 ## 1. Venue
 
-IEEE Access (default; confirm before submission). The _FRESH_SESSION_PROMPT.md notes "Target venue (ask human: T-RO or Access)." SCOPE.md does not lock a venue. At 6,031 words with 5 tables, 9 figures, and 287 references, the manuscript falls within the typical IEEE Access systematic review length (5,000-10,000 words). If IEEE Transactions on Robotics (T-RO) is selected instead, the manuscript may require condensation to meet T-RO's stricter page limits.
+IEEE Access (default; confirm before submission). The _FRESH_SESSION_PROMPT.md notes "Target venue (ask human: T-RO or Access)." SCOPE.md does not lock a venue. At 6,059 words with 5 tables, 9 figures, and 287 references, the manuscript falls within the typical IEEE Access systematic review length (5,000-10,000 words). If IEEE Transactions on Robotics (T-RO) is selected instead, the manuscript may require condensation to meet T-RO's stricter page limits.
 
 ## 2. Manuscript Statistics
 
 | Metric | Value |
 |---|---|
-| Total words | 6,031 |
+| Total words | 6,059 |
 | Abstract | 191 words |
 | 1. Introduction | 691 words |
-| 2. Related Work | 787 words |
-| 3. Methods | 983 words |
-| 4. Results | 1,530 words |
+| 2. Related Work (incl. misplaced §4.5 synthesis block) | 783 words |
+| 3. Methods | 973 words |
+| 4. Results | 1,496 words |
 | 5. Discussion | 884 words |
 | 6. Limitations | 519 words |
 | 7. Conclusion | 422 words |

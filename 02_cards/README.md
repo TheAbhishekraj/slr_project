@@ -9,7 +9,7 @@ This directory contains the standardized, per-paper markdown extraction evidence
 
 - **Total Extraction Cards:** **291** (`REC_0001.md` through `REC_1715.md`).
 - **Schema Compliance:** All cards strictly conform to the 18-section extraction schema defined in [`00_scope/EXTRACTION_SCHEMA.md`](file:///e:/slr_project/00_scope/EXTRACTION_SCHEMA.md).
-- **Cryptographic Audit Manifest:** Every card is tracked with file byte sizes, section counts, and SHA256 hashes in [`FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv).
+- **Cryptographic Audit Manifest:** Every card is tracked with file byte sizes, section counts, and SHA256 hashes in [`FROZEN_MANIFEST_20261002.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20261002.csv).
 - **Governance:** Governed under [`FROZEN.md`](file:///e:/slr_project/02_cards/FROZEN.md) and [`00_scope/FROZEN_SCOPE_v6.md`](file:///e:/slr_project/00_scope/FROZEN_SCOPE_v6.md).
 
 ---

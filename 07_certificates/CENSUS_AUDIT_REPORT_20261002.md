@@ -26,7 +26,7 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
                            │
                            ▼ [Title & Abstract Screening]
 ┌────────────────────────────────────────────────────────┐
-│ screened_included_v2.csv: 501 Records                  │
+│ 02_screened_included.csv: 501 Records                    │
 │ (1,215 Excluded as non-UAV or out of scope)            │
 └──────────────────────────┬─────────────────────────────┘
                            │
@@ -69,11 +69,11 @@ The systematic literature review pipeline has undergone an end-to-end audit foll
 | :--- | :--- | :---: | :--- |
 | **Full-Text PDFs** | [`01_data/03_pdfs/`](file:///e:/slr_project/01_data/03_pdfs/) | **291 PDFs** | Exact match (1,613,079,524 bytes, ~1.50 GB, Bible canonical location) |
 | **Extracted Text** | Purged from `01_data/03_pdfs/` | 0 TXT | All txt purged; strictly PDFs retained. Translation in `01_data/02_data_proceesed/` |
-| **Evidence Cards** | [`02_cards/`](file:///e:/slr_project/02_cards/) | **291 Cards** | Complete 18-section schema compliance across all cards |
-| **Card Manifest** | [`02_cards/FROZEN_MANIFEST_20260927.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20260927.csv) | **291 Rows** | Cryptographic SHA256 re-hashed, 0 mismatches |
+| **Evidence Cards** | [`02_cards/`](file:///e:/slr_project/02_cards/) | **291 Cards** | Complete 28-column schema compliance across all cards |
+| **Card Manifest** | [`02_cards/FROZEN_MANIFEST_20261002.csv`](file:///e:/slr_project/02_cards/FROZEN_MANIFEST_20261002.csv) | **291 Rows** | Cryptographic SHA256 re-hashed, 0 mismatches |
 | **Screening Results**| [`01_data/02_data_proceesed/03_screening_results.csv`](file:///e:/slr_project/01_data/02_data_proceesed/03_screening_results.csv) | **291 Rows** | 287 INCLUDE, 4 EXCLUDE (3 X1, 1 X3) |
 | **Retrieved Manifest**| [`01_data/02_data_proceesed/04_retrieved_pdfs_291.csv`](file:///e:/slr_project/01_data/02_data_proceesed/04_retrieved_pdfs_291.csv) | **291 Rows** | Synchronized with retrieved PDF set |
-| **Master Workbook** | [`01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK_v2.xlsx`](file:///e:/slr_project/01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK_v2.xlsx) | **4 Sheets** | Sheets 01 to 04 covering complete audit stages |
+| **Master Workbook** | [`01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK.xlsx`](file:///e:/slr_project/01_data/02_data_proceesed/PRISMA_MASTER_WORKBOOK.xlsx) | **4 Sheets** | Sheets 01 to 04 covering complete audit stages |
 
 ---
 
