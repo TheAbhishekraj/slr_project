@@ -1,5 +1,7 @@
 """Emit full LaTeX document. No content bytes changed."""
 from __future__ import annotations
+import re
+
 from . import citation_map as cm
 from . import floats as fl
 
@@ -46,28 +48,42 @@ def build(blocks, meta, maps, venue, profile) -> str:
     if not bool(getattr(venue, 'page_numbers', False)):
         L.append('\\pagestyle{empty}')
     L.append('\\begin{document}')
-    L.append(f'{{\\fontsize{{{getattr(venue, "title_pt", 24)}pt}}{{1.2em}}\\selectfont {title}}}')
+    L.append(f'{{\\fontsize{{{getattr(venue, "title_pt", 24)}pt}}{{1.2em}}\\selectfont {fl.tex_escape(title)}}}')
     L.append('')
-    L.append(f'{{\\fontsize{{{getattr(venue, "author_pt", 11)}pt}}{{1.2em}}\\selectfont {authors}}}')
+    L.append(f'{{\\fontsize{{{getattr(venue, "author_pt", 11)}pt}}{{1.2em}}\\selectfont {fl.tex_escape(authors)}}}')
     L.append('')
-    L.append(f'{{\\fontsize{{{getattr(venue, "abstract_pt", 9)}pt}}{{1.2em}}\\selectfont \\textbf{{\\textit{{Abstract---{abstract}}}}} }}')
+    L.append(f'{{\\fontsize{{{getattr(venue, "abstract_pt", 9)}pt}}{{1.2em}}\\selectfont \\textbf{{\\textit{{Abstract---{fl.tex_escape(abstract)}}}}} }}')
     L.append('')
-    L.append(f'{{\\fontsize{{{getattr(venue, "keywords_pt", 9)}pt}}{{1.2em}}\\selectfont \\textbf{{\\textit{{Keywords---{keywords}}}}} }}')
+    L.append(f'{{\\fontsize{{{getattr(venue, "keywords_pt", 9)}pt}}{{1.2em}}\\selectfont \\textbf{{\\textit{{Keywords---{fl.tex_escape(keywords)}}}}} }}')
     L.append('%FRONTMATTER-END')
     L.append('')
     n_fig = 0
+    fig_caps, tab_caps, consumed = fl.pair_float_captions(blocks)
     for b in blocks:
+        if id(b) in consumed:
+            continue
         if b.kind == 'heading':
             if b.meta.get('level', 1) == 1 and b.text.strip() == (getattr(meta, 'title', '') or '').strip():
                 continue
-            L.append(b.raw)
+            hm2 = re.match(r'^(\\(?:sub)*section\*?\{)(.*)(\})$', b.raw)
+            if hm2:
+                L.append(hm2.group(1) + fl.tex_escape(hm2.group(2)) + hm2.group(3))
+            else:
+                L.append(b.raw)
             L.append('')
         elif b.kind == 'figure':
-            figs = fl.collect_figures([b])
-            L.append(fl.emit_figure_latex(figs[0], venue))
+            fig = fl.collect_figures([b])[0]
+            if id(b) in fig_caps:
+                fnum, fcap = fig_caps[id(b)]
+                fig['number'] = fnum
+                fig['caption_wording'] = fcap
+            L.append(fl.emit_figure_latex(fig, venue))
             L.append('')
         elif b.kind == 'table':
-            L.append(fl.emit_table_latex(fl.collect_tables([b])[0], venue))
+            tbl = fl.collect_tables([b])[0]
+            if id(b) in tab_caps:
+                tbl['caption_wording'] = tab_caps[id(b)]
+            L.append(fl.emit_table_latex(tbl, venue))
             L.append('')
         elif b.kind == 'equation':
             L.append('\\begin{equation}')
@@ -80,11 +96,11 @@ def build(blocks, meta, maps, venue, profile) -> str:
             L.append('\\end{verbatim}')
             L.append('')
         elif b.kind == 'footnote':
-            L.append(f'\\footnote{{{b.text}}}')
+            L.append(f'\\footnote{{{fl.tex_escape(b.text)}}}')
         elif b.kind == 'blank':
             L.append('')
         else:
-            t = cm.apply(b.raw, mapping, venue)
+            t = fl.tex_escape(cm.apply(b.raw, mapping, venue))
             import re
             m = re.search(r'!\[([^\]]*)\]\(([^)]+)\)', t)
             if m:

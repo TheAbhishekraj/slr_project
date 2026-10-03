@@ -1,4 +1,4 @@
-# 05_analysis
+# ANALYSIS
 
-This directory contains the 05_analysis files for the SLR project.
-
+- `quality_appraisal_scored.csv` — QA scoring
+- `figures/F1..F9.png` — all manuscript figures

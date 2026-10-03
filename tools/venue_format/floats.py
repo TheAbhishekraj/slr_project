@@ -1,18 +1,71 @@
 """Figures and tables: collect and emit LaTeX without rewording."""
 from __future__ import annotations
 import pathlib
+import re
 import shutil
 
 
+FIGCAP_RE = re.compile(r'^\s*\*\*Fig\.\s*(\d+)\.\*\*\s*(.+?)\s*$')
+TABCAP_RE = re.compile(r'^\s*\*\*Table\s+([IVXLC]+)\.\*\*\s*(.+?)\s*$')
+
+_SPECIALS = (('&', '\\&'), ('%', '\\%'), ('$', '\\$'), ('#', '\\#'), ('_', '\\_'),
+             ('~', '\\textasciitilde{}'), ('^', '\\textasciicircum{}'))
+
+
+def tex_escape(s: str) -> str:
+    """LaTeX-escape specials and **bold**; \\cite spans left untouched."""
+    parts = re.split(r'(\\cite\{[^}]*\})', s)
+    out = []
+    for p in parts:
+        if p.startswith('\\cite{'):
+            out.append(p)
+            continue
+        p = re.sub(r'\*\*(.+?)\*\*', r'\\textbf{\1}', p)
+        for ch, rep in _SPECIALS:
+            p = p.replace(ch, rep)
+        out.append(p)
+    return ''.join(out)
+
+
+def pair_float_captions(blocks) -> tuple:
+    """Match figure blocks to the following **Fig. N.** caption paragraph and
+    table blocks to the preceding **Table X.** caption paragraph.
+    Returns (fig_caps, tab_caps, consumed_block_ids)."""
+    fig_caps: dict = {}
+    tab_caps: dict = {}
+    consumed: set = set()
+    for i, b in enumerate(blocks):
+        if b.kind == 'figure':
+            j = i + 1
+            while j < len(blocks) and blocks[j].kind == 'blank':
+                j += 1
+            if j < len(blocks) and blocks[j].kind == 'paragraph':
+                m = FIGCAP_RE.match(blocks[j].raw)
+                if m:
+                    fig_caps[id(b)] = (int(m.group(1)), m.group(2))
+                    consumed.add(id(blocks[j]))
+        elif b.kind == 'table':
+            j = i - 1
+            while j >= 0 and blocks[j].kind == 'blank':
+                j -= 1
+            if j >= 0 and blocks[j].kind == 'paragraph':
+                m = TABCAP_RE.match(blocks[j].raw)
+                if m:
+                    tab_caps[id(b)] = m.group(2)
+                    consumed.add(id(blocks[j]))
+    return fig_caps, tab_caps, consumed
+
+
 def collect_figures(blocks) -> list:
+    fig_caps, _, _ = pair_float_captions(blocks)
     figs = []
     n = 0
     for b in blocks:
         if b.kind == 'figure':
             n += 1
-            figs.append({'source_path': b.meta.get('src', ''), 'number': n, 'caption_wording': b.meta.get('caption', b.text)})
+            num, cap = fig_caps.get(id(b), (n, b.meta.get('caption', b.text)))
+            figs.append({'source_path': b.meta.get('src', ''), 'number': num, 'caption_wording': cap})
         elif b.kind == 'paragraph':
-            import re
             for m in re.finditer(r'!\[([^\]]*)\]\(([^)]+)\)', b.raw):
                 n += 1
                 figs.append({'source_path': m.group(2).strip(), 'number': n, 'caption_wording': m.group(1).strip()})
@@ -20,13 +73,14 @@ def collect_figures(blocks) -> list:
 
 
 def collect_tables(blocks) -> list:
+    _, tab_caps, _ = pair_float_captions(blocks)
     tbls = []
     n = 0
     for b in blocks:
         if b.kind == 'table':
             n += 1
             rows = b.meta.get('rows', b.raw.splitlines())
-            tbls.append({'source_path': '', 'number': n, 'caption_wording': '', 'rows': list(rows), 'block': b})
+            tbls.append({'source_path': '', 'number': n, 'caption_wording': tab_caps.get(id(b), ''), 'rows': list(rows), 'block': b})
     return tbls
 
 
@@ -47,7 +101,7 @@ def emit_figure_latex(fig: dict, venue) -> str:
         label_txt = fmt.format(n=n, ROMAN=_roman(n))
     except Exception:
         label_txt = f'Fig. {n}.'
-    cap = fig.get('caption_wording', '').replace('}', '\\}')
+    cap = tex_escape(fig.get('caption_wording', ''))
     src = fig.get('source_path', '')
     return '\n'.join(['\\begin{figure}[htbp]', '\\centering', f'\\includegraphics[width=\\columnwidth]{{{src}}}', f'\\caption{{{label_txt} {cap}}}', f'\\label{{fig:{n}}}', '\\end{figure}'])
 
@@ -82,7 +136,7 @@ def emit_table_latex(tbl: dict, venue) -> str:
     for r in body:
         while len(r) < ncols:
             r.append('')
-        lines.append(' & '.join(c.replace('&', '\\&') for c in r) + ' \\\\')
+        lines.append(' & '.join(tex_escape(c) for c in r) + ' \\\\')
         lines.append('\\hline')
     lines += ['\\end{tabular}', '\\end{table}']
     out = '\n'.join(lines)
