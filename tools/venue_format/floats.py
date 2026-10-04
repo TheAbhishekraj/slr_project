@@ -120,7 +120,7 @@ def emit_figure_latex(fig: dict, venue) -> str:
     src = fig.get('source_path', '')
     if src:
         src = 'FIGURES/' + src.replace('\\', '/').rstrip('/').rsplit('/', 1)[-1]
-    return '\n'.join(['\\begin{figure}[htbp]', '\\centering', f'\\includegraphics[width=\\columnwidth]{{{src}}}', f'\\caption{{{label_txt} {cap}}}', f'\\label{{fig:{n}}}', '\\end{figure}'])
+    return '\n'.join(['\\begin{figure}[htbp]', '\\centering', f'\\includegraphics[width=\\columnwidth]{{{src}}}', f'\\caption{{{cap}}}', f'\\label{{fig:{n}}}', '\\end{figure}'])
 
 
 def emit_table_latex(tbl: dict, venue) -> str:
@@ -146,7 +146,7 @@ def emit_table_latex(tbl: dict, venue) -> str:
     cap = (tbl.get('caption_wording', '') or '').strip()
     lines = [f'\\begin{{table}}[htbp]', '\\centering']
     if cap:
-        lines.append(f'\\caption{{{label_txt} {cap}}}')
+        lines.append(f'\\caption{{{cap}}}')
     lines.append(f'\\label{{tab:{n}}}')
     lines.append(f'\\begin{{tabular}}{{{colspec}}}')
     lines.append('\\hline')

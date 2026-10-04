@@ -160,6 +160,7 @@ def build(blocks, meta, maps, venue, profile) -> str:
         elif b.kind == 'blank':
             L.append('')
 
+    L.append('\\nocite{*}')
     L.append(f'\\bibliographystyle{{{getattr(venue, "bib_style", "IEEEtran")}}}')
     L.append(f'\\bibliography{{references_{getattr(venue, "format_id", "generic")}}}')
     L.append('\\end{document}')

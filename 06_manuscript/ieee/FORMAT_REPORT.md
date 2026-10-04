@@ -1,7 +1,7 @@
 # FORMAT_REPORT
 
 - venue: ieee (IEEEtran conference)
-- profile: gps_denied_uav style=slr
+- profile: generic style=generic
 - drift: none
 
 | file | change type | before | after | rule |
